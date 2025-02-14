@@ -67,13 +67,13 @@ Manutenção e Personalização:
   $ sudo systemctl restart smbd
   
 - Para colocar uma lixeira, na diretiva "[global]", insira:
-- OBS: O diretório "lixeira" deve ser criado no servidor.
+OBS: O diretório "lixeira" deve ser criado no servidor.
   
-  vfs object = recycle
-  recycle:repository = lixeira
-  recycle:keeptree = yes
-  recycle:version = yes
-  recycle:repository = /lixeira
+vfs object = recycle
+recycle:repository = lixeira
+recycle:keeptree = yes
+recycle:version = yes
+recycle:repository = /lixeira
 
   
 Referências:
