@@ -23,7 +23,7 @@ Reinicia e habilita o serviço Samba.
 Como Usar:
 ----------
 
-1. Baixe o script para seu servidor e navegue até o diretório onde ele foi saalvo: 
+1. Baixe o script para seu servidor e navegue até o diretório onde ele foi salvo: 
    ```
    cd servidor-samba
    ```
