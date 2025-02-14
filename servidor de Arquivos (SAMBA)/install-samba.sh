@@ -18,7 +18,8 @@ log "Atualizando o sistema..."
 sudo apt update && sudo apt upgrade -y
 
 log "Instalando o Samba..."
-sudo apt install -y samba
+# Os pacotes 'smbclient cifs-utils' são opcionais
+sudo apt install samba smbclient cifs-utils -y
 
 log "Fazendo backup do arquivo de configuração original..."
 sudo cp "$CONFIG_FILE" "$BACKUP_FILE"
