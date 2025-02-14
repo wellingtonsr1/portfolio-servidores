@@ -81,7 +81,7 @@ Manutenção e Personalização:
    recycle:version = yes
    recycle:repository = /lixeira
    ```
-- Para barrar alguns tipos de arquivos, na diretiva desejada, insira:
+- Para barrar alguns tipos de arquivos, na diretiva desejada, insira:  
   OBS: Pode-se usar o nome completo do arquivos, mas pode usar curingas.
    ```
    veto files = /*.mp3/*.mp4
