@@ -1,0 +1,96 @@
+Passo 1: Atualize o sistema
+Antes de começar, é importante garantir que o sistema esteja atualizado.
+
+$ sudo apt update && sudo apt upgrade -y
+
+
+Passo 2: Instale o Samba e os pacotes necessários.
+
+$ sudo apt install samba -y
+
+
+Passo 3: Após a instalação, você precisa configurar o Samba para compartilhar diretórios.
+
+1. Faça um backup do arquivo de configuração original:
+
+   $ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+  
+
+2. Edite o arquivo de configuração do Samba:
+
+   $ sudo nano /etc/samba/smb.conf
+   
+
+3. Adicione um compartilhamento no final do arquivo:
+
+   Aqui está um exemplo de configuração para compartilhar um diretório chamado `compartilhado`:
+
+
+   [compartilhado]
+   path = /srv/compartilhado
+   browseable = yes
+   writable = yes
+   valid users = usuario
+
+
+   - [compartilhado]: Nome do compartilhamento que aparecerá na rede.
+   - path: Caminho do diretório que será compartilhado.
+   - browseable: Define se o compartilhamento será visível na rede.
+   - writable: Define se os usuários podem escrever no diretório.
+   - valid users: Especifica os usuários que têm acesso ao compartilhamento.
+
+4. Salve e feche o arquivo (no nano, pressione `CTRL + X`, depois `Y` e `Enter` ou use o vim).
+
+Passo 4: Crie o diretório compartilhado
+Crie o diretório que será compartilhado e defina as permissões adequadas.
+
+
+   $ sudo mkdir -p /srv/compartilhado
+   $ sudo chmod -R 775 /srv/compartilhado
+   $ sudo chown -R nobody:nogroup /srv/compartilhado
+
+
+Passo 5: Adicione um usuário ao Samba. Este usuário deve ser um usuário existente no sistema.
+
+1. Crie um usuário no sistema (se ainda não existir):**
+
+   $ sudo adduser usuario
+  
+
+2. Adicione o usuário ao Samba:
+
+   $ sudo smbpasswd -a usuario
+ 
+
+   OBS: Você será solicitado a definir uma senha para o usuário no Samba.
+
+Passo 6: Após configurar tudo, reinicie o serviço do Samba para aplicar as mudanças.
+
+
+   $ sudo systemctl restart smbd
+
+
+Passo 7: Configure o firewall (opcional)
+Se você estiver usando um firewall, certifique-se de permitir o tráfego do Samba.
+
+   $ sudo ufw allow samba
+
+
+Passo 8: Agora, você pode testar o compartilhamento a partir de outro computador na rede.
+
+1. No Windows:
+   - Abra o Explorador de Arquivos.
+   - Na barra de endereços, digite `\\endereco_ip_do_servidor` e pressione Enter.
+   - Insira o nome de usuário e senha do Samba quando solicitado.
+
+2. No Linux:
+   - Você pode usar o comando `smbclient` para acessar o compartilhamento:
+     
+     smbclient //endereco_ip_do_servidor/compartilhado -U usuario
+    
+
+Passo 9: Configurações adicionais (opcional)
+Se você precisar de mais configurações, como compartilhar impressoras ou ajustar permissões mais específicas, consulte a documentação oficial do Samba ou edite o arquivo `/etc/samba/smb.conf` conforme necessário.
+
+Conclusão
+Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Você pode adicionar mais compartilhamentos ou ajustar as configurações conforme necessário para atender às suas necessidades.
