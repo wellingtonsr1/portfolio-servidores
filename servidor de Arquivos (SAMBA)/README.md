@@ -79,6 +79,9 @@ Manutenção e Personalização:
   ```
   sudo systemctl restart smbd
   ```
+
+  ![Restart do smbd](imagens/restart-smbd.png)
+  
 - Para colocar uma lixeira, na diretiva "[global]", insira:  
   OBS: O diretório "lixeira" deve ser criado no servidor.
   
