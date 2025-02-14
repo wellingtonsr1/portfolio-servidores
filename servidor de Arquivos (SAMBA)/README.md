@@ -15,11 +15,11 @@ Requisitos:
 Recursos do Script: 
 -------------------
 
-Atualiza o sistema operacional  
-Instala o Samba e configura um compartilhamento de rede  
-Cria um usuário Samba e define permissões  
-Configura o firewall para permitir conexões Samba  
-Reinicia e habilita o serviço Samba  
+Atualiza o sistema operacional;  
+Instala o Samba e configura um compartilhamento de rede;  
+Cria um usuário Samba e define permissões;  
+Configura o firewall para permitir conexões Samba;  
+Reinicia e habilita o serviço Samba.  
 
 Como Usar:
 ----------
