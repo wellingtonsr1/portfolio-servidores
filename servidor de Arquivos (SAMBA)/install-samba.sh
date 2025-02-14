@@ -25,6 +25,13 @@ sudo cp "$CONFIG_FILE" "$BACKUP_FILE"
 
 log "Configurando o compartilhamento Samba..."
 echo "
+[global]
+workgroup = Linux
+log file = /var/log/samba/log.%m
+syslog = 0
+server role = standalone server
+map to guest = bad user
+
 [$SHARE_NAME]
     path = $SHARE_PATH
     browseable = yes
@@ -35,7 +42,7 @@ echo "
 log "Criando diretório compartilhado e ajustando permissões..."
 sudo mkdir -p "$SHARE_PATH"
 sudo chmod 2775 "$SHARE_PATH"
-sudo chown nobody:nogroup "$SHARE_PATH"
+#sudo chown nobody:nogroup "$SHARE_PATH"
 
 log "Criando usuário Samba..."
 if ! id "$SAMBA_USER" &>/dev/null; then
