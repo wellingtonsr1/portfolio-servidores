@@ -70,7 +70,6 @@ Manutenção e Personalização:
   sudo systemctl restart smbd
   ```
 - Para colocar uma lixeira, na diretiva "[global]", insira:  
-  
   OBS: O diretório "lixeira" deve ser criado no servidor.
   
 
