@@ -25,10 +25,10 @@ Como Usar:
 ----------
 
 1. Clone o repositório ou copie o script para seu servidor: 
-  
+  ```
    git clone https://github.com/seuusuario/servidor-samba.git
    cd servidor-samba
- 
+ ```
 
 2. Torne o script executável: 
   
