@@ -23,7 +23,7 @@ Reinicia e habilita o serviço Samba.
 Como Usar:
 ----------
 
-1. Baixe o script para seu servidor e navegue até o diretório onde ele está: 
+1. Baixe o script para seu servidor e navegue até o diretório onde ele foi saalvo: 
    ```
    cd servidor-samba
    ```
@@ -33,7 +33,7 @@ Como Usar:
    chmod +x install-samba.sh
    ```
 
-3. Execute o script com permissões de administrador:**  
+3. Execute o script com permissões de administrador:  
    ```
    sudo ./install-samba.sh
    ```
