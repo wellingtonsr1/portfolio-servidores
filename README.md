@@ -1,8 +1,9 @@
-Infraestrutura de Redes e Serviços  
+# Infraestrutura de Redes e Serviços  
 
 Este repositório contém configurações e scripts para a implementação de diversos serviços essenciais em um ambiente de rede, utilizando servidores Linux.  
 
 Estrutura do Repositório  
+------------------------
 
 - compartilhando a Internet – Configuração de NAT e compartilhamento de conexão com a Internet para a rede interna.  
 - controlador de domínio – Implementação de um servidor de domínio (Active Directory ou Samba AD) para gerenciamento centralizado de usuários e permissões.  
@@ -14,12 +15,13 @@ Estrutura do Repositório
 - squid – Configuração de um servidor proxy Squid para controle de acesso e cache de navegação na web.  
 - web – Configuração de um servidor web (Apache, Nginx, etc.) para hospedagem de sites e aplicações.  
 
-Como Utilizar  
-
+Como Utilizar:  
+--------------
 Cada diretório contém scripts e arquivos de configuração para facilitar a implementação dos serviços. 
 Consulte o `README.md` dentro de cada pasta para mais detalhes sobre instalação e configuração específicas.  
 
-Referências  
+Referências:  
+------------
 
 - [Documentação Oficial do Debian](https://www.debian.org/doc/)  
 - [Guia de Administração de Redes Linux](https://wiki.archlinux.org/)  
