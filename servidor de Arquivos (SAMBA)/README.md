@@ -31,43 +31,45 @@ Como Usar:
  ```
 
 2. Torne o script executável: 
-  
+   ```
    $ chmod +x install-samba.sh
-   
+   ```
 
 3. Execute o script com permissões de administrador:**  
-   
+   ```
    $ sudo ./install-samba.sh
-  
+   ```
 
 4. Acesse o compartilhamento de outro computador: 
    - No Windows, abra o Explorador de Arquivos e digite \\<IP_DO_SERVIDOR>\compartilhado 
    - No Linux, use o comando:  
-    
+     ```
      smbclient //<IP_DO_SERVIDOR>/compartilhado -U usuario
-    
+     ```
 
 Manutenção e Personalização: 
 ----------------------------
 
 - O arquivo de configuração do Samba está localizado em:  
- 
+  ```
   /etc/samba/smb.conf
- 
+  ```
 - Para adicionar novos usuários Samba:  
- 
+  ```
   $ sudo smbpasswd -a nome_usuario
-  
+  ```
 - Para verificar o status do serviço Samba:  
-  
+  ```
   $ sudo systemctl status smbd
-  
+  ```
 - Para reiniciar o serviço após alterações:  
-  
+  ```
   $ sudo systemctl restart smbd
-  
+  ```
 - Para colocar uma lixeira, na diretiva "[global]", insira:
-  ```OBS: O diretório "lixeira" deve ser criado no servidor.```
+  ```
+  OBS: O diretório "lixeira" deve ser criado no servidor.
+  ```
 
    ```
    vfs object = recycle
