@@ -41,14 +41,14 @@ Como Usar:
    ```
 
 4. Acesse o compartilhamento de outro computador: 
-- No Windows, abra o Explorador de Arquivos e digite:
-  ```
-  \\<IP_DO_SERVIDOR>\compartilhado
-  ```
-- No Linux, use o comando:  
-  ```
-  smbclient //<IP_DO_SERVIDOR>/compartilhado -U usuario
-   ```
+   - No Windows, abra o Explorador de Arquivos e digite:
+     ```
+     \\<IP_DO_SERVIDOR>\compartilhado
+     ```
+   - No Linux, use o comando:  
+     ```
+     smbclient //<IP_DO_SERVIDOR>/compartilhado -U usuario
+     ```
 
 Manutenção e Personalização: 
 ----------------------------
