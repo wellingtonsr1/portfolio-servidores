@@ -32,12 +32,12 @@ Como Usar:
 
 2. Torne o script executável: 
    ```
-   $ chmod +x install-samba.sh
+   chmod +x install-samba.sh
    ```
 
 3. Execute o script com permissões de administrador:**  
    ```
-   $ sudo ./install-samba.sh
+   sudo ./install-samba.sh
    ```
 
 4. Acesse o compartilhamento de outro computador: 
@@ -56,15 +56,15 @@ Manutenção e Personalização:
   ```
 - Para adicionar novos usuários Samba:  
   ```
-  $ sudo smbpasswd -a nome_usuario
+  sudo smbpasswd -a nome_usuario
   ```
 - Para verificar o status do serviço Samba:  
   ```
-  $ sudo systemctl status smbd
+  sudo systemctl status smbd
   ```
 - Para reiniciar o serviço após alterações:  
   ```
-  $ sudo systemctl restart smbd
+  sudo systemctl restart smbd
   ```
 - Para colocar uma lixeira, na diretiva "[global]", insira:  
   
