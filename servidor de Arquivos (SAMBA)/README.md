@@ -52,7 +52,6 @@ Como Usar:
      ```
      smbclient //<IP_DO_SERVIDOR>/compartilhado -U usuario
      ```
-
      ![Acesso ao compartilhamento no Linux](imagens/smbclient.png)
      
 Manutenção e Personalização: 
@@ -68,11 +67,12 @@ Manutenção e Personalização:
   ```
   sudo smbpasswd -a nome_usuario
   ```
+  ![Adicionando usuário ao samba](imagens/smbpassword.png)
+  
 - Para verificar o status do serviço Samba:  
   ```
   sudo systemctl status smbd
-  ```
-  
+  ```  
   ![Status do samba](imagens/statusSMBD.png)
   
 - Para reiniciar o serviço após alterações:  
