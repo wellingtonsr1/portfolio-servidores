@@ -24,9 +24,8 @@ Reinicia e habilita o serviço Samba.
 Como Usar:
 ----------
 
-1. Clone o repositório ou copie o script para seu servidor: 
+1. Baixe o script para seu servidor e navegue até o diretório onde ele está: 
    ```
-   git clone https://github.com/seuusuario/servidor-samba.git
    cd servidor-samba
    ```
 
