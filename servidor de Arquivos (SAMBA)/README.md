@@ -60,7 +60,7 @@ Manutenção e Personalização:
   
 - Para verificar o status do serviço Samba:  
   
-  # systemctl status smbd
+  $ sudo systemctl status smbd
   
 - Para reiniciar o serviço após alterações:  
   
