@@ -69,11 +69,11 @@ Manutenção e Personalização:
 - Para colocar uma lixeira, na diretiva "[global]", insira:  
    OBS: O diretório "lixeira" deve ser criado no servidor.
   
-   vfs object = recycle  
-   recycle:repository = lixeira  
-   recycle:keeptree = yes  
-   recycle:version = yes  
-   recycle:repository = /lixeira  
+   vfs object = recycle
+   recycle:repository = lixeira
+   recycle:keeptree = yes
+   recycle:version = yes
+   recycle:repository = /lixeira
 
   
 Referências:
