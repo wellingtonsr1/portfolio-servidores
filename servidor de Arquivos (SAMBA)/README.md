@@ -40,11 +40,13 @@ Como Usar:
    ![Instalação do samba](imagens/installSamba2.png)
     
    ![Instalação do samba](imagens/installSamba4.png)  
-5. Acesse o compartilhamento de outro computador: 
+4. Acesse o compartilhamento de outro computador: 
    - No Windows, abra o Explorador de Arquivos e digite:
      ```
      \\<IP_DO_SERVIDOR>\compartilhado
      ```
+     ![Instalação do samba](imagens/exploradorArquivos.png)
+     
    - No Linux, use o comando:  
      ```
      smbclient //<IP_DO_SERVIDOR>/compartilhado -U usuario
