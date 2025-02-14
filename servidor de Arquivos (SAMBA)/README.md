@@ -37,7 +37,7 @@ Como Usar:
    ```
    sudo ./install-samba.sh
    ```
-
+   ![Instalação do samba](imagens/installSamba1.png)
 4. Acesse o compartilhamento de outro computador: 
    - No Windows, abra o Explorador de Arquivos e digite:
      ```
