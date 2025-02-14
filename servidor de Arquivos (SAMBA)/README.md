@@ -62,6 +62,8 @@ Manutenção e Personalização:
   ```
   /etc/samba/smb.conf
   ```
+  ![Configuração do smb.conf](imagens/smb-conf.png)
+  
 - Para adicionar novos usuários Samba:  
   ```
   sudo smbpasswd -a nome_usuario
@@ -70,6 +72,9 @@ Manutenção e Personalização:
   ```
   sudo systemctl status smbd
   ```
+  
+  ![Status do samba](imagens/statusSMBD.png)
+  
 - Para reiniciar o serviço após alterações:  
   ```
   sudo systemctl restart smbd
