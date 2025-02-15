@@ -1,7 +1,6 @@
 # Configurando um Servidor Web no Debian 12
-
 Este guia descreve como instalar e configurar um servidor web no Debian 12 usando o Apache.
-
+![Servidor WEB](imagens/WebServer.webp)  
 ## Requisitos
 Antes de começar, certifique-se de:
 - Ter acesso root ou um usuário com privilégios de sudo.

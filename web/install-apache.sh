@@ -45,4 +45,5 @@ systemctl status apache2 --no-pager
 
 log "Servidor web instalado com sucesso! Acesse http://$(hostname -I | awk '{print $1}') para testar."
 exit 0
+cd ..
 
