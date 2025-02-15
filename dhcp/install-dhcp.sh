@@ -39,8 +39,8 @@ echo "INTERFACESv4=\"$INTERFACE\"" > /etc/default/isc-dhcp-server
 
 log "Realizando backup do arquivo de configuração DHCP..."
 if [ -f /etc/dhcp/dhcpd.conf ]; then
-    cp /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
-    log "Backup criado em /etc/dhcp/dhcpd.conf.bak"
+    cp /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old
+    log "Backup criado em /etc/dhcp/dhcpd.conf.old"
 else
     log "Arquivo dhcpd.conf não encontrado, criando novo."
 fi
