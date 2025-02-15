@@ -29,7 +29,13 @@ Edite o arquivo `/etc/default/isc-dhcp-server` e defina a interface de rede:
    INTERFACESv4="eth0"
    ```
 
-### 2 Configurar o Escopo de IPs
+### 2 Criar um backup do arquivo dhcpd.conf
+Crie uma cópia do arquivo de configuração principal:
+   ```bash
+   sudo mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old
+   ```
+
+### 3 Configurar o Escopo de IPs
 Edite o arquivo de configuração principal:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
@@ -45,7 +51,7 @@ Edite o arquivo de configuração principal:
    }
    ```
 
-### 3 Reiniciar e Habilitar o Serviço
+### 4 Reiniciar e Habilitar o Serviço
 Após configurar, reinicie o serviço DHCP:
    ```bash
    sudo systemctl restart isc-dhcp-server
