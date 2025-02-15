@@ -41,25 +41,46 @@ Crie o arquivo de configuração principal:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
    ```
+
+### 4. Configurar a segunda interface
+Edite o arquivo de configuração de interfaces:
+   ```bash
+   sudo nano /etc/network/interfaces
+   ```
+   Adicione ou modifique as seguintes configurações:
+   ```bash
+   # Interface DHCP
+   auto enp0s8
+   iface enp0s8 inet static
+   address 10.200.0.1
+   netmask 255.0.0.0
+   network 10.200.0.0
+   broadcast 10.200.0.255
+   ```
    
-### 4. Configurar o Escopo de IPs
+### 5. Configurar o Escopo de IPs
 Edite o arquivo de configuração principal:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
    ```
    Adicione ou modifique as seguintes configurações:
    ```bash
-   subnet 192.168.1.0 netmask 255.255.255.0 {
-       range 192.168.1.100 192.168.1.200;
-       option routers 192.168.1.1;
-       option domain-name-servers 8.8.8.8, 8.8.4.4;
-       default-lease-time 600;
-       max-lease-time 7200;
-       authoritative;
+   ddns-update-style none;
+   option domain-name " ";
+   option domain-name-servers 8.8.8.8, 8.8.4.4;
+   default-lease-time 600;
+   max-lease-time 7200;
+   authoritative;
+       
+   subnet 10.200.0.0 netmask 255.255.255.0 {
+       range 10.200.0.100 10.200.0.200;
+       option routers 10.200.0.1;
+       option broadcast-address 10.200.0.255;
+       
    }
    ```
 
-### 5. Reiniciar e Habilitar o Serviço
+### 6. Reiniciar e Habilitar o Serviço
 Após configurar, reinicie o serviço DHCP:
    ```bash
    sudo systemctl restart isc-dhcp-server
