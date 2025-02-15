@@ -27,7 +27,7 @@ Edite o arquivo `/etc/default/isc-dhcp-server` e defina a interface de rede:
    ```
    Altere a linha `INTERFACESv4` para a interface desejada, por exemplo:
    ```bash
-   INTERFACESv4="enp0s3"
+   INTERFACESv4="enp0s8"
    ```
 
 ### 2. Criar um backup do arquivo dhcpd.conf
