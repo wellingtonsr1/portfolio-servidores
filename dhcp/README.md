@@ -2,7 +2,7 @@
 
 Este guia descreve como instalar e configurar um servidor DHCP no Debian 12.
 
-## 📌 Requisitos
+## Requisitos
 Antes de começar, certifique-se de:
 - Ter acesso root ou um usuário com privilégios de sudo.
 - Ter uma interface de rede configurada corretamente.
@@ -18,8 +18,8 @@ Antes de começar, certifique-se de:
    sudo apt install isc-dhcp-server -y
    ```
 
-## ⚙️ Configuração do Servidor DHCP
-### 1️⃣ Definir a Interface de Rede
+## Configuração do Servidor DHCP
+### 1 Definir a Interface de Rede
 Edite o arquivo `/etc/default/isc-dhcp-server` e defina a interface de rede:
    ```bash
    sudo nano /etc/default/isc-dhcp-server
@@ -29,7 +29,7 @@ Edite o arquivo `/etc/default/isc-dhcp-server` e defina a interface de rede:
    INTERFACESv4="eth0"
    ```
 
-### 2️⃣ Configurar o Escopo de IPs
+### 2 Configurar o Escopo de IPs
 Edite o arquivo de configuração principal:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
@@ -45,7 +45,7 @@ Edite o arquivo de configuração principal:
    }
    ```
 
-### 3️⃣ Reiniciar e Habilitar o Serviço
+### 3 Reiniciar e Habilitar o Serviço
 Após configurar, reinicie o serviço DHCP:
    ```bash
    sudo systemctl restart isc-dhcp-server
@@ -55,7 +55,7 @@ Após configurar, reinicie o serviço DHCP:
    sudo systemctl enable isc-dhcp-server
    ```
 
-## 🛠 Verificando o Status
+## Verificando o Status
 Para verificar se o servidor está rodando corretamente, execute:
    ```bash
    sudo systemctl status isc-dhcp-server
@@ -66,7 +66,7 @@ Para visualizar os leases ativos:
    cat /var/lib/dhcp/dhcpd.leases
    ```
 
-## 📌 Solução de Problemas
+## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
   ```bash
   sudo journalctl -xe | grep dhcp
@@ -74,7 +74,7 @@ Para visualizar os leases ativos:
 - Certifique-se de que não há outro serviço DHCP rodando na rede.
 - Verifique se a interface de rede configurada está correta.
 
-## 🔗 Referências
+## Referências
 - [Documentação oficial do ISC DHCP Server](https://manpages.debian.org/buster/isc-dhcp-server/dhcpd.conf.5.en.html)
 
 
