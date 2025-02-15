@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script para instalação e configuração do servidor DHCP no Debian 12
-# Autor: [Seu Nome]
+# Autor: wellington
 # Data: $(date +%Y-%m-%d)
 # Versão: 1.0
 
