@@ -35,7 +35,13 @@ Crie uma cópia do arquivo de configuração principal:
    sudo mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old
    ```
 
-### 3. Configurar o Escopo de IPs
+### 3. Criar um novo arquivo dhcpd.conf
+Crie o arquivo de configuração principal:
+   ```bash
+   sudo nano /etc/dhcp/dhcpd.conf
+   ```
+   
+### 4. Configurar o Escopo de IPs
 Edite o arquivo de configuração principal:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
@@ -52,7 +58,7 @@ Edite o arquivo de configuração principal:
    }
    ```
 
-### 4. Reiniciar e Habilitar o Serviço
+### 5. Reiniciar e Habilitar o Serviço
 Após configurar, reinicie o serviço DHCP:
    ```bash
    sudo systemctl restart isc-dhcp-server
