@@ -7,7 +7,7 @@ Antes de começar, certifique-se de:
 - Ter acesso root ou um usuário com privilégios de sudo.
 - Ter uma interface de rede configurada corretamente.
 
-## 🛠 Instalação do Servidor DHCP
+## Instalação do Servidor DHCP
 1. Atualize o sistema:
    ```bash
    sudo apt update && sudo apt upgrade -y
