@@ -135,7 +135,27 @@ Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    ```bash
    sudo systemctl restart apache2
    ```
-
+   
+   Em uma máquina cliente (Por exemplo, windows), altere o arquivo hosts
+   ```bash
+   notepad %windir%\system32\drivers\etc\hosts
+   ```
+   
+   Acrescente as seguintes linas:
+   ```bash
+   IP_SERVIDOR teste1.com.br
+   IP_SERVIDOR teste2.com.br
+   ```
+   
+## Testes  
+- Numa máquina cliente, acesse pelo navegador: 
+  ```bash
+  http:\\teste.1.com.br
+  ```
+  ```bash
+  http:\\teste.2.com.br
+  ```
+  
 ## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
   ```bash
