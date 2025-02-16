@@ -20,12 +20,13 @@ sudo nano /etc/network/interfaces
 ```
 Adicione as seguintes linhas para configurar um IP estático:
 ```ini
+# Interface DHCP
 auto enp0s8
 iface enp0s8 inet static
-    address 192.168.1.1
-    netmask 255.255.255.0
-    network 192.168.1.0
-    broadcast 192.168.1.255
+address 10.200.0.1
+netmask 255.0.0.0
+network 10.0.0.0
+broadcast 10.255.255.255
 ```
 Reinicie a interface:
 ```sh
