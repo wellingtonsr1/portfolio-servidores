@@ -57,7 +57,7 @@ Edite o arquivo de configuração de interfaces:
    network 10.200.0.0
    broadcast 10.200.0.255
    ```
-   ![Servidor DHCP](imagens/DHCP-Server.webp)  
+   ![Servidor DHCP](imagens/interfaces.png)  
    
 ### 5. Configurar o Escopo de IPs
 Edite o arquivo de configuração principal:
