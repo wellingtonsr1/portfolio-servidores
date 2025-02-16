@@ -45,13 +45,13 @@ Abra um navegador e digite o endereço do servidor:
 ## Configuração Avançada
 - Hospedar um site personalizado (Aqui, serão 2 como exemplos):  
 
-  Crie os diretórios para ambos os sites
+  ### 1. Crie os diretórios para ambos os sites
   ```bash
   sudo mkdir -p /var/www/teste1.com.br/public_html
   sudo mkdir -p /var/www/teste2.com.br/public_html
   ```
    
-  Crie o index.html para o site `teste1.com.br`
+  ### 2. Crie o index.html para o site `teste1.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
@@ -71,7 +71,7 @@ Abra um navegador e digite o endereço do servidor:
   </html>' > /var/www/teste1.com.br/public_html/index.html
   ```
    
-  Crie o index.html para o site `teste2.com.br`
+  ### 3. Crie o index.html para o site `teste2.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
@@ -98,18 +98,18 @@ Abra um navegador e digite o endereço do servidor:
   </html> ' > /var/www/teste2.com.br/public_html/index.html
   ```
    
-  Faça um backup do arquivo de configuração do Virtual Host
+  ### 4. Faça um backup do arquivo de configuração do Virtual Host
   ```bash
   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
   ```
 
-  Usando o arquivo `000-default.conf` como base, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
+  ### 5. Usando o arquivo `000-default.conf` como base, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
   ```bash
   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste1.com.br.conf
   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
   ```
    
-  Modifique o arquivo e acrescente as seguintes linhas:  
+  ### 6. Modifique o arquivo e acrescente as seguintes linhas:  
   Para o site `teste1.com.br`
   ```bash
   ServerAdmin contato@teste1.com.br
@@ -126,17 +126,17 @@ Abra um navegador e digite o endereço do servidor:
   DocumentRoot /var/www/teste2.com.br/public_html
   ```
    
-  Desative o site padrão `000-default.conf`
+  ### 7. Desative o site padrão `000-default.conf`
   ```bash
   sudo a2dissite 000-default.conf
   ```
   
-  Reinicie o Apache:
+  ### 8. Reinicie o Apache:
   ```bash
   sudo systemctl restart apache2
   ```
    
-  Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
+  ### 9. Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
   ```bash
   notepad %windir%\system32\drivers\etc\hosts
   ```
