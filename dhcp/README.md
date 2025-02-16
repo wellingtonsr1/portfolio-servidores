@@ -79,7 +79,8 @@ Edite o arquivo de configuração principal:
        option broadcast-address 10.255.255.255;      
    }
    ```
-### 6. Fixar IP
+   
+### 6. Fixar o IP para um host
 Acrescente no final do arquivo de configuração o nome do host e seu MAC:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
@@ -110,12 +111,14 @@ Para verificar se o servidor está rodando corretamente, execute:
    ```bash
    sudo systemctl status isc-dhcp-server
    ```
-
+   [Status](imagens/status.png) 
+   
 Para visualizar os leases ativos:
    ```bash
    cat /var/lib/dhcp/dhcpd.leases
    ```
-
+   ![Fixar IP](imagens/leases.png)  
+   
 ## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
   ```bash
