@@ -111,7 +111,7 @@ Para verificar se o servidor está rodando corretamente, execute:
    ```bash
    sudo systemctl status isc-dhcp-server
    ```
-   [Status](imagens/status.png) 
+   ![Status](imagens/status.png) 
    
 Para visualizar os leases ativos:
    ```bash
