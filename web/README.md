@@ -136,7 +136,7 @@ Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    sudo systemctl restart apache2
    ```
    
-   Em uma máquina cliente (Por exemplo, windows), altere o arquivo hosts
+   Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
    ```bash
    notepad %windir%\system32\drivers\etc\hosts
    ```
