@@ -84,12 +84,12 @@ Acrescente no final do arquivo de configuração o nome do host e seu MAC:
    ```bash
    sudo nano /etc/dhcp/dhcpd.conf
    ```
-   ``
+   ```
    host windows10 {
       hardware ethernet 08:00:27:D3:D4:F0;
       fixed-address 10.200.0.150;
    }
-   ``
+   ```
    ![Fixar IP](imagens/fixed_ip.png) 
    
    ![Fixar IP](imagens/fixedIP.png) 
