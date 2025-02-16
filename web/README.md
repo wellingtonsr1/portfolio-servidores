@@ -125,8 +125,13 @@ Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    ServerAlias www.teste2.com.br
    DocumentRoot /var/www/teste2.com.br/public_html
    ```
-  
-   Salve e reinicie o Apache:
+   
+   Desative o site padrão `000-default.conf`
+   ```bash
+   sudo a2dissite 000-default.conf
+   ```
+   
+   Reinicie o Apache:
    ```bash
    sudo systemctl restart apache2
    ```
