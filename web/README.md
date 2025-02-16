@@ -98,7 +98,6 @@ Abra um navegador e digite o endereço do servidor:
   </body>
   </html> ' > /var/www/teste2.com.br/public_html/index.html
   ```
-  ![teste2.com.br](imagens/teste_2.png)
   
   ### 4. Faça o backup do arquivo de configuração do Virtual Host
   ```bash
