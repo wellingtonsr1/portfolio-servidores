@@ -134,12 +134,18 @@ Abra um navegador e digite o endereço do servidor:
   sudo a2dissite 000-default.conf
   ```
   
-  ### 8. Reinicie o Apache:
+  ### 8. Ative os sites `teste1.com.br.conf` e `teste2.com.br.conf`
+  ```bash
+  sudo a2ensite teste1.com.br.conf
+  sudo a2ensite teste2.com.br.conf
+  ```
+  
+  ### 9. Reinicie o Apache:
   ```bash
   sudo systemctl restart apache2
   ```
    
-  ### 9. Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
+  ### 10. Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
   ```bash
   notepad %windir%\system32\drivers\etc\hosts
   ```
