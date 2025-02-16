@@ -36,6 +36,9 @@ sudo systemctl restart networking
 ## 2. Habilitando o Roteamento
 Ative o roteamento de pacotes:
 ```sh
+modprobe iptable_nat 
+```
+```sh
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 ```
 Para tornar a mudança permanente, edite o arquivo:
