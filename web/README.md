@@ -71,7 +71,6 @@ Abra um navegador e digite o endereço do servidor:
   </body>
   </html>' > /var/www/teste1.com.br/public_html/index.html
   ```
-  ![teste1.com.br](imagens/teste_1.png)
   
   #### 2.2 `teste2.com.br`
   ```bash
@@ -120,6 +119,7 @@ Abra um navegador e digite o endereço do servidor:
   ServerAlias www.teste1.com.br
   DocumentRoot /var/www/teste1.com.br/public_html
   ```  
+  ![teste1.com.br](imagens/teste_1.png)
    
   #### 6.2 Para o site `teste2.com.br`
   ```bash
@@ -128,6 +128,7 @@ Abra um navegador e digite o endereço do servidor:
   ServerAlias www.teste2.com.br
   DocumentRoot /var/www/teste2.com.br/public_html
   ```
+  ![teste2.com.br](imagens/teste_2.png)
    
   ### 7. Desative o site padrão `000-default.conf`
   ```bash
