@@ -99,7 +99,7 @@ Abra um navegador e digite o endereço do servidor:
   </html> ' > /var/www/teste2.com.br/public_html/index.html
   ```
    
-  ### 4. Faça um backup do arquivo de configuração do Virtual Host
+  ### 4. Faça o backup do arquivo de configuração do Virtual Host
   ```bash
   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
   ```
@@ -111,7 +111,7 @@ Abra um navegador e digite o endereço do servidor:
   ```
    
   ### 6. Modifique o arquivo e acrescente as seguintes linhas:  
-  Para o site `teste1.com.br`
+  #### 6.1 Para o site `teste1.com.br`
   ```bash
   ServerAdmin contato@teste1.com.br
   ServerName teste1.com.br
@@ -119,7 +119,7 @@ Abra um navegador e digite o endereço do servidor:
   DocumentRoot /var/www/teste1.com.br/public_html
   ```  
    
-  Para o site `teste2.com.br`
+  #### 6.2 Para o site `teste2.com.br`
   ```bash
   ServerAdmin contato@teste2.com.br
   ServerName teste2.com.br
