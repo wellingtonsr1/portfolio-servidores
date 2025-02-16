@@ -43,14 +43,87 @@ Abra um navegador e digite o endereço do servidor:
    Você deve ver a página padrão do Apache.
 
 ## Configuração Avançada
-Se desejar hospedar um site personalizado, edite o arquivo de configuração do Virtual Host:
+Hospedar um site personalizado:
+   Crie os diretórios para ambos os sites
    ```bash
-   sudo nano /etc/apache2/sites-available/000-default.conf
+   sudo mkdir -p /var/www/teste1.com.br/public_html
+   sudo mkdir -p /var/www/teste2.com.br/public_html
    ```
-   Modifique a diretiva `DocumentRoot` para apontar para seu diretório web personalizado:
+   
+   Crie o index.html para o site `teste1.com.br`
    ```bash
-   DocumentRoot /var/www/meusite
+   echo '<!DOCTYPE html>
+	<html lang="pt-BR">
+		<head>
+    		<meta charset="UTF-8">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    			<title>Página de Teste 1</title>
+    			<style>
+        			body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        			h1 { color: #007bff; }
+    			</style>
+		</head>
+		<body>
+    			<h1>Bem-vindo à Página de Teste 1</h1>
+    			<p>Este é um exemplo de página HTML simples.</p>
+		</body>
+	</html> ' > /var/www/teste2.com.br/public_html/index.html
    ```
+   
+   Crie o index.html para o site `teste2.com.br`
+   ```bash
+   	echo '<!DOCTYPE html>
+	<html lang="pt-BR">
+	<head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>Página de Teste 2</title>
+    	<style>
+        	body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        	h1 { color: #28a745; }
+        	button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    	</style>
+	</head>
+	<body>
+    	<h1>Página de Teste 2</h1>
+    	<p>Clique no botão para exibir um alerta.</p>
+    	<button onclick="mostrarMensagem()">Clique Aqui</button>
+
+    	<script>
+        	function mostrarMensagem() {
+            	alert("Olá! Você clicou no botão.");
+        	}
+    	</script>
+	</body>
+	</html> ' > /var/www/teste2.com.br/public_html/index.html
+   ```
+   Faça uma cópia do arquivo de configuração do Virtual Host
+   ```bash
+   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
+   ```
+
+   Crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e para o `teste2.com.br`
+   ```bash
+   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste1.com.br.conf
+   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
+   ```
+   
+   Modifique o arquivo e acrescente as seguintes linhas:
+   Para o site `teste1.com.br`
+   ```bash
+   ServerAdmin contato@teste1.com.br
+   ServerName teste1.com.br
+   ServerAlias www.teste1.com.br
+   DocumentRoot /var/www/teste1.com.br/public_html
+   ```
+    Para o site `teste2.com.br`
+   ```bash
+   ServerAdmin contato@teste2.com.br
+   ServerName teste2.com.br
+   ServerAlias www.teste2.com.br
+   DocumentRoot /var/www/teste2.com.br/public_html
+   ```
+  
    Salve e reinicie o Apache:
    ```bash
    sudo systemctl restart apache2
