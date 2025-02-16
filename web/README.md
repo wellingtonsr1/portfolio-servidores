@@ -71,7 +71,8 @@ Abra um navegador e digite o endereço do servidor:
   </body>
   </html>' > /var/www/teste1.com.br/public_html/index.html
   ```
-    
+  ![teste1.com.br](imagens/teste_1.png)
+  
   #### 2.2 `teste2.com.br`
   ```bash
   echo '<!DOCTYPE html>
@@ -98,7 +99,8 @@ Abra um navegador e digite o endereço do servidor:
   </body>
   </html> ' > /var/www/teste2.com.br/public_html/index.html
   ```
-   
+  ![teste2.com.br](imagens/teste_2.png)
+  
   ### 4. Faça o backup do arquivo de configuração do Virtual Host
   ```bash
   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
