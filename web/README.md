@@ -176,7 +176,7 @@ Abra um navegador e digite o endereço do servidor:
   sudo journalctl -xe | grep apache2
   ```
 - Certifique-se de que nenhuma outra aplicação está ocupando a porta 80.
-- Verifique permissões e propriedade dos arquivos em `/var/www/html/`.
+- Verifique permissões e propriedade dos arquivos em `/var/www/`.
 
 ## Referências
 - [Documentação oficial do Apache](https://httpd.apache.org/docs/2.4/)
