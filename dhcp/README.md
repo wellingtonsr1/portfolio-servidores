@@ -39,6 +39,7 @@ Crie uma cópia do arquivo de configuração principal:
    sudo mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old
    ```
    ![Backup dhcp.conf](imagens/backupDHCPD.conf.png)  
+   ![Backup dhcp.conf](imagens/backup-dhcp.conf.png)  
    
 ### 3. Criar um novo arquivo dhcpd.conf
 Crie o arquivo de configuração principal:
@@ -59,7 +60,7 @@ Edite o arquivo de configuração de interfaces:
    address 10.200.0.1
    netmask 255.0.0.0
    network 10.200.0.0
-   broadcast 10.225.225.255
+   broadcast 10.255.255.255
    ```
    ![interfaces](imagens/interfaces.png)  
    
