@@ -19,7 +19,8 @@ Antes de começar, certifique-se de:
    ```bash
    sudo apt install isc-dhcp-server -y
    ```
-
+   ![install](imagens/install-dhcp.png)  
+   
 ## Configuração do Servidor DHCP
 ### 1. Definir a Interface de Rede
 Edite o arquivo `/etc/default/isc-dhcp-server` e defina a interface de rede:
