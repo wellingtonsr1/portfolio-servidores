@@ -43,7 +43,7 @@ Abra um navegador e digite o endereço do servidor:
    Você deve ver a página padrão do Apache.
 
 ## Configuração Avançada
-- Hospedar um site personalizado (Aqui, serão 2 como exemplos):
+- Hospedar um site personalizado (Aqui, serão 2 como exemplos):  
   Crie os diretórios para ambos os sites
   ```bash
   sudo mkdir -p /var/www/teste1.com.br/public_html
