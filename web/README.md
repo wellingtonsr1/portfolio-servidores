@@ -43,109 +43,108 @@ Abra um navegador e digite o endereço do servidor:
    Você deve ver a página padrão do Apache.
 
 ## Configuração Avançada
-Hospedar um site personalizado (Aqui, serão 2 como exemplos):
-   Crie os diretórios para ambos os sites
-   ```bash
-   sudo mkdir -p /var/www/teste1.com.br/public_html
-   sudo mkdir -p /var/www/teste2.com.br/public_html
-   ```
+- Hospedar um site personalizado (Aqui, serão 2 como exemplos):
+  Crie os diretórios para ambos os sites
+  ```bash
+  sudo mkdir -p /var/www/teste1.com.br/public_html
+  sudo mkdir -p /var/www/teste2.com.br/public_html
+  ```
    
-   Crie o index.html para o site `teste1.com.br`
-   ```bash
-   echo '<!DOCTYPE html>
-   <html lang="pt-BR">
-   <head>
+  Crie o index.html para o site `teste1.com.br`
+  ```bash
+  echo '<!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Teste 1</title>
+    <style>
+       body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+       h1 { color: #007bff; }
+    </style>
+  </head>
+  <body>
+     <h1>Bem-vindo à Página de Teste 1</h1>
+     <p>Este é um exemplo de página HTML simples.</p>
+  </body>
+  </html>' > /var/www/teste1.com.br/public_html/index.html
+  ```
+   
+  Crie o index.html para o site `teste2.com.br`
+  ```bash
+  echo '<!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Página de Teste 1</title>
+     <title>Página de Teste 2</title>
      <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        h1 { color: #007bff; }
+        h1 { color: #28a745; }
+           button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
      </style>
-   </head>
-   <body>
-      <h1>Bem-vindo à Página de Teste 1</h1>
-      <p>Este é um exemplo de página HTML simples.</p>
-   </body>
-   </html>' > /var/www/teste1.com.br/public_html/index.html
-   ```
-   
-   Crie o index.html para o site `teste2.com.br`
-   ```bash
-   echo '<!DOCTYPE html>
-   <html lang="pt-BR">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Página de Teste 2</title>
-      <style>
-         body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-         h1 { color: #28a745; }
-            button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-      </style>
-   </head>
-   <body>
-      <h1>Página de Teste 2</h1>
-      <p>Clique no botão para exibir um alerta.</p>
-      <button onclick="mostrarMensagem()">Clique Aqui</button>
-
+  </head>
+  <body>
+     <h1>Página de Teste 2</h1>
+     <p>Clique no botão para exibir um alerta.</p>
+     <button onclick="mostrarMensagem()">Clique Aqui</button>
       <script>
-         function mostrarMensagem() {
-            alert("Olá! Você clicou no botão.");
-         }
-      </script>
-   </body>
-   </html> ' > /var/www/teste2.com.br/public_html/index.html
-   ```
+        function mostrarMensagem() {
+           alert("Olá! Você clicou no botão.");
+        }
+     </script>
+  </body>
+  </html> ' > /var/www/teste2.com.br/public_html/index.html
+  ```
    
-   Faça um backup do arquivo de configuração do Virtual Host
-   ```bash
-   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
-   ```
+  Faça um backup do arquivo de configuração do Virtual Host
+  ```bash
+  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
+  ```
 
-   Usando o arquivo `000-default.conf` como base, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
-   ```bash
-   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste1.com.br.conf
-   sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
-   ```
+  Usando o arquivo `000-default.conf` como base, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
+  ```bash
+  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste1.com.br.conf
+  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
+  ```
    
-   Modifique o arquivo e acrescente as seguintes linhas:  
-   Para o site `teste1.com.br`
-   ```bash
-   ServerAdmin contato@teste1.com.br
-   ServerName teste1.com.br
-   ServerAlias www.teste1.com.br
-   DocumentRoot /var/www/teste1.com.br/public_html
-   ```  
+  Modifique o arquivo e acrescente as seguintes linhas:  
+  Para o site `teste1.com.br`
+  ```bash
+  ServerAdmin contato@teste1.com.br
+  ServerName teste1.com.br
+  ServerAlias www.teste1.com.br
+  DocumentRoot /var/www/teste1.com.br/public_html
+  ```  
    
-   Para o site `teste2.com.br`
-   ```bash
-   ServerAdmin contato@teste2.com.br
-   ServerName teste2.com.br
-   ServerAlias www.teste2.com.br
-   DocumentRoot /var/www/teste2.com.br/public_html
-   ```
+  Para o site `teste2.com.br`
+  ```bash
+  ServerAdmin contato@teste2.com.br
+  ServerName teste2.com.br
+  ServerAlias www.teste2.com.br
+  DocumentRoot /var/www/teste2.com.br/public_html
+  ```
    
-   Desative o site padrão `000-default.conf`
-   ```bash
-   sudo a2dissite 000-default.conf
-   ```
+  Desative o site padrão `000-default.conf`
+  ```bash
+  sudo a2dissite 000-default.conf
+  ```
+  
+  Reinicie o Apache:
+  ```bash
+  sudo systemctl restart apache2
+  ```
    
-   Reinicie o Apache:
-   ```bash
-   sudo systemctl restart apache2
-   ```
+  Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
+  ```bash
+  notepad %windir%\system32\drivers\etc\hosts
+  ```
    
-   Em uma máquina cliente (Por exemplo, windows), usando o cmd, altere o arquivo hosts
-   ```bash
-   notepad %windir%\system32\drivers\etc\hosts
-   ```
-   
-   Acrescente as seguintes linas:
-   ```bash
-   IP_SERVIDOR teste1.com.br
-   IP_SERVIDOR teste2.com.br
-   ```
+  Acrescente as seguintes linas:
+  ```bash
+  IP_SERVIDOR teste1.com.br
+  IP_SERVIDOR teste2.com.br
+  ```
    
 ## Testes  
 - Numa máquina cliente, acesse pelo navegador: 
