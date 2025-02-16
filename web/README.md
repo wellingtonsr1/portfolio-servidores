@@ -152,10 +152,13 @@ Abra um navegador e digite o endereço do servidor:
 - Numa máquina cliente, acesse pelo navegador: 
   ```bash
   http:\\teste.1.com.br
-  ```
+  ```  
+  ![Servidor WEB](imagens/teste1.png)
+  
   ```bash
   http:\\teste.2.com.br
   ```
+  ![Servidor WEB](imagens/teste2.png)
   
 ## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
