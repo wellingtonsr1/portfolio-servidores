@@ -81,7 +81,7 @@ Conecte um cliente à interface `enp0s8` e verifique se ele recebe um IP via DHC
 - Verifique logs do DHCP: `sudo journalctl -xe -u isc-dhcp-server`
 - Confirme as regras do iptables: `sudo iptables -L -t nat`
 - Teste a conectividade: a partir do cliente  
-`ping 8.8.8.8` 
+ping 8.8.8.8  
 ![ping](imagens/ping.png)  
 `tracert`  
 ![tracert](imagens/tracert.png) 
