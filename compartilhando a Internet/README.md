@@ -33,7 +33,13 @@ Reinicie a interface:
 sudo systemctl restart networking
 ```
 
-## 2. Habilitando o Roteamento
+## 2. Instalar o iptable (Caso não esteja instalado)
+Instale o iptable
+```sh
+sudo apt update && sudo apt install iptables -y
+```
+
+## 3. Habilitando o Roteamento
 Ative o roteamento de pacotes:
 ```sh
 sudo modprobe iptable_nat 
@@ -52,7 +58,7 @@ Aplicar as mudanças:
 sudo sysctl -p
 ```
 
-## 3. Configurando o NAT com iptables
+## 4. Configurando o NAT com iptables
 Configure o NAT para permitir o tráfego:
 ```sh
 sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
@@ -68,10 +74,10 @@ Adicione ao `/etc/network/interfaces` para restaurar no boot:
 post-up iptables-restore < /etc/iptables.rules
 ```
 
-## 4. Testando a Conexão
+## 5. Testando a Conexão
 Conecte um cliente à interface `enp0s8` e verifique se ele recebe um IP via DHCP. Teste o acesso à Internet.
 
-## 5. Solução de Problemas
+## 6. Solução de Problemas
 - Verifique logs do DHCP: `sudo journalctl -xe -u isc-dhcp-server`
 - Confirme as regras do iptables: `sudo iptables -L -t nat`
 - Teste a conectividade: `ping 8.8.8.8` a partir do cliente
