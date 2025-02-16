@@ -85,7 +85,6 @@ Conecte um cliente à interface `enp0s8` e verifique se ele recebe um IP via DHC
 - Teste a conectividade: a partir do cliente  
 `ping 8.8.8.8`  
 ![ping](imagens/ping.png)  
-
 `tracert 8.8.8.8`  
 ![tracert](imagens/tracert.png) 
 
