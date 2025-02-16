@@ -51,7 +51,8 @@ Abra um navegador e digite o endereço do servidor:
   sudo mkdir -p /var/www/teste2.com.br/public_html
   ```
    
-  ### 2. Crie o index.html para o site `teste1.com.br`
+  ### 2. Crie o index.html para os sites  
+  ### 2.1 `teste1.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
@@ -70,8 +71,8 @@ Abra um navegador e digite o endereço do servidor:
   </body>
   </html>' > /var/www/teste1.com.br/public_html/index.html
   ```
-   
-  ### 3. Crie o index.html para o site `teste2.com.br`
+    
+  ### 2.2`teste2.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
