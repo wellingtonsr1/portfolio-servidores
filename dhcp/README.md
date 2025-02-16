@@ -57,9 +57,9 @@ Edite o arquivo de configuração de interfaces:
    auto enp0s8
    iface enp0s8 inet static
    address 10.200.0.1
-   netmask 255.255.255.0
+   netmask 255.0.0.0
    network 10.200.0.0
-   broadcast 10.200.0.255
+   broadcast 10.225.225.255
    ```
    ![interfaces](imagens/interfaces.png)  
    
