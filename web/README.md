@@ -67,35 +67,35 @@ Hospedar um site personalizado:
     	    <h1>Bem-vindo à Página de Teste 1</h1>
     	    <p>Este é um exemplo de página HTML simples.</p>
 	</body>
-	</html>' > /var/www/teste2.com.br/public_html/index.html
+	</html>' > /var/www/teste1.com.br/public_html/index.html
    ```
    
    Crie o index.html para o site `teste2.com.br`
    ```bash
    echo '<!DOCTYPE html>
-	<html lang="pt-BR">
-	<head>
-    	   <meta charset="UTF-8">
-    	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	   <title>Página de Teste 2</title>
-    	   <style>
-              body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-              h1 { color: #28a745; }
-              button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-    	   </style>
-	</head>
-	<body>
-    	   <h1>Página de Teste 2</h1>
-    	   <p>Clique no botão para exibir um alerta.</p>
-    	   <button onclick="mostrarMensagem()">Clique Aqui</button>
+   <html lang="pt-BR">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Página de Teste 2</title>
+      <style>
+         body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+         h1 { color: #28a745; }
+            button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+      </style>
+   </head>
+   <body>
+      <h1>Página de Teste 2</h1>
+      <p>Clique no botão para exibir um alerta.</p>
+      <button onclick="mostrarMensagem()">Clique Aqui</button>
 
-    	   <script>
-              function mostrarMensagem() {
-                 alert("Olá! Você clicou no botão.");
-              }
-    	   </script>
-	</body>
-	</html> ' > /var/www/teste2.com.br/public_html/index.html
+      <script>
+         function mostrarMensagem() {
+            alert("Olá! Você clicou no botão.");
+         }
+      </script>
+   </body>
+   </html> ' > /var/www/teste2.com.br/public_html/index.html
    ```
    
    Faça um backup do arquivo de configuração do Virtual Host
