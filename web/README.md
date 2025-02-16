@@ -52,7 +52,7 @@ Abra um navegador e digite o endereço do servidor:
   ```
    
   ### 2. Crie o index.html para os sites  
-  ### 2.1 `teste1.com.br`
+  #### 2.1 `teste1.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
@@ -72,7 +72,7 @@ Abra um navegador e digite o endereço do servidor:
   </html>' > /var/www/teste1.com.br/public_html/index.html
   ```
     
-  ### 2.2`teste2.com.br`
+  #### 2.2 `teste2.com.br`
   ```bash
   echo '<!DOCTYPE html>
   <html lang="pt-BR">
