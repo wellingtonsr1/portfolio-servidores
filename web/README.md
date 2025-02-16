@@ -43,7 +43,7 @@ Abra um navegador e digite o endereço do servidor:
    Você deve ver a página padrão do Apache.
 
 ## Configuração Avançada
-Hospedar um site personalizado:
+Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    Crie os diretórios para ambos os sites
    ```bash
    sudo mkdir -p /var/www/teste1.com.br/public_html
@@ -53,21 +53,21 @@ Hospedar um site personalizado:
    Crie o index.html para o site `teste1.com.br`
    ```bash
    echo '<!DOCTYPE html>
-	 <html lang="pt-BR">
-	 <head>
-    	    <meta charset="UTF-8">
-    	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	    <title>Página de Teste 1</title>
-            <style>
-               body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-               h1 { color: #007bff; }
-    	    </style>
-         </head>
-	 <body>
-    	    <h1>Bem-vindo à Página de Teste 1</h1>
-    	    <p>Este é um exemplo de página HTML simples.</p>
-	</body>
-	</html>' > /var/www/teste1.com.br/public_html/index.html
+   <html lang="pt-BR">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Página de Teste 1</title>
+     <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        h1 { color: #007bff; }
+     </style>
+   </head>
+   <body>
+      <h1>Bem-vindo à Página de Teste 1</h1>
+      <p>Este é um exemplo de página HTML simples.</p>
+   </body>
+   </html>' > /var/www/teste1.com.br/public_html/index.html
    ```
    
    Crie o index.html para o site `teste2.com.br`
@@ -103,7 +103,7 @@ Hospedar um site personalizado:
    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old
    ```
 
-   Usando o arquivo `000-default.conf`, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
+   Usando o arquivo `000-default.conf` como base, crie um arquivo de configuração do Virtual Host para o site `teste1.com.br` e um para o `teste2.com.br`
    ```bash
    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste1.com.br.conf
    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
