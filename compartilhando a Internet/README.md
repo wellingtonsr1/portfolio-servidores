@@ -11,9 +11,9 @@ Antes de começar, identifique suas interfaces de rede com o comando:
 ```sh
 ip a
 ```
+![ip-a](imagens/ip-a.png)  
 - Interface conectada à Internet: `enp0s3` (exemplo)
 - Interface que compartilhará a conexão: `enp0s8` (exemplo)  
-![ip-a](imagens/ip-a.png)  
 
 ### Configurando a Interface de Rede Interna
 Edite o arquivo de configuração de rede:
