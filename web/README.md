@@ -151,7 +151,7 @@ Abra um navegador e digite o endereço do servidor:
   ```
   ![hosts](imagens/hosts.png)
   
-  Acrescente as seguintes linas:
+  Acrescente as seguintes linhas:
   ```bash
   IP_SERVIDOR teste1.com.br
   IP_SERVIDOR teste2.com.br
