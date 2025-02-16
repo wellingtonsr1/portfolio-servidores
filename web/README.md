@@ -17,6 +17,11 @@ Antes de começar, certifique-se de:
    sudo apt install apache2 -y
    ```
 
+3. Instale o PHP (Opcional)
+   ```bash
+   sudo apt install php8.2 libapache2-mod-php8.2 php8.2-mysql php-common php8.2-cli php8.2-opcache php8.2-readline -y
+   ```
+   
 ## Configuração do Servidor Web
 ### 1. Verificar o Status do Serviço
 Após a instalação, verifique se o serviço está rodando:
@@ -169,7 +174,7 @@ Abra um navegador e digite o endereço do servidor:
   http:\\teste.2.com.br
   ```
   ![teste2.com.br](imagens/teste2.png)
-  
+
 ## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
   ```bash
