@@ -37,8 +37,6 @@ sudo systemctl restart networking
 Ative o roteamento de pacotes:
 ```sh
 modprobe iptable_nat 
-```
-```sh
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 ```
 Para tornar a mudança permanente, edite o arquivo:
@@ -70,45 +68,14 @@ Adicione ao `/etc/network/interfaces` para restaurar no boot:
 post-up iptables-restore < /etc/iptables.rules
 ```
 
-## 4. Instalando e Configurando um Servidor DHCP
-Instale o servidor DHCP:
-```sh
-sudo apt update && sudo apt install isc-dhcp-server
-```
-Edite a configuração do DHCP:
-```sh
-sudo nano /etc/dhcp/dhcpd.conf
-```
-Adicione a configuração:
-```ini
-subnet 192.168.1.0 netmask 255.255.255.0 {
-    range 192.168.1.100 192.168.1.200;
-    option routers 192.168.1.1;
-    option domain-name-servers 8.8.8.8, 8.8.4.4;
-}
-```
-Defina a interface correta em `/etc/default/isc-dhcp-server`:
-```ini
-INTERFACESv4="enp0s8"
-```
-Reinicie o serviço:
-```sh
-sudo systemctl restart isc-dhcp-server
-```
-Verifique o status:
-```sh
-sudo systemctl status isc-dhcp-server
-```
-
-## 5. Testando a Conexão
+## 4. Testando a Conexão
 Conecte um cliente à interface `enp0s8` e verifique se ele recebe um IP via DHCP. Teste o acesso à Internet.
 
-## 6. Solução de Problemas
+## 5. Solução de Problemas
 - Verifique logs do DHCP: `sudo journalctl -xe -u isc-dhcp-server`
 - Confirme as regras do iptables: `sudo iptables -L -t nat`
 - Teste a conectividade: `ping 8.8.8.8` a partir do cliente
 
----
-Agora seu Debian 12 está configurado para compartilhar a Internet! 🚀
+
 
 
