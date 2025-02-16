@@ -13,7 +13,8 @@ Antes de começar, certifique-se de:
    ```bash
    sudo apt update && sudo apt upgrade -y
    ```
-
+   ![update](imagens/update.png) 
+   
 2. Instale o servidor DHCP:
    ```bash
    sudo apt install isc-dhcp-server -y
