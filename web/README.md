@@ -109,7 +109,7 @@ Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/teste2.com.br.conf
    ```
    
-   Modifique o arquivo e acrescente as seguintes linhas:
+   Modifique o arquivo e acrescente as seguintes linhas:  
    Para o site `teste1.com.br`
    ```bash
    ServerAdmin contato@teste1.com.br
