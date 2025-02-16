@@ -1,7 +1,7 @@
-# Servidor DHCP no Debian 12  
-Este guia descreve como instalar e configurar um servidor DHCP no Debian 12.  
+# Servidor DHCP no Debian 12   
 ![Servidor DHCP](imagens/DHCP-Server.webp)  
 
+Este guia descreve como instalar e configurar um servidor DHCP no Debian 12. 
 
 ## Requisitos
 Antes de começar, certifique-se de:
