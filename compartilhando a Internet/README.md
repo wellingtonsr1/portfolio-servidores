@@ -38,6 +38,7 @@ Instale o iptable
 ```sh
 sudo apt update && sudo apt install iptables -y
 ```
+![install-iptable](imagens/install-iptable.png) 
 
 ## 3. Habilitando o Roteamento
 Ative o roteamento de pacotes:
