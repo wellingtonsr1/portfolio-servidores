@@ -82,10 +82,10 @@ Conecte um cliente à interface `enp0s8` e verifique se ele recebe um IP via DHC
 - Confirme as regras do iptables: `sudo iptables -L -t nat`
 - Teste a conectividade: a partir do cliente 
  
-ping 8.8.8.8:  
+`ping 8.8.8.8`  
 ![ping](imagens/ping.png)  
 
-`tracert 8.8.8.8`:  
+`tracert 8.8.8.8`  
 ![tracert](imagens/tracert.png) 
 
 
