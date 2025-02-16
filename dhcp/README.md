@@ -91,7 +91,8 @@ Acrescente no final do arquivo de configuração o nome do host e seu MAC:
    }
    ```
    ![Fixar IP](imagens/fixed_ip.png) 
-   
+
+Máquina windows  
    ![Fixar IP](imagens/fixedIP.png) 
    
 ### 7. Reiniciar e Habilitar o Serviço
