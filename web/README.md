@@ -140,7 +140,7 @@ Abra um navegador e digite o endereço do servidor:
   sudo a2ensite teste2.com.br.conf
   ```
   
-  ### 9. Reinicie o Apache:
+  ### 9. Reinicie o Apache
   ```bash
   sudo systemctl restart apache2
   ```
