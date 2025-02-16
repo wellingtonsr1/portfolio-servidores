@@ -116,7 +116,8 @@ Hospedar um site personalizado (Aqui, serão 2 como exemplos):
    ServerName teste1.com.br
    ServerAlias www.teste1.com.br
    DocumentRoot /var/www/teste1.com.br/public_html
-   ```
+   ```  
+   
     Para o site `teste2.com.br`
    ```bash
    ServerAdmin contato@teste2.com.br
