@@ -1,4 +1,5 @@
 # Compartilhando a Internet no Debian 12
+![internet](imagens/internet.webp)  
 
 Este guia descreve como configurar o compartilhamento de Internet no Debian 12, utilizando `iptables` 
 e o serviço DHCP para distribuir endereços IP a clientes conectados.
