@@ -12,7 +12,7 @@ Antes de começar, identifique suas interfaces de rede com o comando:
 ip a
 ```
 - Interface conectada à Internet: `enp0s3` (exemplo)
-- Interface que compartilhará a conexão: `enp0s8` (exemplo)
+- Interface que compartilhará a conexão: `enp0s8` (exemplo)  
 ![ip-a](imagens/ip-apng)  
 
 ### Configurando a Interface de Rede Interna
