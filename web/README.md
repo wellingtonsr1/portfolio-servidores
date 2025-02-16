@@ -141,24 +141,26 @@ Abra um navegador e digite o endereço do servidor:
   ```bash
   notepad %windir%\system32\drivers\etc\hosts
   ```
-   
+  ![hosts](imagens/hosts.png)
+  
   Acrescente as seguintes linas:
   ```bash
   IP_SERVIDOR teste1.com.br
   IP_SERVIDOR teste2.com.br
   ```
-   
+  ![hosts-config](imagens/hosts-config.png)
+  
 ## Testes  
 - Numa máquina cliente, acesse pelo navegador: 
   ```bash
   http:\\teste.1.com.br
   ```  
-  ![Servidor WEB](imagens/teste1.png)
+  ![teste1.com.br](imagens/teste1.png)
   
   ```bash
   http:\\teste.2.com.br
   ```
-  ![Servidor WEB](imagens/teste2.png)
+  ![teste2.com.br](imagens/teste2.png)
   
 ## Solução de Problemas
 - Se o serviço não iniciar, verifique os logs:
