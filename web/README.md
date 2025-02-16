@@ -18,7 +18,7 @@ Antes de começar, certifique-se de:
    ```
 
 ## Configuração do Servidor Web
-### 1 Verificar o Status do Serviço
+### 1. Verificar o Status do Serviço
 Após a instalação, verifique se o serviço está rodando:
    ```bash
    sudo systemctl status apache2
@@ -28,14 +28,14 @@ Após a instalação, verifique se o serviço está rodando:
    sudo systemctl enable apache2
    ```
 
-### 2 Configurar Firewall
+### 2. Configurar Firewall
 Se estiver usando o UFW, permita o tráfego HTTP e HTTPS:
    ```bash
    sudo ufw allow 'Apache Full'
    sudo ufw enable
    ```
 
-### 3 Testar a Instalação
+### 3. Testar a Instalação
 Abra um navegador e digite o endereço do servidor:
    ```
    http://seu_ip_servidor
