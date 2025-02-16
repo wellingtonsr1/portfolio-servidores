@@ -44,6 +44,7 @@ Abra um navegador e digite o endereço do servidor:
 
 ## Configuração Avançada
 - Hospedar um site personalizado (Aqui, serão 2 como exemplos):  
+
   Crie os diretórios para ambos os sites
   ```bash
   sudo mkdir -p /var/www/teste1.com.br/public_html
