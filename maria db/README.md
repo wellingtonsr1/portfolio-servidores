@@ -66,12 +66,17 @@ EXIT;
 CREATE DATABASE cadastro;
 ```
 
-### 2. Selecionar o banco
+### 2. Listar os bancos existentes
+```bash
+SHOW DATABASES;
+```
+
+### 3. Selecionar o banco
 ```bash
 USE cadastro;
 ```
 
-### 3. Criar uma Tabela
+### 4. Criar uma Tabela
 ```bash
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -81,7 +86,12 @@ CREATE TABLE usuarios (
 );
 ```
 
-### 4. Inserir Dados
+### 5. Listar as tabelas existentes
+```bash
+SHOW TABLES;
+```
+
+### 6. Inserir Dados
 ```bash
 INSERT INTO usuarios (nome, email, idade) VALUES
     ('Alice Silva', 'alice@email.com', 25),
@@ -89,17 +99,17 @@ INSERT INTO usuarios (nome, email, idade) VALUES
     ('Carla Souza', 'carla@email.com', 28);
 ```
 
-### 5. Exibir os dados da tabela
+### 7. Exibir os dados da tabela
 ```bash
 SELECT * FROM usuarios;
 ```
 
-### 6. Atualizar registro da tabela
+### 8. Atualizar registro da tabela
 ```bash
-UPDATE usuarios SET idade = 29 WHERE nome = 'Carla Souza'
+UPDATE usuarios SET idade = 29 WHERE nome = 'Carla Souza';
 ```
 
-### 7. Deletar registro da tabela
+### 9. Deletar registro da tabela
 ```bash
 DELETE FROM usuarios WHERE nome = 'Bruno Santos';
 ```
