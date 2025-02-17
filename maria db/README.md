@@ -59,6 +59,50 @@ GRANT ALL PRIVILEGES ON meu_banco.* TO 'meu_usuario'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
+## Uso básico do Banco de Dados
+
+### 1. Criar um banco
+```bash
+CREATE DATABASE cadastro;
+```
+
+### 2. Selecionar o banco
+```bash
+USE cadastro;
+```
+
+### 3. Criar uma Tabela
+```bash
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    idade INT NOT NULL
+);
+```
+
+### 4. Inserir Dados
+```bash
+INSERT INTO usuarios (nome, email, idade) VALUES
+    ('Alice Silva', 'alice@email.com', 25),
+    ('Bruno Santos', 'bruno@email.com', 30),
+    ('Carla Souza', 'carla@email.com', 28);
+```
+
+### 5. Exibir os dados da tabela
+```bash
+SELECT * FROM usuarios;
+```
+
+### 6. Atualizar registro da tabela
+```bash
+UPDATE usuarios SET idade = 29 WHERE nome = 'Carla Souza'
+```
+
+### 7. Deletar registro da tabela
+```bash
+DELETE FROM usuarios WHERE nome = 'Bruno Santos';
+```
 
 ## Manutenção e Monitoramento
 
