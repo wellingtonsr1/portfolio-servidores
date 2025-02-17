@@ -1,4 +1,5 @@
 # README: Instalação e Manutenção do MariaDB no Debian 12
+![Servidor de Banco de dados](imagens/mariaDB.webp) 
 
 ## Introdução
 MariaDB é um sistema de gerenciamento de banco de dados relacional (SGBD) de código aberto e um fork do MySQL. Este guia explica como instalar, configurar e manter o MariaDB no Debian 12.
