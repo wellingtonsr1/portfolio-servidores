@@ -65,16 +65,19 @@ EXIT;
 ```bash
 CREATE DATABASE cadastro;
 ```
+![Create database](imagens/createDB.png) 
 
 ### 2. Listar os bancos existentes
 ```bash
 SHOW DATABASES;
 ```
+![Show databases](imagens/showDB.png) 
 
 ### 3. Selecionar o banco
 ```bash
 USE cadastro;
 ```
+![Use database](imagens/useDB.png) 
 
 ### 4. Criar uma Tabela
 ```bash
@@ -85,11 +88,13 @@ CREATE TABLE usuarios (
     idade INT NOT NULL
 );
 ```
+![Create table](imagens/createTable.png) 
 
 ### 5. Listar as tabelas existentes
 ```bash
 SHOW TABLES;
 ```
+![Show tables](imagens/showTables.png) 
 
 ### 6. Inserir Dados
 ```bash
@@ -98,21 +103,27 @@ INSERT INTO usuarios (nome, email, idade) VALUES
     ('Bruno Santos', 'bruno@email.com', 30),
     ('Carla Souza', 'carla@email.com', 28);
 ```
+![Insert into](imagens/insertInto.png) 
 
 ### 7. Exibir os dados da tabela
 ```bash
 SELECT * FROM usuarios;
 ```
+![Select](imagens/select.png) 
 
 ### 8. Atualizar registro da tabela
 ```bash
 UPDATE usuarios SET idade = 29 WHERE nome = 'Carla Souza';
 ```
+![Update](imagens/update.png) 
+![SelectUP](imagens/selectUP.png) 
 
 ### 9. Deletar registro da tabela
 ```bash
 DELETE FROM usuarios WHERE nome = 'Bruno Santos';
 ```
+![Delete](imagens/delete.png) 
+![ShowDeleteUP](imagens/selectDel.png)
 
 ## Manutenção e Monitoramento
 
