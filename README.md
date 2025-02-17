@@ -1,4 +1,5 @@
 # Infraestrutura de Redes e Serviços  
+![Infra](imagens/servers.png)
 
 Este repositório contém configurações e scripts para a implementação de diversos serviços essenciais em um ambiente de rede, utilizando servidores Linux.  
 
