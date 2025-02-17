@@ -1,4 +1,4 @@
-# Instalação e Manutenção do MariaDB no Debian 12
+# Instalação, Uso e Manutenção do MariaDB no Debian 12
 ![Servidor de Banco de dados](imagens/mariaDB.webp) 
 
 ## Introdução
