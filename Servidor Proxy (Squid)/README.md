@@ -1,5 +1,5 @@
 # Servidor Proxy (Squid) no Debian 12
-![Infra](imagens/squid.png)
+![Infra](imagens/squid.webp)
 
 ## Introdução
 Este guia fornece instruções para instalar e configurar o servidor proxy Squid no Debian 12. O Squid é um proxy HTTP altamente configurável usado para otimização de rede, cache de conteúdo e controle de acesso.
