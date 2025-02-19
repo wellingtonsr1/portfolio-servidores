@@ -100,28 +100,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    ```bash
    sudo tail -f /var/log/squid/access.log
    ```
-
-## Segurança e Controle de Acesso
-- Para bloquear sites específicos:
-  1. Crie um arquivo de sites bloqueados:
-     ```bash
-     sudo nano /etc/squid/bloqueados
-     ```
-  2. Adicione domínios, um por linha, por exemplo:
-     ```
-     facebook.com
-     youtube.com
-     ```
-  3. Edite o `squid.conf` e adicione:
-     ```
-     acl sites_proibidos dstdomain "/etc/squid/bloqueados"
-     http_access deny sites_proibidos
-     ```
-  4. Reinicie o Squid:
-     ```bash
-     sudo systemctl restart squid
-     ```
-
+   
 ## Conclusão
 O Squid é uma ferramenta poderosa para gerenciamento de tráfego de rede, controle de acesso e cache. Com essas configurações básicas, é possível iniciar um proxy funcional e adaptá-lo conforme as necessidades da sua rede.
 
