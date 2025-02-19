@@ -31,30 +31,30 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 
 2. Exemplo de configuração:
    ```
-   #Porta Squid
+   # Porta Squid (Altere se necessário)
    http_port 3128
 
-   #Autenticação
+   # Configuração para Autenticação
    #auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/passwd
    #auth_param basic realm Squid
    #auth_param basic credentialsttl 30 minutes
 
-   #Cache
+   # Configuração de Cache
    cache_mem 1000 MB
    maximum_object_size 100 MB
    minimum_object_size 10 kB
    cache_dir ufs /var/spool/squid 2048 16 256
    cache_access_log /var/log/squid/access.log
 
-   #Máquinas Liberadas no Proxy
+   # Máquinas Liberadas
    #acl liberados src 10.200.0.1
    #cache_access allow liberados
 
-   #Bloqueio de domínios e palavras
+   # Bloqueios 
    acl bloqueados url_regex -i "/etc/squid/bloqueados"
    http_access deny bloqueados
 
-   #Bloqueio Download
+   # Bloqueio de Downloads
    #acl bloqueio_downloads url_regex -i "/etc/squid/bloqueio_downloads"
    #http_access deny bloqueados_downloads
 
