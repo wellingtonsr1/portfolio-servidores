@@ -69,9 +69,9 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 
 
 
-4. Salve e saia do editor (Ctrl + X, depois Y e Enter).
+3. Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
-5. Reinicie o Squid para aplicar as alterações:
+4. Reinicie o Squid para aplicar as alterações:
    ```bash
    sudo systemctl restart squid
    ```
@@ -105,7 +105,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 - Para bloquear sites específicos:
   1. Crie um arquivo de sites bloqueados:
      ```bash
-     sudo nano /etc/squid/blocked_sites.txt
+     sudo nano /etc/squid/bloqueados
      ```
   2. Adicione domínios, um por linha, por exemplo:
      ```
@@ -114,7 +114,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
      ```
   3. Edite o `squid.conf` e adicione:
      ```
-     acl sites_proibidos dstdomain "/etc/squid/blocked_sites.txt"
+     acl sites_proibidos dstdomain "/etc/squid/bloqueados"
      http_access deny sites_proibidos
      ```
   4. Reinicie o Squid:
