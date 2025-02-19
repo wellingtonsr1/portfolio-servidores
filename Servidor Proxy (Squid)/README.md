@@ -60,13 +60,13 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    # As linhas abaixo definem um bloqueio para downloads baseado em expressões regulares,  
    # verificando URLs listadas no arquivo "/etc/squid/bloqueio_downloads".  
    # Como estão comentadas, o bloqueio de downloads não está ativado.
-   #acl bloqueio_downloads url_regex -i "/etc/squid/bloqueio_downloads"
-   #http_access deny bloqueados_downloads
+   acl bloqueio_downloads url_regex -i "/etc/squid/bloqueio_downloads"
+   http_access deny bloqueados_downloads
 
    acl home.lan src 10.200.0.0/8 # Define uma ACL chamada "home.lan" para a rede 10.200.0.0/8  
    http_access allow localhost   # Permite acesso irrestrito à máquina local (localhost) 
    
-   # Autenticação com senha (desativada)  
+   # Autenticação com senha
    # Essas linhas configurariam a autenticação via proxy, exigindo credenciais.  
    acl password proxy_auth REQUIRED
    http_access allow password
@@ -85,9 +85,20 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    ```
    .facebook.com
    .youtube.com
-   ```
-   
+   ```   
 3.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
+
+4. Crie uma arquivo `bloqueio_downloads`:
+   ```bash
+   sudo nano /etc/squid/bloqueio_downloads
+   ```
+4.1 Insira as seguintes linhas (Por exemplo):
+   ```
+   \.mp4
+   \.mp3
+   \.exe
+   ```
+4.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
 5. Reinicie o Squid para aplicar as alterações:
    ```bash
