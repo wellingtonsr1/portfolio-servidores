@@ -76,7 +76,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 
    ```  
    
-2.1 Salve e saia do editor (Ctrl + X, depois Y e Enter).  
+   2.1 Salve e saia do editor (Ctrl + X, depois Y e Enter).  
 
 3. Crie uma arquivo `bloqueados`:
    ```bash
