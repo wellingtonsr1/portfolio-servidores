@@ -75,8 +75,6 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    http_access deny all       # Bloqueia qualquer outro acesso que não tenha sido explicitamente permitido acima  
 
    ```  
-   
-2.1 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
 3. Crie uma arquivo `bloqueados`:
    ```
@@ -88,8 +86,6 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
     .facebook.com
     .youtube.com
     ```   
-    
-3.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
 4. Crie uma arquivo `bloqueio_downloads`:
    ```
@@ -102,7 +98,6 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    \.mp3
    \.exe
    ```
-4.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
 5. Reinicie o Squid para aplicar as alterações:
    ```
