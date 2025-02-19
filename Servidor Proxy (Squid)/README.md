@@ -32,12 +32,14 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 2. Exemplo de configuração:
    ```
    # Porta Squid (Altere se necessário)
+   # Define a porta em que o Squid escutará conexões HTTP.
    http_port 3128
 
-   # Configuração para Autenticação
-   #auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
-   #auth_param basic realm Squid
-   #auth_param basic credentialsttl 30 minutes
+   # Configuração para Autenticação  
+   # Estas linhas configuram a autenticação básica no Squid usando um arquivo de senhas.   
+   auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd  # Define o programa de autenticação  
+   auth_param basic realm Squid                                               # Mensagem exibida no prompt de autenticação  
+   auth_param basic credentialsttl 30 minutes                                 # Tempo de cache das credenciais (evita solicitar senha com muita frequência)  
 
    # Configuração de Cache
    cache_mem 1000 MB
@@ -51,27 +53,43 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    #cache_access allow liberados
 
    # Bloqueios 
-   acl bloqueados url_regex -i "/etc/squid/bloqueados"
-   http_access deny bloqueados
+   acl bloqueados dstdomain "/etc/squid/bloqueados" # Cria uma ACL chamada "bloqueados" com domínios listados no arquivo "/etc/squid/bloqueados"    
+   http_access deny bloqueados                      # Bloqueia acesso aos domínios especificados na ACL "bloqueados"
 
-   # Bloqueio de Downloads
+   # Bloqueio de Downloads  
+   # As linhas abaixo definem um bloqueio para downloads baseado em expressões regulares,  
+   # verificando URLs listadas no arquivo "/etc/squid/bloqueio_downloads".  
+   # Como estão comentadas, o bloqueio de downloads não está ativado.
    #acl bloqueio_downloads url_regex -i "/etc/squid/bloqueio_downloads"
    #http_access deny bloqueados_downloads
 
-   acl home.lan src 10.200.0.0/8
-   http_access allow localhost
-   #acl password proxy_auth REQUIRED
-   #http_access allow password
-   http_access allow home.lan
-   http_access deny all
+   acl home.lan src 10.200.0.0/8 # Define uma ACL chamada "home.lan" para a rede 10.200.0.0/8  
+   http_access allow localhost   # Permite acesso irrestrito à máquina local (localhost) 
+   
+   # Autenticação com senha (desativada)  
+   # Essas linhas configurariam a autenticação via proxy, exigindo credenciais.  
+   acl password proxy_auth REQUIRED
+   http_access allow password
+   
+   http_access allow home.lan # Permite acesso irrestrito à rede "home.lan" 
+   http_access deny all       # Bloqueia qualquer outro acesso que não tenha sido explicitamente permitido acima  
 
    ```
+2.1 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
+3. Crie uma arquivo `bloqueados`:
+   ```bash
+   sudo nano /etc/squid/bloqueados
+   ```
+3.1 Insira as seguintes linhas (Por exemplo):
+   ```
+   .facebook.com
+   .youtube.com
+   ```
+   
+3.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
-
-3. Salve e saia do editor (Ctrl + X, depois Y e Enter).
-
-4. Reinicie o Squid para aplicar as alterações:
+5. Reinicie o Squid para aplicar as alterações:
    ```bash
    sudo systemctl restart squid
    ```
