@@ -81,25 +81,25 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    sudo nano /etc/squid/bloqueados
    ```
    
-3.1 Insira as seguintes linhas (Por exemplo):  
+4. Insira as seguintes linhas (Por exemplo):  
     ```bash
     .facebook.com
     .youtube.com
     ```   
 
-4. Crie uma arquivo `bloqueio_downloads`:
+5. Crie uma arquivo `bloqueio_downloads`:
    ```
    sudo nano /etc/squid/bloqueio_downloads
    ```
    
-4.1 Insira as seguintes linhas (Por exemplo):
+6. Insira as seguintes linhas (Por exemplo):
    ```
    \.mp4
    \.mp3
    \.exe
    ```
 
-5. Reinicie o Squid para aplicar as alterações:
+7. Reinicie o Squid para aplicar as alterações:
    ```
    sudo systemctl restart squid
    ```
