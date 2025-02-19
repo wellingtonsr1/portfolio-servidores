@@ -85,7 +85,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    
 3.1 Insira as seguintes linhas (Por exemplo):  
     ```
-    .facebook.com
+    .facebook.com  
     .youtube.com
     ```   
     
