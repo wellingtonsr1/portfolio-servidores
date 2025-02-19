@@ -29,16 +29,45 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    sudo nano /etc/squid/squid.conf
    ```
 
-2. Exemplo de configuração para permitir acesso a uma rede específica (exemplo: 192.168.1.0/24):
+2. Exemplo de configuração:
    ```
-   acl rede_local src 192.168.1.0/24
-   http_access allow rede_local
+   #Porta Squid
+   http_port 3128
+
+   #Autenticação
+   #auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/passwd
+   #auth_param basic realm Squid
+   #auth_param basic credentialsttl 30 minutes
+
+   #Cache
+   cache_mem 1000 MB
+   maximum_object_size 100 MB
+   minimum_object_size 10 kB
+   cache_dir ufs /var/spool/squid 2048 16 256
+   cache_access_log /var/log/squid/access.log
+
+   #Máquinas Liberadas no Proxy
+   #acl liberados src 10.200.0.1
+   #cache_access allow liberados
+
+   #Bloqueio de domínios e palavras
+   acl bloqueados url_regex -i "/etc/squid/bloqueados"
+   http_access deny bloqueados
+
+   #Bloqueio Download
+   #acl bloqueio_downloads url_regex -i "/etc/squid/bloqueio_downloads"
+   #http_access deny bloqueados_downloads
+
+   acl home.lan src 10.200.0.0/8
+   http_access allow localhost
+   #acl password proxy_auth REQUIRED
+   #http_access allow password
+   http_access allow home.lan
+   http_access deny all
+
    ```
 
-3. Altere a porta padrão (se necessário):
-   ```
-   http_port 3128
-   ```
+
 
 4. Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
