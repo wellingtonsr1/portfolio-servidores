@@ -82,6 +82,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    ```bash
    sudo nano /etc/squid/bloqueados
    ```
+   
 3.1 Insira as seguintes linhas (Por exemplo):
     ```
     .facebook.com
@@ -93,6 +94,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    ```bash
    sudo nano /etc/squid/bloqueio_downloads
    ```
+   
 4.1 Insira as seguintes linhas (Por exemplo):
    ```
    \.mp4
