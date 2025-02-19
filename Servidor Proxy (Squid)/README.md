@@ -74,7 +74,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    http_access allow home.lan # Permite acesso irrestrito à rede "home.lan" 
    http_access deny all       # Bloqueia qualquer outro acesso que não tenha sido explicitamente permitido acima  
 
-   ```
+   ```  
    
 2.1 Salve e saia do editor (Ctrl + X, depois Y e Enter).  
 
