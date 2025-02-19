@@ -104,7 +104,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
 4.2 Salve e saia do editor (Ctrl + X, depois Y e Enter).
 
 5. Reinicie o Squid para aplicar as alterações:
-   ```bash
+   ```
    sudo systemctl restart squid
    ```
 
