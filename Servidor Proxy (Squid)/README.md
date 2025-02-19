@@ -35,7 +35,7 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    http_port 3128
 
    # Configuração para Autenticação
-   #auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/passwd
+   #auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
    #auth_param basic realm Squid
    #auth_param basic credentialsttl 30 minutes
 
