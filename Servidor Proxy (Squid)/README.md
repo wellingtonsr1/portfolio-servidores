@@ -35,28 +35,38 @@ Este guia fornece instruções para instalar e configurar o servidor proxy Squid
    # Define a porta em que o Squid escutará conexões HTTP.
    http_port 3128
 
-   # Configuração para Autenticação  
+   ###########################################################################
+   # Configuração de Autenticação
+   ########################################################################### 
    # Estas linhas configuram a autenticação básica no Squid usando um arquivo de senhas.   
    auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd  # Define o programa de autenticação  
    auth_param basic realm Squid                                               # Mensagem exibida no prompt de autenticação  
    auth_param basic credentialsttl 30 minutes                                 # Tempo de cache das credenciais (evita solicitar senha com muita frequência)  
 
+   ###########################################################################
    # Configuração de Cache
+   ###########################################################################
    cache_mem 1000 MB
    maximum_object_size 100 MB
    minimum_object_size 10 kB
    cache_dir ufs /var/spool/squid 2048 16 256
    cache_access_log /var/log/squid/access.log
 
+   ###########################################################################
    # Máquinas Liberadas
-   #acl liberados src 10.200.0.1
-   #cache_access allow liberados
+   ###########################################################################
+   #acl adm src 10.200.0.150
+   #cache_access allow adm
 
+   ###########################################################################
    # Bloqueios 
+   ###########################################################################
    acl bloqueados dstdomain "/etc/squid/bloqueados" # Cria uma ACL chamada "bloqueados" com domínios listados no arquivo "/etc/squid/bloqueados"    
    http_access deny bloqueados                      # Bloqueia acesso aos domínios especificados na ACL "bloqueados"
 
+   ###########################################################################
    # Bloqueio de Downloads  
+   ###########################################################################
    # As linhas abaixo definem um bloqueio para downloads baseado em expressões regulares,  
    # verificando URLs listadas no arquivo "/etc/squid/bloqueio_downloads".  
    # Como estão comentadas, o bloqueio de downloads não está ativado.
