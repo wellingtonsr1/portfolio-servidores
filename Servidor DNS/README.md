@@ -1,6 +1,6 @@
 # README - Instalação, Uso e Manutenção do BIND no Debian 12
 
-## Introdução
+![Servidor DNS](imagens/DNS.webp)  
 O BIND (Berkeley Internet Name Domain) é um dos servidores DNS mais populares e amplamente utilizados. Este guia cobre a instalação, configuração básica, uso e manutenção do BIND no Debian 12.
 
 ---
