@@ -1,4 +1,5 @@
 # Controlador de Domínio com Samba
+![Controlador de domínio com SAMBA](controller-domain/samba.webp)
 
 Este documento descreve como configurar um **Controlador de Domínio (DC)** usando o **Samba** em um ambiente Linux. O Samba permite a implementação de um servidor **Active Directory (AD)** compatível com Windows, facilitando a autenticação centralizada e a gestão de usuários em redes corporativas.
 
