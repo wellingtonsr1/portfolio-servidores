@@ -1,76 +1,82 @@
-# Controlador de Domínio com Samba
+# Configurando um Controlador de Domínio com Samba no Debian 12
 ![Controlador de domínio com SAMBA](imagens/controller-domain.webp)
 
-Este documento descreve como configurar um **Controlador de Domínio (DC)** usando o **Samba** em um ambiente Linux. O Samba permite a implementação de um servidor **Active Directory (AD)** compatível com Windows, facilitando a autenticação centralizada e a gestão de usuários em redes corporativas.
+Este guia detalha o processo de configuração de um Controlador de Domínio (DC) utilizando o Samba no Debian 12. O Samba permite a implementação de um Active Directory (AD) compatível com o Windows, fornecendo autenticação centralizada para usuários e dispositivos.
 
 ## Requisitos
-- Servidor Linux (Ubuntu/Debian, CentOS/RHEL, etc.)
-- Pacotes necessários: Samba, Kerberos, Winbind, DNS
-- Acesso root ou privilégios administrativos
+- Servidor com Debian 12 instalado
+- Acesso root ou privilégios de sudo
+- Conectividade de rede estável
+- Nome de domínio definido (exemplo: `meudominio.local`)
+- IP fixo configurado
 
-## Instalação do Samba
-```bash
-sudo apt update && sudo apt install samba smbclient samba-dsdb-modules samba-vfs-modules winbind libnss-winbind libpam-winbind krb5-user
+## Passo 1: Atualizar o Sistema
+```sh
+sudo apt update && sudo apt upgrade -y
 ```
 
-## Configuração do Kerberos
-Edite o arquivo **/etc/krb5.conf**:
-```ini
-[libdefaults]
-default_realm = EXEMPLO.LOCAL
-dns_lookup_realm = false
-dns_lookup_kdc = true
+## Passo 2: Instalar Dependências
+```sh
+sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
+Durante a instalação, configure o Kerberos:
+- Domínio REALM: `MEUDOMINIO.LOCAL`
+- Servidor KDC: `meudc.meudominio.local`
+- Servidor de Admin: `meudc.meudominio.local`
 
-## Provisionamento do Domínio
-```bash
+## Passo 3: Configurar o Samba
+Pare os serviços do Samba antes da configuração:
+```sh
+sudo systemctl stop smbd nmbd winbind
+```
+Renomeie o arquivo de configuração padrão:
+```sh
+mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
+```
+Inicie a configuração do DC:
+```sh
 sudo samba-tool domain provision --use-rfc2307 --interactive
 ```
-Durante o processo, forneça:
-- Nome do domínio (exemplo.local)
-- Nome NetBIOS do domínio (EXEMPLO)
-- Senha do administrador do domínio
+Parâmetros importantes:
+- Nome do Domínio: `MEUDOMINIO`
+- Nome NETBIOS: `MEUDOMINIO`
+- Caminho do banco de dados: `/var/lib/samba`
+- Configuração de DNS: `BIND9_DLZ`
 
-## Configuração do DNS
-Para usar o Samba como servidor DNS interno:
-```bash
-sudo systemctl stop systemd-resolved
-sudo systemctl disable systemd-resolved
-sudo rm /etc/resolv.conf
+## Passo 4: Configurar o DNS
+Edite `/etc/resolv.conf`:
 ```
-Crie um novo **/etc/resolv.conf**:
-```ini
 nameserver 127.0.0.1
-search exemplo.local
+search meudominio.local
+```
+Teste a resolução de nomes:
+```sh
+dig meudominio.local
 ```
 
-## Iniciar os Serviços
-```bash
-sudo systemctl enable --now samba winbind
+## Passo 5: Habilitar e Iniciar os Serviços
+```sh
+sudo systemctl enable samba-ad-dc
+sudo systemctl start samba-ad-dc
 ```
 Verifique o status:
-```bash
-sudo systemctl status samba winbind
+```sh
+sudo systemctl status samba-ad-dc
 ```
 
-## Teste da Configuração
-Autentique-se no domínio:
-```bash
-kinit administrator@EXEMPLO.LOCAL
+## Passo 6: Criar Usuários e Administrar o Domínio
+Criar um usuário:
+```sh
+samba-tool user create usuario --random-password
 ```
-Verifique a conectividade:
-```bash
-smbclient -L localhost -U administrator
+Promover um usuário a administrador:
+```sh
+samba-tool group addmembers "Domain Admins" usuario
 ```
-
-## Adicionando um Cliente Windows ao Domínio
-1. No Windows, acesse **Configurações > Sistema > Sobre**
-2. Clique em **Alterar configurações** > **Mudar...**
-3. Selecione **Domínio** e insira `EXEMPLO.LOCAL`
-4. Insira as credenciais do administrador do domínio
-5. Reinicie o computador
 
 ## Conclusão
-Após seguir esses passos, seu Samba estará funcionando como um Controlador de Domínio, permitindo a autenticação centralizada de usuários e dispositivos em sua rede.
+Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
 
-
+### Recursos adicionais
+- [Documentação Oficial do Samba](https://wiki.samba.org)
+- [Guia de Troubleshooting](https://wiki.samba.org/index.php/Troubleshooting)
