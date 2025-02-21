@@ -1,5 +1,5 @@
 # Configurando um Controlador de Domínio com Samba no Debian 12
-![Controlador de domínio com SAMBA](imagens/controller-domain.webp)
+![Controlador de domínio com SAMBA](imagens/domain-controller.webp)
 
 Este guia detalha o processo de configuração de um Controlador de Domínio (DC) utilizando o Samba no Debian 12. O Samba permite a implementação de um Active Directory (AD) compatível com o Windows, fornecendo autenticação centralizada para usuários e dispositivos.
 
