@@ -316,7 +316,7 @@ Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-
 ### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
-#### **Arquivo `usuarios.csv` (Exemplo)**
+#### ### **18.1.1 **Arquivo `usuarios.csv` (Exemplo)**
 ```
 nome,senha,grupo
 joao,Senha123!,TI
@@ -324,7 +324,7 @@ maria,Senha456!,RH
 carlos,Senha789!,TI
 ```
 
-#### **Script `criar_usuarios.sh`**
+#### ### **18.1.2 **Script `criar_usuarios.sh`**
 ```bash
 #!/bin/bash
 
@@ -348,7 +348,6 @@ echo "Processo concluído!"
 chmod +x criar_usuarios.sh
 ./criar_usuarios.sh
 ```
-
 
 ### **18.2 Script para Resetar Senhas em Massa**
 Se precisar redefinir as senhas de vários usuários e obrigá-los a alterá-las no próximo login, use este script.
