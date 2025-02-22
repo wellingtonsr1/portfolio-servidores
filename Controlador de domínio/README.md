@@ -1,4 +1,4 @@
-# Configurando um Controlador de Domínio com Samba no Debian 12
+# Configurando um Controlador de Domínio com Samba no Debian 12 (Em atualização...)
 ![Controlador de domínio com SAMBA](imagens/domain-controller.webp)
 
 Este guia detalha o processo de configuração de um Controlador de Domínio (DC) utilizando o Samba no Debian 12. O Samba permite a implementação de um Active Directory (AD) compatível com o Windows, fornecendo autenticação centralizada para usuários e dispositivos.
@@ -7,7 +7,7 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 - Servidor com Debian 12 instalado
 - Acesso root ou privilégios de sudo
 - Conectividade de rede estável
-- Nome de domínio definido (exemplo: `meudominio.local`)
+- Nome de domínio definido (exemplo: `meudominio.com.br`)
 - IP fixo configurado
 
 ## 1. Alterar o nome do host
@@ -195,7 +195,6 @@ sudo systemctl status samba-ad-dc
   samba-tool dbcheck --cross-ncs
   ```
 
-
 ### **17.4 Gerenciamento de DNS**
 - Criar um novo registro DNS:  
   ```bash
@@ -209,7 +208,6 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool dns delete DC1 exemplo.com servidor A 192.168.1.10 -U administrador
   ```
-
 
 ### **17.5 Gerenciamento de Políticas de Segurança**
 - Definir política de senha (exemplo: mínimo de 12 caracteres):  
@@ -229,7 +227,6 @@ sudo systemctl status samba-ad-dc
   samba-tool user enable usuario123
   ```
 
-
 ### **17.6 Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
   ```bash
@@ -243,7 +240,6 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool gpo set "<GPO_ID>" --apply-on="OU=TI,DC=exemplo,DC=com"
   ```
-
 
 ### **17.7 Gerenciamento de Chaves Kerberos**
 - Listar chaves Kerberos no domínio:  
@@ -259,7 +255,6 @@ sudo systemctl status samba-ad-dc
   klist -e
   ```
 
-
 ### **17.8 Auditoria e Diagnóstico**
 - Verificar integridade da base de dados do AD:  
   ```bash
@@ -274,7 +269,6 @@ sudo systemctl status samba-ad-dc
   samba-tool user show usuario123
   ```
 
-
 ### **17.9 Exportação e Backup**
 - Exportar lista de usuários para JSON:  
   ```bash
@@ -288,7 +282,6 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool domain backup restore --backup-dir=/backup/samba
   ```
-
 
 ### **17.10 Gerenciamento de Compartilhamento de Arquivos**
 - Criar um novo compartilhamento:  
@@ -308,10 +301,8 @@ sudo systemctl status samba-ad-dc
   systemctl restart smbd
   ```
 
-
 ## 18. Aqui, alguns scripts para automação do uso do samba:
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
-
 
 ### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
@@ -367,7 +358,6 @@ done
 
 echo "Todas as senhas foram redefinidas."
 ```
-
 
 ### **18.3 Script para Criar e Aplicar uma GPO**
 Cria uma **GPO (Group Policy Object)** e a aplica a uma **Unidade Organizacional (OU)**.
