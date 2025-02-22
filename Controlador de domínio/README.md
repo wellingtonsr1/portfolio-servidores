@@ -431,9 +431,9 @@ echo "Verificando replicação entre controladores de domínio..."
 samba-tool drs showrepl > "$LOG"
 
 if grep -q "error" "$LOG"; then
-  echo "⚠️ Falha detectada na replicação do Samba AD! Verifique o log: $LOG"
+  echo "Falha detectada na replicação do Samba AD! Verifique o log: $LOG"
 else
-  echo "✅ Replicação funcionando corretamente."
+  echo "Replicação funcionando corretamente."
 fi
 ```
 
