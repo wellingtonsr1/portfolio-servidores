@@ -124,7 +124,7 @@ sudo samba-tool domain info 10.200.0.2
 
 ## 15. Testar a resolução de nomes:
 ```sh
-dig meudominio.local
+dig exemplo.com.br
 ```
 
 ## 16. Habilitar e Iniciar os Serviços
@@ -143,23 +143,25 @@ sudo systemctl status samba-ad-dc
 ### **17.1 Usuários**
 - Criar usuários:
   ```bash
-  samba-tool user create usuario123 SenhaForte!
+  sudo samba-tool user create usuario123 
+  New Password: SenhaForte!
+  Retype Password: SenhaForte!
   ```
 - Listar usuários:  
   ```bash
-  samba-tool user list
+  sudo samba-tool user list
   ```
 - Resetar senha de um usuário:  
   ```bash
-  samba-tool user setpassword usuario123 --newpassword=NovaSenha!
+  sudo samba-tool user setpassword usuario123 --newpassword=NovaSenha!
   ```
 - Definir que o usuário deve alterar a senha no próximo login:  
   ```bash
-  samba-tool user setpassword usuario123 --must-change-at-next-login
+  sudo samba-tool user setpassword usuario123 --must-change-at-next-login
   ```
 - Criar grupos:  
   ```bash
-  samba-tool group add TI
+  sudo samba-tool group add TI
   ```
 - Adicionar um usuário a um grupo:  
   ```bash
