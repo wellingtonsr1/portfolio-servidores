@@ -81,7 +81,7 @@ cat /etc/samba/smb.conf
 ```
 
 ## 9. Configurar o DNS
-Edite `/etc/resolv.conf`:
+Edite `sudo nano /etc/resolv.conf`:
 ```
 nameserver 127.0.0.1
 search meudominio.local
