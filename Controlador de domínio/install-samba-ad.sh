@@ -7,7 +7,7 @@
 # ---------------------------------------------------
 
 # Definição de Variáveis
-DOMINIO="exemplo.com"          # Defina o nome do seu domínio
+DOMINIO="exemplo.com.br"          # Defina o nome do seu domínio
 NETBIOS="EXEMPLO"              # Nome NetBIOS do domínio
 SENHA_ADMIN="SenhaForte123!"   # Defina uma senha segura para o Administrador do Samba
 LOG="/var/log/samba_install.log"
