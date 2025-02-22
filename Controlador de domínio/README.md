@@ -25,11 +25,14 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
 Durante a instalação, configure o Kerberos:
-- Domínio REALM: `MEUDOMINIO.LOCAL`  
+- Domínio REALM: `MEUDOMINIO.COM.BR`  
 ![default-kerberos](imagens/default-kerberos.png)
   
-- Servidor KDC: `meudc.meudominio.local`
-- Servidor de Admin: `meudc.meudominio.local`
+- Servidor KDC: `meudc.meudominio.local`  
+![kerberos-servers](imagens/kerberos-servers.png)
+
+- Servidor de Admin: `meudc.meudominio.local`  
+![administrative-server](imagens/administrative-server.png)  
 
 ## 4. Configurar o Samba
 Pare os serviços do Samba antes da configuração:
