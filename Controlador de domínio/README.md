@@ -249,7 +249,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-###**17.7. Gerenciamento de Chaves Kerberos**
+### **17.7. Gerenciamento de Chaves Kerberos**
 - Listar chaves Kerberos no domínio:  
   ```bash
   samba-tool kerberos list
