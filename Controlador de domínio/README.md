@@ -135,7 +135,7 @@ sudo systemctl status samba-ad-dc
 ```
 
 ## 17. Administrar o Domínio usando a ferramenta `samba-tool`:
-#### `OBS: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar o documentação.`
+#### `OBS: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar a documentação.`
 
 ### **17.1 Usuários**
 - Criar usuários:
