@@ -181,7 +181,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **3. Gerenciamento de Replicação do AD**
+### **17.3. Gerenciamento de Replicação do AD**
 - Forçar replicação entre DCs:  
   ```bash
   samba-tool drs replicate DC1 DC2 dc=exemplo,dc=com
@@ -197,7 +197,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **4. Gerenciamento de DNS**
+### **17.4. Gerenciamento de DNS**
 - Criar um novo registro DNS:  
   ```bash
   samba-tool dns add DC1 exemplo.com servidor A 192.168.1.10 -U administrador
@@ -213,7 +213,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **5. Gerenciamento de Políticas de Segurança**
+### **17.5. Gerenciamento de Políticas de Segurança**
 - Definir política de senha (exemplo: mínimo de 12 caracteres):  
   ```bash
   samba-tool domain passwordsettings set --min-pwd-length=12
@@ -233,7 +233,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **6. Administração de Group Policy Objects (GPO)**
+### **17.6. Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
   ```bash
   samba-tool gpo create "Bloqueio de USB" --description="Restringe uso de USB"
@@ -249,7 +249,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **7. Gerenciamento de Chaves Kerberos**
+###**17.7. Gerenciamento de Chaves Kerberos**
 - Listar chaves Kerberos no domínio:  
   ```bash
   samba-tool kerberos list
@@ -265,7 +265,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **8. Auditoria e Diagnóstico**
+### **17.8. Auditoria e Diagnóstico**
 - Verificar integridade da base de dados do AD:  
   ```bash
   samba-tool dbcheck --fix
@@ -281,7 +281,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **9. Exportação e Backup**
+### **17.9. Exportação e Backup**
 - Exportar lista de usuários para JSON:  
   ```bash
   samba-tool user list --json > usuarios.json
@@ -297,7 +297,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## **10. Gerenciamento de Compartilhamento de Arquivos**
+### **17.10. Gerenciamento de Compartilhamento de Arquivos**
 - Criar um novo compartilhamento:  
   ```bash
   mkdir /srv/compartilhado
@@ -317,7 +317,7 @@ sudo systemctl status samba-ad-dc
 
 ---
 
-## Aqui, alguns scripts para automação do uso do samba:
+## 18. Aqui, alguns scripts para automação do uso do samba:
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
 
 ---
