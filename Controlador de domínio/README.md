@@ -44,13 +44,13 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
 Durante a instalação, configure o Kerberos:
-- Domínio REALM: `MEUDOMINIO.COM.BR`  
+- Default Kerberos version 5 realm: `exemplo.com.br`  
 ![default-kerberos](imagens/default-kerberos.png)
   
-- Servidor KDC: `meudc.meudominio.com.br`  
+- Kerberos servers for your realm: `dc.exemplo.com.br`  
 ![kerberos-servers](imagens/kerberos-servers.png)
 
-- Servidor de Admin: `meudc.meudominio.com.br`  
+- Administrative server for your Kerberos realm: `dc.exemplo.com.br`  
 ![administrative-server](imagens/administrative-server.png)  
 
 ## 7. Configurar o Samba
@@ -70,7 +70,7 @@ sudo samba-tool domain provision --use-rfc2307 --interactive
 ```
 Parâmetros importantes:
 - Realm: "domínio"
-- Domain ["domínio"]:
+- Domain ["domínio"]: `<ENTER>`
 - Server role...[DC]: `<ENTER>`
 - DNS backend...[SAMBA_INTERNAL]: `<ENTER>`
 - DNS forwarder...[8.8.8.8]: 10.200.0.2
@@ -81,6 +81,7 @@ Parâmetros importantes:
 ```bash
 cat /etc/samba/smb.conf
 ```
+![smb-conf](imagens/smb-conf.png)  
 
 ## 9. Configurar o DNS
 Edite:  
