@@ -15,7 +15,7 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 sudo nano /etc/hostname
 ```
 
-## 2. Configurar interface de rede...
+## 2. Configurar interface de rede
 ```bash
 sudo nano /etc/network/interface
 ```
@@ -27,7 +27,7 @@ sudo systemctl restart networking
 ```
 ![restart interfaces](imagens/restart-net.png) 
 
-## 4. Checando os IPs
+## 4. Checandar os IPs
 ```bash
 ip -4 a
 ```
@@ -75,7 +75,7 @@ Parâmetros importantes:
 - Administrator password: `<SENHA-FORTE>`
 - Retype password: `<SENHA-FORTE>`
 
-## 8. Checando o conteúdo do smb.conf
+## 8. Checar o conteúdo do smb.conf
 ```bash
 cat /etc/samba/smb.conf
 ```
@@ -92,7 +92,7 @@ search meudominio.local
 sudo cp /var/lib/samba/private/krb5.conf /etc
 ```
 
-## 11. Mudando o nome do serviço do samba para samba-ad-dc
+## 11. Mudandar o nome do serviço do samba para samba-ad-dc
 ```bash
 sudo systemctl stop smbd nmbd winbind
 sudo systemctl disable smbd nmbd winbind
@@ -101,7 +101,7 @@ sudo systemctl start samba-ad-dc
 sudo systemctl enable samba-ad-dc
 ```
 
-## 12. Consultando o status do serviço
+## 12. Consultar o status do serviço
 ```bash
 sudo smbclient -L localhost -U%
 ```
@@ -116,7 +116,7 @@ sudo samba-tool domain level show
 sudo samba-tool domain info 10.200.0.2
 ```
 
-## 15. Teste a resolução de nomes:
+## 15. Testar a resolução de nomes:
 ```sh
 dig meudominio.local
 ```
@@ -179,7 +179,6 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool domain list
   ```
-
 
 ### **17.3 Gerenciamento de Replicação do AD**
 - Forçar replicação entre DCs:  
@@ -301,7 +300,7 @@ sudo systemctl status samba-ad-dc
   systemctl restart smbd
   ```
 
-## 18. Aqui, alguns scripts para automação do uso do samba:
+## 18. Aqui, alguns scripts para automação:
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
 
 ### **18.1 Script para Criar Usuários em Massa**
