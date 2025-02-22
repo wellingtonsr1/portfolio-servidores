@@ -316,7 +316,7 @@ Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-
 ### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
-#### ### **18.1.1 Arquivo `usuarios.csv` (Exemplo)**
+#### **18.1.1 Arquivo `usuarios.csv` (Exemplo)**
 ```
 nome,senha,grupo
 joao,Senha123!,TI
