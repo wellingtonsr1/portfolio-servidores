@@ -44,8 +44,8 @@ systemctl stop smbd nmbd winbind || log_error "Falha ao parar os serviços."
 
 # Backup de arquivos de configuração existentes
 log_info "Realizando backup das configurações antigas..."
-[ -f /etc/samba/smb.conf ] && mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
-[ -f /etc/krb5.conf ] && mv /etc/krb5.conf /etc/krb5.conf.bkp
+[ -f /etc/samba/smb.conf ] && mv /etc/samba/smb.conf /etc/samba/smb.conf.old
+[ -f /etc/krb5.conf ] && mv /etc/krb5.conf /etc/krb5.conf.old
 
 # Configuração do Samba como Controlador de Domínio
 log_info "Configurando o Samba como Controlador de Domínio..."
