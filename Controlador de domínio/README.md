@@ -24,6 +24,8 @@ sudo nano /etc/network/interfaces
 ## 3. Reiniciar o serviço de rede
 ```bash
 sudo systemctl restart networking
+ou
+sudo systemctl restart systemd-networkd
 ```
 ![restart interfaces](imagens/restart-net.png) 
 
