@@ -132,7 +132,7 @@ sudo systemctl status samba-ad-dc
 ```
 
 ## 17. Criar Usuários e Administrar o Domínio:
-## **17.1 Usuários**
+### **17.1 Usuários**
 - Criar usários:
   ```bash
   samba-tool user create usuario123 SenhaForte!
@@ -161,7 +161,7 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool group removemembers TI usuario123
   ```
-## **17.2. Administração de Domínio**
+### **17.2. Administração de Domínio**
 - Criar um novo domínio Samba AD:  
   ```bash
   samba-tool domain provision --realm=EXEMPLO.COM --domain=EXEMPLO --adminpass=SenhaForte! --server-role=dc
