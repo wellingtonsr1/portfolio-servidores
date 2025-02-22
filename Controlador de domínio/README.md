@@ -134,7 +134,7 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 
-## 17. Administrar o Domínio (Usando a ferramenta `samba-tool`):
+## 17. Administrar o Domínio usando a ferramenta `samba-tool`:
 ### **17.1 Usuários**
 - Criar usuários:
   ```bash
@@ -435,7 +435,7 @@ chmod +x monitorar_replicacao.sh
 ./monitorar_replicacao.sh
 ```
 
-## 19. Administrar o Domínio (Usando o RSAT - Remote Server Administration Tools):
+## 19. Administrar o Domínio usando o `RSAT (Remote Server Administration Tools)`:
 
 
 ## Conclusão
