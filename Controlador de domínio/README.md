@@ -15,8 +15,25 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 sudo nano /etc/hostname
 ```
 
+## 2. Configurar interface de rede...
+```bash
+sudo nano /etc/network/interface
+```
+![conf de interfaces](imagens/interfaces.png)  
+
+## Reiniciar o serviço de rede
+```bash
+sudo systemctl restart networking
+```
+![restart interfaces](imagens/restart-net.png) 
+
+## Checando os IPs
+```bash
+ip -4 a
+```
+
 ## 2. Atualizar o Sistema
-```sh
+```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
@@ -28,10 +45,10 @@ Durante a instalação, configure o Kerberos:
 - Domínio REALM: `MEUDOMINIO.COM.BR`  
 ![default-kerberos](imagens/default-kerberos.png)
   
-- Servidor KDC: `meudc.meudominio.local`  
+- Servidor KDC: `meudc.meudominio.com.br`  
 ![kerberos-servers](imagens/kerberos-servers.png)
 
-- Servidor de Admin: `meudc.meudominio.local`  
+- Servidor de Admin: `meudc.meudominio.com.br`  
 ![administrative-server](imagens/administrative-server.png)  
 
 ## 4. Configurar o Samba
@@ -41,30 +58,70 @@ sudo systemctl stop smbd nmbd winbind
 ```
 Renomeie o arquivo de configuração padrão:
 ```sh
-mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
-```
+sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.old
+```  
+![backup-smbd](imagens/backup-smbd.png)
+
 Inicie a configuração do DC:
 ```sh
 sudo samba-tool domain provision --use-rfc2307 --interactive
 ```
 Parâmetros importantes:
-- Nome do Domínio: `MEUDOMINIO`
-- Nome NETBIOS: `MEUDOMINIO`
-- Caminho do banco de dados: `/var/lib/samba`
-- Configuração de DNS: `BIND9_DLZ`
+- Realm: "domínio"
+- Domain ["domínio"]:
+- Server role...[DC]: <ENTER>
+- DNS backend...[SAMBA_INTERNAL]: <ENTER>
+- DNS forwarder...[8.8.8.8]: 10.200.0.2
+- Administrator password: <SENHA-FORTE>
+- Retype password: <SENHA-FORTE>
 
-## 5. Configurar o DNS
+## 5. Checando o conteúdo do smb.conf
+```bash
+cat /etc/samba/smb.conf
+```
+
+## 6. Configurar o DNS
 Edite `/etc/resolv.conf`:
 ```
 nameserver 127.0.0.1
 search meudominio.local
 ```
-Teste a resolução de nomes:
+
+## 7. Copiar o arquivo krb5.conf
+```bash
+sudo cp /var/lib/samba/private/krb5.conf /etc
+```
+
+## 8. Mudando o nome do serviço do samba para samba-ad-dc
+```bash
+sudo systemctl stop smbd nmbd winbind
+sudo systemctl disable smbd nmbd winbind
+sudo systemctl unmask samba-ad-dc
+sudo systemctl start samba-ad-dc
+sudo systemctl enable samba-ad-dc
+```
+
+## 9. Consultando o status do serviço
+```bash
+sudo smbclient -L localhost -U%
+```
+
+## 10. Exibir o domínio
+```bash
+sudo samba-tool domain level show
+```
+
+## 11. Exibir informaações do nosso servidor
+```bash
+sudo samba-tool domain info 10.200.0.2
+```
+
+## 12. Teste a resolução de nomes:
 ```sh
 dig meudominio.local
 ```
 
-## 6. Habilitar e Iniciar os Serviços
+## 13. Habilitar e Iniciar os Serviços
 ```sh
 sudo systemctl enable samba-ad-dc
 sudo systemctl start samba-ad-dc
@@ -74,7 +131,7 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 
-## Passo 6: Criar Usuários e Administrar o Domínio
+## 14. Criar Usuários e Administrar o Domínio
 Criar um usuário:
 ```sh
 samba-tool user create usuario --random-password
