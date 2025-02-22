@@ -17,7 +17,7 @@ sudo nano /etc/hostname
 
 ## 2. Configurar interface de rede
 ```bash
-sudo nano /etc/network/interface
+sudo nano /etc/network/interfaces
 ```
 ![conf de interfaces](imagens/interfaces.png)  
 
