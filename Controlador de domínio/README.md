@@ -316,7 +316,7 @@ Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-
 ### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
-#### **18.1.1 Arquivo `usuarios.csv` (Exemplo)**
+#### **Arquivo `usuarios.csv` (Exemplo)**
 ```
 nome,senha,grupo
 joao,Senha123!,TI
@@ -324,7 +324,7 @@ maria,Senha456!,RH
 carlos,Senha789!,TI
 ```
 
-#### **18.1.2 Script `criar_usuarios.sh`**
+#### **Script `criar_usuarios.sh`**
 ```bash
 #!/bin/bash
 
@@ -392,7 +392,6 @@ else
 fi
 ```
 
-
 ### **18.4 Script para Backup e Restauração do Samba**
 Este script faz um backup do banco de dados do Samba e permite restaurá-lo quando necessário.
 
@@ -418,7 +417,6 @@ echo "Para restaurar, use: samba-tool domain backup restore --backup-dir=$BACKUP
 chmod +x backup_samba.sh
 ./backup_samba.sh
 ```
-
 
 ### **18.5 Script para Monitorar Replicação do AD**
 Este script verifica e alerta se há falhas na replicação entre controladores de domínio.
