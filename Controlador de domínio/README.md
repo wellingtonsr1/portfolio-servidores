@@ -316,7 +316,7 @@ Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-
 ### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
-### **Arquivo `usuarios.csv` (Exemplo)**
+#### **Arquivo `usuarios.csv` (Exemplo)**
 ```
 nome,senha,grupo
 joao,Senha123!,TI
@@ -324,7 +324,7 @@ maria,Senha456!,RH
 carlos,Senha789!,TI
 ```
 
-### **Script `criar_usuarios.sh`**
+#### **Script `criar_usuarios.sh`**
 ```bash
 #!/bin/bash
 
@@ -353,7 +353,7 @@ chmod +x criar_usuarios.sh
 ### **18.2 Script para Resetar Senhas em Massa**
 Se precisar redefinir as senhas de vários usuários e obrigá-los a alterá-las no próximo login, use este script.
 
-### **Script `resetar_senhas.sh`**
+#### **Script `resetar_senhas.sh`**
 ```bash
 #!/bin/bash
 
@@ -373,7 +373,7 @@ echo "Todas as senhas foram redefinidas."
 ### **18.3 Script para Criar e Aplicar uma GPO**
 Cria uma **GPO (Group Policy Object)** e a aplica a uma **Unidade Organizacional (OU)**.
 
-### **Script `criar_gpo.sh`**
+#### **Script `criar_gpo.sh`**
 ```bash
 #!/bin/bash
 
@@ -397,7 +397,7 @@ fi
 ### **18.4 Script para Backup e Restauração do Samba**
 Este script faz um backup do banco de dados do Samba e permite restaurá-lo quando necessário.
 
-### **Script `backup_samba.sh`**
+#### **Script `backup_samba.sh`**
 ```bash
 #!/bin/bash
 
@@ -424,7 +424,7 @@ chmod +x backup_samba.sh
 ### **18.5 Script para Monitorar Replicação do AD**
 Este script verifica e alerta se há falhas na replicação entre controladores de domínio.
 
-### **Script `monitorar_replicacao.sh`**
+#### **Script `monitorar_replicacao.sh`**
 ```bash
 #!/bin/bash
 
