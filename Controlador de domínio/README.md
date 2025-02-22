@@ -161,6 +161,7 @@ sudo systemctl status samba-ad-dc
   ```bash
   samba-tool group removemembers TI usuario123
   ```
+  
 ### **17.2. Administração de Domínio**
 - Criar um novo domínio Samba AD:  
   ```bash
@@ -179,7 +180,6 @@ sudo systemctl status samba-ad-dc
   samba-tool domain list
   ```
 
----
 
 ### **17.3. Gerenciamento de Replicação do AD**
 - Forçar replicação entre DCs:  
@@ -195,7 +195,6 @@ sudo systemctl status samba-ad-dc
   samba-tool dbcheck --cross-ncs
   ```
 
----
 
 ### **17.4. Gerenciamento de DNS**
 - Criar um novo registro DNS:  
@@ -211,7 +210,6 @@ sudo systemctl status samba-ad-dc
   samba-tool dns delete DC1 exemplo.com servidor A 192.168.1.10 -U administrador
   ```
 
----
 
 ### **17.5. Gerenciamento de Políticas de Segurança**
 - Definir política de senha (exemplo: mínimo de 12 caracteres):  
@@ -231,7 +229,6 @@ sudo systemctl status samba-ad-dc
   samba-tool user enable usuario123
   ```
 
----
 
 ### **17.6. Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
@@ -247,7 +244,6 @@ sudo systemctl status samba-ad-dc
   samba-tool gpo set "<GPO_ID>" --apply-on="OU=TI,DC=exemplo,DC=com"
   ```
 
----
 
 ### **17.7. Gerenciamento de Chaves Kerberos**
 - Listar chaves Kerberos no domínio:  
@@ -263,7 +259,6 @@ sudo systemctl status samba-ad-dc
   klist -e
   ```
 
----
 
 ### **17.8. Auditoria e Diagnóstico**
 - Verificar integridade da base de dados do AD:  
@@ -279,7 +274,6 @@ sudo systemctl status samba-ad-dc
   samba-tool user show usuario123
   ```
 
----
 
 ### **17.9. Exportação e Backup**
 - Exportar lista de usuários para JSON:  
@@ -295,7 +289,6 @@ sudo systemctl status samba-ad-dc
   samba-tool domain backup restore --backup-dir=/backup/samba
   ```
 
----
 
 ### **17.10. Gerenciamento de Compartilhamento de Arquivos**
 - Criar um novo compartilhamento:  
@@ -315,14 +308,12 @@ sudo systemctl status samba-ad-dc
   systemctl restart smbd
   ```
 
----
 
 ## 18. Aqui, alguns scripts para automação do uso do samba:
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
 
----
 
-## **1. Script para Criar Usuários em Massa**
+### **18.1. Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
 ### **Arquivo `usuarios.csv` (Exemplo)**
@@ -358,9 +349,8 @@ chmod +x criar_usuarios.sh
 ./criar_usuarios.sh
 ```
 
----
 
-## **2. Script para Resetar Senhas em Massa**
+### **18.2. Script para Resetar Senhas em Massa**
 Se precisar redefinir as senhas de vários usuários e obrigá-los a alterá-las no próximo login, use este script.
 
 ### **Script `resetar_senhas.sh`**
@@ -379,9 +369,8 @@ done
 echo "Todas as senhas foram redefinidas."
 ```
 
----
 
-## **3. Script para Criar e Aplicar uma GPO**
+### **18.3. Script para Criar e Aplicar uma GPO**
 Cria uma **GPO (Group Policy Object)** e a aplica a uma **Unidade Organizacional (OU)**.
 
 ### **Script `criar_gpo.sh`**
@@ -404,9 +393,8 @@ else
 fi
 ```
 
----
 
-## **4. Script para Backup e Restauração do Samba**
+### **18.4. Script para Backup e Restauração do Samba**
 Este script faz um backup do banco de dados do Samba e permite restaurá-lo quando necessário.
 
 ### **Script `backup_samba.sh`**
@@ -432,9 +420,8 @@ chmod +x backup_samba.sh
 ./backup_samba.sh
 ```
 
----
 
-## **5. Script para Monitorar Replicação do AD**
+### **18.5. Script para Monitorar Replicação do AD**
 Este script verifica e alerta se há falhas na replicação entre controladores de domínio.
 
 ### **Script `monitorar_replicacao.sh`**
@@ -458,11 +445,6 @@ fi
 chmod +x monitorar_replicacao.sh
 ./monitorar_replicacao.sh
 ```
-
----
-
-## **Conclusão**
-Esses scripts automatizam tarefas essenciais no Samba AD, reduzindo o tempo gasto com administração e minimizando erros. Se precisar de mais scripts personalizados, é só pedir! 🚀
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
