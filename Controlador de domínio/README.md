@@ -7,7 +7,7 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 - Servidor com Debian 12 instalado
 - Acesso root ou privilégios de sudo
 - Conectividade de rede estável
-- Nome de domínio definido (exemplo: `meudominio.com.br`)
+- Nome de domínio definido (exemplo: `exemplo.com.br`)
 - IP fixo configurado
 
 ## 1. Alterar o nome do host
