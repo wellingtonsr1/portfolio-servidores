@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------
-# Script Profissional para Instalação do Samba AD no Debian 12
+# Script para Instalação do Samba AD no Debian 12
 # Autor: Wellington
 # Descrição: Instala e configura um Controlador de Domínio Samba no Debian 12
 # Versão: 2.0
