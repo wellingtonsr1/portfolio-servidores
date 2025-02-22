@@ -21,23 +21,23 @@ sudo nano /etc/network/interface
 ```
 ![conf de interfaces](imagens/interfaces.png)  
 
-## Reiniciar o serviço de rede
+## 3. Reiniciar o serviço de rede
 ```bash
 sudo systemctl restart networking
 ```
 ![restart interfaces](imagens/restart-net.png) 
 
-## Checando os IPs
+## 4. Checando os IPs
 ```bash
 ip -4 a
 ```
 
-## 2. Atualizar o Sistema
+## 5. Atualizar o Sistema
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-## 3. Instalar o samba e suas dependências
+## 6. Instalar o samba e suas dependências
 ```sh
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
@@ -51,7 +51,7 @@ Durante a instalação, configure o Kerberos:
 - Servidor de Admin: `meudc.meudominio.com.br`  
 ![administrative-server](imagens/administrative-server.png)  
 
-## 4. Configurar o Samba
+## 7. Configurar o Samba
 Pare os serviços do Samba antes da configuração:
 ```sh
 sudo systemctl stop smbd nmbd winbind
@@ -75,24 +75,24 @@ Parâmetros importantes:
 - Administrator password: `<SENHA-FORTE>`
 - Retype password: `<SENHA-FORTE>`
 
-## 5. Checando o conteúdo do smb.conf
+## 8. Checando o conteúdo do smb.conf
 ```bash
 cat /etc/samba/smb.conf
 ```
 
-## 6. Configurar o DNS
+## 9. Configurar o DNS
 Edite `/etc/resolv.conf`:
 ```
 nameserver 127.0.0.1
 search meudominio.local
 ```
 
-## 7. Copiar o arquivo krb5.conf
+## 10. Copiar o arquivo krb5.conf
 ```bash
 sudo cp /var/lib/samba/private/krb5.conf /etc
 ```
 
-## 8. Mudando o nome do serviço do samba para samba-ad-dc
+## 11. Mudando o nome do serviço do samba para samba-ad-dc
 ```bash
 sudo systemctl stop smbd nmbd winbind
 sudo systemctl disable smbd nmbd winbind
@@ -101,27 +101,27 @@ sudo systemctl start samba-ad-dc
 sudo systemctl enable samba-ad-dc
 ```
 
-## 9. Consultando o status do serviço
+## 12. Consultando o status do serviço
 ```bash
 sudo smbclient -L localhost -U%
 ```
 
-## 10. Exibir o domínio
+## 13. Exibir o domínio
 ```bash
 sudo samba-tool domain level show
 ```
 
-## 11. Exibir informações do nosso servidor
+## 14. Exibir informações do nosso servidor
 ```bash
 sudo samba-tool domain info 10.200.0.2
 ```
 
-## 12. Teste a resolução de nomes:
+## 15. Teste a resolução de nomes:
 ```sh
 dig meudominio.local
 ```
 
-## 13. Habilitar e Iniciar os Serviços
+## 16. Habilitar e Iniciar os Serviços
 ```sh
 sudo systemctl enable samba-ad-dc
 sudo systemctl start samba-ad-dc
@@ -131,7 +131,7 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 
-## 14. Criar Usuários e Administrar o Domínio
+## 17. Criar Usuários e Administrar o Domínio
 Criar um usuário:
 ```sh
 samba-tool user create usuario --random-password
