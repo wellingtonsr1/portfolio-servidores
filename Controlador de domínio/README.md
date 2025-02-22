@@ -83,7 +83,7 @@ cat /etc/samba/smb.conf
 ## 9. Configurar o DNS
 Edite:  
 ```bash
-sudo nano /etc/resolv.conf`
+sudo nano /etc/resolv.conf
 ```
 ```
 nameserver 127.0.0.1
