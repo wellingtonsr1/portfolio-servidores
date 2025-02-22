@@ -69,8 +69,8 @@ Inicie a configuração do DC:
 sudo samba-tool domain provision --use-rfc2307 --interactive
 ```
 Parâmetros importantes:
-- Realm: "domínio"
-- Domain ["domínio"]: `<ENTER>`
+- Realm: "exemplo.com.br"
+- Domain ["exemplo"]: `<ENTER>`
 - Server role...[DC]: `<ENTER>`
 - DNS backend...[SAMBA_INTERNAL]: `<ENTER>`
 - DNS forwarder...[8.8.8.8]: 10.200.0.2
@@ -90,7 +90,7 @@ sudo nano /etc/resolv.conf
 ```
 ```
 nameserver 127.0.0.1
-search meudominio.local
+search exemplo.com.br
 ```
 
 ## 10. Copiar o arquivo krb5.conf
