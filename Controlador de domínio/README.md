@@ -37,7 +37,7 @@ ip -4 a
 sudo apt update && sudo apt upgrade -y
 ```
 
-## 3. Instalar Dependências
+## 3. Instalar o samba e suas dependências
 ```sh
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
@@ -69,11 +69,11 @@ sudo samba-tool domain provision --use-rfc2307 --interactive
 Parâmetros importantes:
 - Realm: "domínio"
 - Domain ["domínio"]:
-- Server role...[DC]: <ENTER>
-- DNS backend...[SAMBA_INTERNAL]: <ENTER>
+- Server role...[DC]: `<ENTER>`
+- DNS backend...[SAMBA_INTERNAL]: `<ENTER>`
 - DNS forwarder...[8.8.8.8]: 10.200.0.2
-- Administrator password: <SENHA-FORTE>
-- Retype password: <SENHA-FORTE>
+- Administrator password: `<SENHA-FORTE>`
+- Retype password: `<SENHA-FORTE>`
 
 ## 5. Checando o conteúdo do smb.conf
 ```bash
@@ -111,7 +111,7 @@ sudo smbclient -L localhost -U%
 sudo samba-tool domain level show
 ```
 
-## 11. Exibir informaações do nosso servidor
+## 11. Exibir informações do nosso servidor
 ```bash
 sudo samba-tool domain info 10.200.0.2
 ```
