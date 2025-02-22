@@ -324,7 +324,7 @@ maria,Senha456!,RH
 carlos,Senha789!,TI
 ```
 
-#### ### **18.1.2 **Script `criar_usuarios.sh`**
+#### **18.1.2 **Script `criar_usuarios.sh`**
 ```bash
 #!/bin/bash
 
