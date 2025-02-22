@@ -10,21 +10,28 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 - Nome de domínio definido (exemplo: `meudominio.local`)
 - IP fixo configurado
 
-## Passo 1: Atualizar o Sistema
+## 1. Alterar o nome do host
+```bash
+sudo nano /etc/hostname
+```
+
+## 2. Atualizar o Sistema
 ```sh
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Passo 2: Instalar Dependências
+## 3. Instalar Dependências
 ```sh
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
 Durante a instalação, configure o Kerberos:
 - Domínio REALM: `MEUDOMINIO.LOCAL`
+![default-kerberos](imagens/default-kerberos.png)
+  
 - Servidor KDC: `meudc.meudominio.local`
 - Servidor de Admin: `meudc.meudominio.local`
 
-## Passo 3: Configurar o Samba
+## 4. Configurar o Samba
 Pare os serviços do Samba antes da configuração:
 ```sh
 sudo systemctl stop smbd nmbd winbind
@@ -43,7 +50,7 @@ Parâmetros importantes:
 - Caminho do banco de dados: `/var/lib/samba`
 - Configuração de DNS: `BIND9_DLZ`
 
-## Passo 4: Configurar o DNS
+## 5. Configurar o DNS
 Edite `/etc/resolv.conf`:
 ```
 nameserver 127.0.0.1
@@ -54,7 +61,7 @@ Teste a resolução de nomes:
 dig meudominio.local
 ```
 
-## Passo 5: Habilitar e Iniciar os Serviços
+## 6. Habilitar e Iniciar os Serviços
 ```sh
 sudo systemctl enable samba-ad-dc
 sudo systemctl start samba-ad-dc
