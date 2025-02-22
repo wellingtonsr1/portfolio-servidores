@@ -162,7 +162,7 @@ sudo systemctl status samba-ad-dc
   samba-tool group removemembers TI usuario123
   ```
   
-### **17.2. Administração de Domínio**
+### **17.2 Administração de Domínio**
 - Criar um novo domínio Samba AD:  
   ```bash
   samba-tool domain provision --realm=EXEMPLO.COM --domain=EXEMPLO --adminpass=SenhaForte! --server-role=dc
@@ -181,7 +181,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.3. Gerenciamento de Replicação do AD**
+### **17.3 Gerenciamento de Replicação do AD**
 - Forçar replicação entre DCs:  
   ```bash
   samba-tool drs replicate DC1 DC2 dc=exemplo,dc=com
@@ -196,7 +196,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.4. Gerenciamento de DNS**
+### **17.4 Gerenciamento de DNS**
 - Criar um novo registro DNS:  
   ```bash
   samba-tool dns add DC1 exemplo.com servidor A 192.168.1.10 -U administrador
@@ -211,7 +211,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.5. Gerenciamento de Políticas de Segurança**
+### **17.5 Gerenciamento de Políticas de Segurança**
 - Definir política de senha (exemplo: mínimo de 12 caracteres):  
   ```bash
   samba-tool domain passwordsettings set --min-pwd-length=12
@@ -230,7 +230,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.6. Administração de Group Policy Objects (GPO)**
+### **17.6 Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
   ```bash
   samba-tool gpo create "Bloqueio de USB" --description="Restringe uso de USB"
@@ -245,7 +245,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.7. Gerenciamento de Chaves Kerberos**
+### **17.7 Gerenciamento de Chaves Kerberos**
 - Listar chaves Kerberos no domínio:  
   ```bash
   samba-tool kerberos list
@@ -260,7 +260,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.8. Auditoria e Diagnóstico**
+### **17.8 Auditoria e Diagnóstico**
 - Verificar integridade da base de dados do AD:  
   ```bash
   samba-tool dbcheck --fix
@@ -275,7 +275,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.9. Exportação e Backup**
+### **17.9 Exportação e Backup**
 - Exportar lista de usuários para JSON:  
   ```bash
   samba-tool user list --json > usuarios.json
@@ -290,7 +290,7 @@ sudo systemctl status samba-ad-dc
   ```
 
 
-### **17.10. Gerenciamento de Compartilhamento de Arquivos**
+### **17.10 Gerenciamento de Compartilhamento de Arquivos**
 - Criar um novo compartilhamento:  
   ```bash
   mkdir /srv/compartilhado
@@ -313,7 +313,7 @@ sudo systemctl status samba-ad-dc
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
 
 
-### **18.1. Script para Criar Usuários em Massa**
+### **18.1 Script para Criar Usuários em Massa**
 Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
 
 ### **Arquivo `usuarios.csv` (Exemplo)**
@@ -350,7 +350,7 @@ chmod +x criar_usuarios.sh
 ```
 
 
-### **18.2. Script para Resetar Senhas em Massa**
+### **18.2 Script para Resetar Senhas em Massa**
 Se precisar redefinir as senhas de vários usuários e obrigá-los a alterá-las no próximo login, use este script.
 
 ### **Script `resetar_senhas.sh`**
@@ -370,7 +370,7 @@ echo "Todas as senhas foram redefinidas."
 ```
 
 
-### **18.3. Script para Criar e Aplicar uma GPO**
+### **18.3 Script para Criar e Aplicar uma GPO**
 Cria uma **GPO (Group Policy Object)** e a aplica a uma **Unidade Organizacional (OU)**.
 
 ### **Script `criar_gpo.sh`**
@@ -394,7 +394,7 @@ fi
 ```
 
 
-### **18.4. Script para Backup e Restauração do Samba**
+### **18.4 Script para Backup e Restauração do Samba**
 Este script faz um backup do banco de dados do Samba e permite restaurá-lo quando necessário.
 
 ### **Script `backup_samba.sh`**
@@ -421,7 +421,7 @@ chmod +x backup_samba.sh
 ```
 
 
-### **18.5. Script para Monitorar Replicação do AD**
+### **18.5 Script para Monitorar Replicação do AD**
 Este script verifica e alerta se há falhas na replicação entre controladores de domínio.
 
 ### **Script `monitorar_replicacao.sh`**
