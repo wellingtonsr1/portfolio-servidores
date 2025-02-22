@@ -436,7 +436,9 @@ chmod +x monitorar_replicacao.sh
 ```
 
 ## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
-
+```bash
+...
+```
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
