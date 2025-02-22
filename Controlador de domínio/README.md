@@ -133,7 +133,7 @@ sudo systemctl status samba-ad-dc
 
 ## 17. Criar Usuários e Administrar o Domínio:
 ### **17.1 Usuários**
-- Criar usários:
+- Criar usuários:
   ```bash
   samba-tool user create usuario123 SenhaForte!
   ```
@@ -316,6 +316,153 @@ sudo systemctl status samba-ad-dc
   ```
 
 ---
+
+## Aqui, alguns scripts para automação do uso do samba:
+Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
+
+---
+
+## **1. Script para Criar Usuários em Massa**
+Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamente no AD.  
+
+### **Arquivo `usuarios.csv` (Exemplo)**
+```
+nome,senha,grupo
+joao,Senha123!,TI
+maria,Senha456!,RH
+carlos,Senha789!,TI
+```
+
+### **Script `criar_usuarios.sh`**
+```bash
+#!/bin/bash
+
+INPUT="usuarios.csv"
+
+while IFS=',' read -r nome senha grupo
+do
+  if [[ "$nome" != "nome" ]]; then
+    echo "Criando usuário: $nome..."
+    samba-tool user create "$nome" "$senha" --must-change-at-next-login
+    samba-tool group addmembers "$grupo" "$nome"
+    echo "Usuário $nome criado e adicionado ao grupo $grupo."
+  fi
+done < "$INPUT"
+
+echo "Processo concluído!"
+```
+
+**Como executar:**
+```bash
+chmod +x criar_usuarios.sh
+./criar_usuarios.sh
+```
+
+---
+
+## **2. Script para Resetar Senhas em Massa**
+Se precisar redefinir as senhas de vários usuários e obrigá-los a alterá-las no próximo login, use este script.
+
+### **Script `resetar_senhas.sh`**
+```bash
+#!/bin/bash
+
+USUARIOS=("joao" "maria" "carlos")
+NOVA_SENHA="SenhaNova123!"
+
+for usuario in "${USUARIOS[@]}"; do
+  echo "Resetando senha do usuário $usuario..."
+  samba-tool user setpassword "$usuario" --newpassword="$NOVA_SENHA" --must-change-at-next-login
+  echo "Senha de $usuario redefinida."
+done
+
+echo "Todas as senhas foram redefinidas."
+```
+
+---
+
+## **3. Script para Criar e Aplicar uma GPO**
+Cria uma **GPO (Group Policy Object)** e a aplica a uma **Unidade Organizacional (OU)**.
+
+### **Script `criar_gpo.sh`**
+```bash
+#!/bin/bash
+
+GPO_NOME="Bloqueio_USB"
+DESCRICAO="Bloqueia o uso de dispositivos USB"
+OU="OU=TI,DC=exemplo,DC=com"
+
+echo "Criando GPO $GPO_NOME..."
+GPO_ID=$(samba-tool gpo create "$GPO_NOME" --description="$DESCRICAO" | grep "GUID" | awk '{print $3}')
+
+if [ -n "$GPO_ID" ]; then
+  echo "Aplicando GPO $GPO_NOME ($GPO_ID) à OU $OU..."
+  samba-tool gpo set "$GPO_ID" --apply-on="$OU"
+  echo "GPO aplicada com sucesso!"
+else
+  echo "Erro ao criar a GPO."
+fi
+```
+
+---
+
+## **4. Script para Backup e Restauração do Samba**
+Este script faz um backup do banco de dados do Samba e permite restaurá-lo quando necessário.
+
+### **Script `backup_samba.sh`**
+```bash
+#!/bin/bash
+
+BACKUP_DIR="/backup/samba"
+DATA=$(date +%F-%H-%M-%S)
+ARQUIVO_BACKUP="$BACKUP_DIR/samba-backup-$DATA.tar.gz"
+
+echo "Criando backup do Samba em $ARQUIVO_BACKUP..."
+samba-tool domain backup online --targetdir="$BACKUP_DIR"
+
+tar -czvf "$ARQUIVO_BACKUP" "$BACKUP_DIR"
+echo "Backup concluído!"
+
+echo "Para restaurar, use: samba-tool domain backup restore --backup-dir=$BACKUP_DIR"
+```
+
+**Como executar:**
+```bash
+chmod +x backup_samba.sh
+./backup_samba.sh
+```
+
+---
+
+## **5. Script para Monitorar Replicação do AD**
+Este script verifica e alerta se há falhas na replicação entre controladores de domínio.
+
+### **Script `monitorar_replicacao.sh`**
+```bash
+#!/bin/bash
+
+LOG="/var/log/samba-replication.log"
+
+echo "Verificando replicação entre controladores de domínio..."
+samba-tool drs showrepl > "$LOG"
+
+if grep -q "error" "$LOG"; then
+  echo "⚠️ Falha detectada na replicação do Samba AD! Verifique o log: $LOG"
+else
+  echo "✅ Replicação funcionando corretamente."
+fi
+```
+
+**Como executar:**
+```bash
+chmod +x monitorar_replicacao.sh
+./monitorar_replicacao.sh
+```
+
+---
+
+## **Conclusão**
+Esses scripts automatizam tarefas essenciais no Samba AD, reduzindo o tempo gasto com administração e minimizando erros. Se precisar de mais scripts personalizados, é só pedir! 🚀
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
