@@ -131,15 +131,191 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 
-## 17. Criar Usuários e Administrar o Domínio
-Criar um usuário:
-```sh
-samba-tool user create usuario --random-password
-```
-Promover um usuário a administrador:
-```sh
-samba-tool group addmembers "Domain Admins" usuario
-```
+## 17. Criar Usuários e Administrar o Domínio:
+## **17.1 Usuários**
+- Criar usários:
+  ```bash
+  samba-tool user create usuario123 SenhaForte!
+  ```
+- Listar usuários:  
+  ```bash
+  samba-tool user list
+  ```
+- Resetar senha de um usuário:  
+  ```bash
+  samba-tool user setpassword usuario123 --newpassword=NovaSenha!
+  ```
+- Definir que o usuário deve alterar a senha no próximo login:  
+  ```bash
+  samba-tool user setpassword usuario123 --must-change-at-next-login
+  ```
+- Criar grupos:  
+  ```bash
+  samba-tool group add TI
+  ```
+- Adicionar um usuário a um grupo:  
+  ```bash
+  samba-tool group addmembers TI usuario123
+  ```
+- Remover um usuário de um grupo:  
+  ```bash
+  samba-tool group removemembers TI usuario123
+  ```
+## **17.2. Administração de Domínio**
+- Criar um novo domínio Samba AD:  
+  ```bash
+  samba-tool domain provision --realm=EXEMPLO.COM --domain=EXEMPLO --adminpass=SenhaForte! --server-role=dc
+  ```
+- Adicionar um novo controlador de domínio ao Samba AD:  
+  ```bash
+  samba-tool domain join EXEMPLO.COM DC -U"Administrador"
+  ```
+- Rebaixar um controlador de domínio:  
+  ```bash
+  samba-tool domain demote
+  ```
+- Listar controladores de domínio ativos:  
+  ```bash
+  samba-tool domain list
+  ```
+
+---
+
+## **3. Gerenciamento de Replicação do AD**
+- Forçar replicação entre DCs:  
+  ```bash
+  samba-tool drs replicate DC1 DC2 dc=exemplo,dc=com
+  ```
+- Listar status da replicação:  
+  ```bash
+  samba-tool drs showrepl
+  ```
+- Verificar a integridade da replicação:  
+  ```bash
+  samba-tool dbcheck --cross-ncs
+  ```
+
+---
+
+## **4. Gerenciamento de DNS**
+- Criar um novo registro DNS:  
+  ```bash
+  samba-tool dns add DC1 exemplo.com servidor A 192.168.1.10 -U administrador
+  ```
+- Listar registros DNS:  
+  ```bash
+  samba-tool dns query DC1 exemplo.com @ ALL -U administrador
+  ```
+- Remover um registro DNS:  
+  ```bash
+  samba-tool dns delete DC1 exemplo.com servidor A 192.168.1.10 -U administrador
+  ```
+
+---
+
+## **5. Gerenciamento de Políticas de Segurança**
+- Definir política de senha (exemplo: mínimo de 12 caracteres):  
+  ```bash
+  samba-tool domain passwordsettings set --min-pwd-length=12
+  ```
+- Verificar configurações de política de senha:  
+  ```bash
+  samba-tool domain passwordsettings show
+  ```
+- Bloquear um usuário:  
+  ```bash
+  samba-tool user disable usuario123
+  ```
+- Desbloquear um usuário:  
+  ```bash
+  samba-tool user enable usuario123
+  ```
+
+---
+
+## **6. Administração de Group Policy Objects (GPO)**
+- Criar uma nova GPO:  
+  ```bash
+  samba-tool gpo create "Bloqueio de USB" --description="Restringe uso de USB"
+  ```
+- Listar GPOs disponíveis:  
+  ```bash
+  samba-tool gpo list
+  ```
+- Aplicar GPO a uma unidade organizacional (OU):  
+  ```bash
+  samba-tool gpo set "<GPO_ID>" --apply-on="OU=TI,DC=exemplo,DC=com"
+  ```
+
+---
+
+## **7. Gerenciamento de Chaves Kerberos**
+- Listar chaves Kerberos no domínio:  
+  ```bash
+  samba-tool kerberos list
+  ```
+- Resetar chave da conta de máquina:  
+  ```bash
+  samba-tool domain passwordsettings set --complexity=off
+  ```
+- Exibir detalhes do ticket Kerberos:  
+  ```bash
+  klist -e
+  ```
+
+---
+
+## **8. Auditoria e Diagnóstico**
+- Verificar integridade da base de dados do AD:  
+  ```bash
+  samba-tool dbcheck --fix
+  ```
+- Verificar contas de serviço duplicadas:  
+  ```bash
+  samba-tool domain tombstones expunge
+  ```
+- Exibir informações detalhadas de um usuário:  
+  ```bash
+  samba-tool user show usuario123
+  ```
+
+---
+
+## **9. Exportação e Backup**
+- Exportar lista de usuários para JSON:  
+  ```bash
+  samba-tool user list --json > usuarios.json
+  ```
+- Fazer backup da configuração do domínio:  
+  ```bash
+  samba-tool domain backup online --targetdir=/backup/samba
+  ```
+- Restaurar backup:  
+  ```bash
+  samba-tool domain backup restore --backup-dir=/backup/samba
+  ```
+
+---
+
+## **10. Gerenciamento de Compartilhamento de Arquivos**
+- Criar um novo compartilhamento:  
+  ```bash
+  mkdir /srv/compartilhado
+  chmod 777 /srv/compartilhado
+  ```
+  Adicionar ao arquivo `smb.conf`:  
+  ```
+  [Compartilhado]
+  path = /srv/compartilhado
+  read only = no
+  guest ok = yes
+  ```
+  Aplicar mudanças:  
+  ```bash
+  systemctl restart smbd
+  ```
+
+---
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
