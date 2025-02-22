@@ -435,7 +435,7 @@ chmod +x monitorar_replicacao.sh
 ./monitorar_replicacao.sh
 ```
 
-## 19. Administrar o Domínio usando o `RSAT (Remote Server Administration Tools)`:
+## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
 
 
 ## Conclusão
