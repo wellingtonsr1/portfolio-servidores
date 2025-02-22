@@ -134,7 +134,7 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 
-## 17. Criar Usuários e Administrar o Domínio:
+## 17. Administrar o Domínio (Usando a ferramenta `samba-tool`):
 ### **17.1 Usuários**
 - Criar usuários:
   ```bash
@@ -435,7 +435,8 @@ chmod +x monitorar_replicacao.sh
 ./monitorar_replicacao.sh
 ```
 
-## Gerenciamento usando o RSAT (Remote Server Administration Tools)  
+## 19. Administrar o Domínio (Usando o RSAT - Remote Server Administration Tools):
+
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
