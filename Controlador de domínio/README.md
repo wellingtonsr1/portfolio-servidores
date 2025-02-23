@@ -470,7 +470,8 @@ chmod +x monitorar_replicacao.sh
    - **RSAT: Active Directory** (Gerenciamento do AD)
    - **RSAT: DNS Server Tools** (Administração de DNS)
    - **RSAT: DHCP Server Tools** (Administração de DHCP)
-   - **RSAT: Group Policy Management Tools** (Política de Grupo)
+   - **RSAT: Group Policy Management Tools** (Política de Grupo)  
+   
 ![Pesquisar recurso](imagens/pesq-recurso.png) 
 
 
