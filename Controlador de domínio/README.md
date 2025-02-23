@@ -526,7 +526,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 
 
 20. Conectando ao servidor  
-![Ferramenta de administração](imagens/usuarios-computadores.png)  
+![Ferramenta de administração](imagens/usuarios-computadores.png)
  
 ![Active Directory](imagens/usuarios-AD.png)  
 
