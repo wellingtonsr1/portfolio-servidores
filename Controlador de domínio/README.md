@@ -527,6 +527,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 
 ## 20. Conectar ao servidor
 20.1 Vá no iniciar e pesqueise por **Usuários e Computadores do Active Directory**
+
 ![Ferramenta de administração](imagens/usuarios-computadores.png)
 ![Active Directory](imagens/usuarios-AD.png)  
 
