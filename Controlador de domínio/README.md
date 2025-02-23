@@ -461,7 +461,7 @@ chmod +x monitorar_replicacao.sh
 ![Configurações](imagens/config.png) 
 
 2. Vá para **"Aplicativos"** > Pesquise por **"Recursos"**.
-![Aplicativos](imagens/ger-recusos-op.png) 
+![Aplicativos](imagens/ger-recursos-op.png) 
 
 3. Clique em **"Adicionar um recurso"**.
 ![Adicionar recurso](imagens/ad-recursos.png) 
