@@ -525,7 +525,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    ![Rsat-Instalado](imagens/Rsat-Install-powershell.png)
 
 
-20. Conectando ao servidor
+20. Conectar ao servidor
 ![Ferramenta de administração](imagens/usuarios-computadores.png)
 ![Active Directory](imagens/usuarios-AD.png)  
 
