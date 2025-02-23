@@ -475,7 +475,9 @@ chmod +x monitorar_replicacao.sh
 
 ## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
 
-### 19.1 **Via Configurações do Windows**
+### 19.1 Instalação
+
+#### 19.1.1 **Via Configurações do Windows**
 1. **Abra as Configurações** (`Win + I`).  
 ![Configurações](imagens/config.png) 
 https://github.com/wellingtonsr1/portfolio-servidores/tree/main/Controlador%20de%20dom%C3%ADnio
@@ -497,7 +499,7 @@ https://github.com/wellingtonsr1/portfolio-servidores/tree/main/Controlador%20de
 7. Instalar a ferramenta de administração (Caso não esteja instalada).  
 ![Ferramenta de administração](imagens/active-directory.png)  
 
-### 19.2 **Via PowerShell**
+#### 19.1.2 **Via PowerShell**
 Execute o seguinte comando no **PowerShell como Administrador** para listar e instalar os módulos RSAT:
 
 1. **Verificar módulos disponíveis:**
