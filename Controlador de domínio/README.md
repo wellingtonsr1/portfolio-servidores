@@ -480,7 +480,7 @@ chmod +x monitorar_replicacao.sh
 ### 19.1.1 **Via Configurações do Windows**
 1. **Abra as Configurações** (`Win + I`).  
 ![Configurações](imagens/config.png) 
-https://github.com/wellingtonsr1/portfolio-servidores/tree/main/Controlador%20de%20dom%C3%ADnio
+
 2. Vá para **"Aplicativos"**, Pesquise por **"Recursos"** e clique em **"Gerenciar recursos opcionais"**.
 ![Aplicativos](imagens/ger-recursos-op.png) 
 
