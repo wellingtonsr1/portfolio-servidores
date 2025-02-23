@@ -495,7 +495,7 @@ chmod +x monitorar_replicacao.sh
 ![RSAT-Instalado](imagens/RSAT-Instalado.png)  
 
 7. Instalar a ferramenta de administração (Caso não esteja instalada).  
-![Ferramenta de administração](imagens/active.png)  
+
 
 ### 19.2 **Via PowerShell**
 Execute o seguinte comando no **PowerShell como Administrador** para listar e instalar os módulos RSAT:
