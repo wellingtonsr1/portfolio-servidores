@@ -14,7 +14,7 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 ```bash
 sudo nano /etc/hostname
 ```
-![hosts](imagens/hosts.png)  
+![hostname](imagens/hostname.png)  
 
 ## 2. Configurar interface de rede
 ```bash
