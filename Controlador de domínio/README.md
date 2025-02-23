@@ -10,17 +10,20 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 - Nome de domínio definido (exemplo: `exemplo.com.br`)
 - IP fixo configurado
 
+
 ## 1. Alterar o nome do host
 ```bash
 sudo nano /etc/hostname
 ```
 ![hostname](imagens/hostname.png)  
 
+
 ## 2. Configurar interface de rede
 ```bash
 sudo nano /etc/network/interfaces
 ```
 ![conf de interfaces](imagens/interfaces.png)  
+
 
 ## 3. Reiniciar o serviço de rede
 ```bash
@@ -30,15 +33,18 @@ sudo systemctl restart systemd-networkd
 ```
 ![restart interfaces](imagens/restart-net.png) 
 
+
 ## 4. Checandar os IPs
 ```bash
 ip -4 a
 ```
 
+
 ## 5. Atualizar o Sistema
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+
 
 ## 6. Instalar o samba e suas dependências
 ```sh
@@ -53,6 +59,7 @@ Durante a instalação, configure o Kerberos:
 
 - Administrative server for your Kerberos realm: `dc.exemplo.com.br`  
 ![administrative-server](imagens/administrative-server.png)  
+
 
 ## 7. Configurar o Samba
 Pare os serviços do Samba antes da configuração:
@@ -78,11 +85,13 @@ Parâmetros importantes:
 - Administrator password: `<SENHA-FORTE>`
 - Retype password: `<SENHA-FORTE>`
 
+
 ## 8. Checar o conteúdo do smb.conf
 ```bash
 cat /etc/samba/smb.conf
 ```
 ![smb-conf](imagens/smb-conf.png)  
+
 
 ## 9. Configurar o DNS
 Edite:  
@@ -94,10 +103,12 @@ nameserver 127.0.0.1
 search exemplo.com.br
 ```
 
+
 ## 10. Copiar o arquivo krb5.conf
 ```bash
 sudo cp /var/lib/samba/private/krb5.conf /etc
 ```
+
 
 ## 11. Mudandar o nome do serviço do samba para samba-ad-dc
 ```bash
@@ -108,11 +119,13 @@ sudo systemctl start samba-ad-dc
 sudo systemctl enable samba-ad-dc
 ```
 
+
 ## 12. Consultar o status do serviço
 ```bash
 sudo smbclient -L localhost -U%
 ```
 ![smbclient](imagens/smbclient.png) 
+
 
 ## 13. Exibir o domínio
 ```bash
@@ -120,17 +133,20 @@ sudo samba-tool domain level show
 ```
 ![domain-show](imagens/domain-show.png) 
 
+
 ## 14. Exibir informações do nosso servidor
 ```bash
 sudo samba-tool domain info 10.200.0.2
 ```
 ![domain-info](imagens/domain-info.png) 
 
+
 ## 15. Testar a resolução de nomes:
 ```sh
 dig exemplo.com.br
 ```
 ![dns](imagens/dns.png) 
+
 
 ## 16. Habilitar e Iniciar os Serviços
 ```sh
@@ -142,6 +158,7 @@ Verifique o status:
 sudo systemctl status samba-ad-dc
 ```
 ![status-samba](imagens/status-samba.png) 
+
 
 ## 17. Administrar o Domínio usando a ferramenta `samba-tool`:
 #### `OBS: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar a documentação.`
@@ -322,6 +339,7 @@ sudo systemctl status samba-ad-dc
   sudo systemctl restart smbd
   ```
 
+
 ## 18. Aqui, alguns scripts para automação:
 Aqui estão alguns **scripts de automação** para diferentes tarefas do `samba-tool`, facilitando a administração do Samba AD.  
 
@@ -454,6 +472,7 @@ chmod +x monitorar_replicacao.sh
 ./monitorar_replicacao.sh
 ```
 
+
 ## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
 
 ### 19.1 **Via Configurações do Windows**
@@ -521,6 +540,7 @@ Se preferir, também é possível usar o **DISM** no Prompt de Comando (CMD) com
    ```cmd
    for /F "tokens=1 delims=:" %I in ('dism /online /get-capabilities ^| findstr RSAT') do dism /online /add-capability /capabilityname:%I
    ```
+
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
