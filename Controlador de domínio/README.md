@@ -149,9 +149,7 @@ sudo systemctl status samba-ad-dc
 ### **17.1 Usuários**
 - Criar usuários:
   ```bash
-  sudo samba-tool user create usuario123
-  New Password: SenhaForte!
-  Retype Password: SenhaForte!
+  sudo samba-tool user create usuario123 SenhaForte! 
   ```
 - Listar usuários:  
   ```bash
