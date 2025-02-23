@@ -112,21 +112,25 @@ sudo systemctl enable samba-ad-dc
 ```bash
 sudo smbclient -L localhost -U%
 ```
+![smbclient](imagens/smbclient.png) 
 
 ## 13. Exibir o domínio
 ```bash
 sudo samba-tool domain level show
 ```
+![domain-show](imagens/domain-show.png) 
 
 ## 14. Exibir informações do nosso servidor
 ```bash
 sudo samba-tool domain info 10.200.0.2
 ```
+![domain-info](imagens/domain-info.png) 
 
 ## 15. Testar a resolução de nomes:
 ```sh
 dig exemplo.com.br
 ```
+![dns](imagens/dns.png) 
 
 ## 16. Habilitar e Iniciar os Serviços
 ```sh
@@ -137,6 +141,7 @@ Verifique o status:
 ```sh
 sudo systemctl status samba-ad-dc
 ```
+![status-samba](imagens/status-samba.png) 
 
 ## 17. Administrar o Domínio usando a ferramenta `samba-tool`:
 #### `OBS: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar a documentação.`
