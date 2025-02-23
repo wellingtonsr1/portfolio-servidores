@@ -456,7 +456,7 @@ chmod +x monitorar_replicacao.sh
 
 ## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
 
-### **Via Configurações do Windows**
+### 19.1 **Via Configurações do Windows**
 1. **Abra as Configurações** (`Win + I`).  
 ![Configurações](imagens/config.png) 
 
@@ -479,7 +479,7 @@ chmod +x monitorar_replicacao.sh
 ![Pesquisar recurso](imagens/select-recurso.png) 
 
 
-### **Via PowerShell**
+### 19.2 **Via PowerShell**
 Execute o seguinte comando no **PowerShell como Administrador** para listar e instalar os módulos RSAT:
 
 1. **Verificar módulos disponíveis:**
@@ -504,7 +504,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    - Se aparecer `Installed`, o recurso foi instalado com sucesso.
 
 
-### Via Prompt de Comando (DISM)**
+### 19.3 Via Prompt de Comando (DISM)**
 Se preferir, também é possível usar o **DISM** no Prompt de Comando (CMD) como Administrador:
 
 1. **Verificar os recursos disponíveis:**
