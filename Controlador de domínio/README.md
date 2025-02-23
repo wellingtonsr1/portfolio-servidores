@@ -520,7 +520,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    - Se aparecer `Installed`, o recurso foi instalado com sucesso.
 
 
-### 19.3 Via Prompt de Comando (DISM)**
+### 19.3 Via Prompt de Comando **(DISM)**
 Se preferir, também é possível usar o **DISM** no Prompt de Comando (CMD) como Administrador:
 
 1. **Verificar os recursos disponíveis:**
