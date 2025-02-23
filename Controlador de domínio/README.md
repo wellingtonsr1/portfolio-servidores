@@ -511,6 +511,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    ```powershell
    Get-WindowsCapability -Online | Where-Object Name -like "RSAT*" | ForEach-Object { Add-WindowsCapability -Online -Name $_.Name }
    ```
+   ![Instalar](imagens/install-mod-powershell.png) 
 
 4. **Confirmar a instalação:**
    ```powershell
