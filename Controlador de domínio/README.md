@@ -520,24 +520,6 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    - Se aparecer `Installed`, o recurso foi instalado com sucesso.
 
 
-### 19.3 Via Prompt de Comando **(DISM)**
-Se preferir, também é possível usar o **DISM** no Prompt de Comando (CMD) como Administrador:
-
-1. **Verificar os recursos disponíveis:**
-   ```cmd
-   dism /online /get-capabilities | findstr RSAT
-   ```
-
-2. **Instalar um módulo específico (exemplo: Gerenciamento do Active Directory):**
-   ```cmd
-   dism /online /add-capability /capabilityname:Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
-   ```
-
-3. **Instalar todos os módulos RSAT de uma vez:**
-   ```cmd
-   for /F "tokens=1 delims=:" %I in ('dism /online /get-capabilities ^| findstr RSAT') do dism /online /add-capability /capabilityname:%I
-   ```
-
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
