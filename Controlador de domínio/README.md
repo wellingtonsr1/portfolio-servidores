@@ -181,11 +181,11 @@ sudo systemctl status samba-ad-dc
 ### **17.2 Administração de Domínio**
 - Criar um novo domínio Samba AD:  
   ```bash
-  sudo samba-tool domain provision --realm=EXEMPLO.COM --domain=EXEMPLO --adminpass=SenhaForte! --server-role=dc
+  sudo samba-tool domain provision --realm=EXEMPLO.COM.BR --domain=EXEMPLO --adminpass=SenhaForte! --server-role=dc
   ```
 - Adicionar um novo controlador de domínio ao Samba AD:  
   ```bash
-  sudo samba-tool domain join EXEMPLO.COM DC -U"Administrador"
+  sudo samba-tool domain join EXEMPLO.COM.BR DC -U"Administrador"
   ```
 - Rebaixar um controlador de domínio:  
   ```bash
@@ -213,15 +213,15 @@ sudo systemctl status samba-ad-dc
 ### **17.4 Gerenciamento de DNS**
 - Criar um novo registro DNS:  
   ```bash
-  sudo samba-tool dns add DC1 exemplo.com servidor A 192.168.1.10 -U administrador
+  sudo samba-tool dns add DC1 exemplo.com.br servidor A 192.168.1.10 -U administrador
   ```
 - Listar registros DNS:  
   ```bash
-  sudo samba-tool dns query DC1 exemplo.com @ ALL -U administrador
+  sudo samba-tool dns query DC1 exemplo.com.br @ ALL -U administrador
   ```
 - Remover um registro DNS:  
   ```bash
-  sudo samba-tool dns delete DC1 exemplo.com servidor A 192.168.1.10 -U administrador
+  sudo samba-tool dns delete DC1 exemplo.com.br servidor A 192.168.1.10 -U administrador
   ```
 
 ### **17.5 Gerenciamento de Políticas de Segurança**
