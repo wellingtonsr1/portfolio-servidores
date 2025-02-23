@@ -155,6 +155,10 @@ sudo systemctl status samba-ad-dc
   ```bash
   sudo samba-tool user list
   ```
+- Desabilitar usuários:
+  ```bash
+  sudo samba-tool user disable usuario123
+  ```
 - Resetar senha de um usuário:  
   ```bash
   sudo samba-tool user setpassword usuario123 --newpassword=NovaSenha!
