@@ -354,7 +354,7 @@ maria,Senha456!,RH
 carlos,Senha789!,TI
 ```
 
-#### **Script `criar_usuarios.sh`**
+#### - **Script `criar_usuarios.sh`**
 ```bash
 #!/bin/bash
 
