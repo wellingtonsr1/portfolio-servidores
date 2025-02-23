@@ -492,8 +492,9 @@ chmod +x monitorar_replicacao.sh
 5. Selecione, Clique em **"Adicionar"** e aguarde a conclusão.
 ![Pesquisar recurso](imagens/select-recurso.png) 
 
+
 6. Verificar se foram isntalados.
-![Checar módulos](imagens/RSAT-Instalado.png)  
+![RSAT-Instalado](imagens/RSAT-Instalado.png)  
 
 ### 19.2 **Via PowerShell**
 Execute o seguinte comando no **PowerShell como Administrador** para listar e instalar os módulos RSAT:
