@@ -519,8 +519,8 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    ```powershell
    Get-WindowsCapability -Online | Where-Object Name -like "RSAT*" | Select-Object Name, State
    ```
-   - Se aparecer `Installed`, o recurso foi instalado com sucesso.
-![Rsat-Instalado](imagens/Rsat-Install-powershell.png)
+   Se aparecer `Installed`, o recurso foi instalado com sucesso.
+   ![Rsat-Instalado](imagens/Rsat-Install-powershell.png)
 
 
 ## Conclusão
