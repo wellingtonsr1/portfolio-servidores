@@ -485,10 +485,10 @@ chmod +x monitorar_replicacao.sh
 3. Clique em **"Adicionar um recurso"**.
 ![Adicionar recurso](imagens/ad-recursos.png) 
 
-4. Pesquise por **"RSAT"** e selecione os módulos desejados: 
+4. Pesquise por **"RSAT"**: 
 ![Pesquisar recurso](imagens/pesq-recurso.png) 
 
-5. Selecione, Clique em **"Adicionar"** e aguarde a conclusão.
+5. Selecione os módulos desejados, Clique em **"Adicionar"** e aguarde a conclusão.
 ![Pesquisar recurso](imagens/select-recurso.png) 
 
 6. Instalados.  
