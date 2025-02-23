@@ -51,13 +51,16 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install samba smbclient winbind libnss-winbind libpam-winbind krb5-user krb5-config acl attr -y
 ```
 Durante a instalação, configure o Kerberos:
-- Default Kerberos version 5 realm: `exemplo.com.br`  
+- Default Kerberos version 5 realm: `exemplo.com.br` 
+ 
 ![default-kerberos](imagens/default-kerberos.png)
   
-- Kerberos servers for your realm: `dc.exemplo.com.br`  
+- Kerberos servers for your realm: `dc.exemplo.com.br` 
+ 
 ![kerberos-servers](imagens/kerberos-servers.png)
 
-- Administrative server for your Kerberos realm: `dc.exemplo.com.br`  
+- Administrative server for your Kerberos realm: `dc.exemplo.com.br` 
+ 
 ![administrative-server](imagens/administrative-server.png)  
 
 
