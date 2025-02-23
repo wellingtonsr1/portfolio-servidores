@@ -264,7 +264,7 @@ sudo systemctl status samba-ad-dc
   ```bash
   sudo samba-tool user enable usuario123
   ```
-![conf de interfaces](imagens/interfaces.png)
+  
 ### **17.6 Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
   ```bash
