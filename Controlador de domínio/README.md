@@ -455,9 +455,71 @@ chmod +x monitorar_replicacao.sh
 ```
 
 ## 19. Administrar o Domínio usando o `RSAT` (Remote Server Administration Tools):
-```bash
-...
-```
+
+### **Via Configurações do Windows**
+1. **Abra as Configurações** (`Win + I`).  
+![Configurações](imagens/config.png) 
+
+2. Vá para **"Aplicativos"** > ** Pesquise por "Recursos"**.
+![Aplicativos](imagens/ger-recuso.png) 
+
+3. Clique em **"Adicionar um recurso"**.
+![Adicionar recurso](imagens/ad-recursos.png) 
+
+4. Pesquise por **"RSAT"** e selecione os módulos desejados, como:
+   - **RSAT: Active Directory** (Gerenciamento do AD)
+   - **RSAT: DNS Server Tools** (Administração de DNS)
+   - **RSAT: DHCP Server Tools** (Administração de DHCP)
+   - **RSAT: Group Policy Management Tools** (Política de Grupo)
+![Pesquisar recurso](imagens/pesq-recurso.png) 
+
+
+5. Selecione, Clique em **"Adicionar"** e aguarde a conclusão.
+![Pesquisar recurso](imagens/select-recurso.png) 
+
+
+### **Via PowerShell**
+Execute o seguinte comando no **PowerShell como Administrador** para listar e instalar os módulos RSAT:
+
+1. **Verificar módulos disponíveis:**
+   ```powershell
+   Get-WindowsCapability -Online | Where-Object Name -like "RSAT*"
+   ```
+
+2. **Instalar um módulo específico (exemplo: Active Directory):**
+   ```powershell
+   Add-WindowsCapability -Online -Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+   ```
+
+3. **Instalar todos os módulos RSAT de uma vez:**
+   ```powershell
+   Get-WindowsCapability -Online | Where-Object Name -like "RSAT*" | ForEach-Object { Add-WindowsCapability -Online -Name $_.Name }
+   ```
+
+4. **Confirmar a instalação:**
+   ```powershell
+   Get-WindowsCapability -Online | Where-Object Name -like "RSAT*" | Select-Object Name, State
+   ```
+   - Se aparecer `Installed`, o recurso foi instalado com sucesso.
+
+
+### Via Prompt de Comando (DISM)**
+Se preferir, também é possível usar o **DISM** no Prompt de Comando (CMD) como Administrador:
+
+1. **Verificar os recursos disponíveis:**
+   ```cmd
+   dism /online /get-capabilities | findstr RSAT
+   ```
+
+2. **Instalar um módulo específico (exemplo: Gerenciamento do Active Directory):**
+   ```cmd
+   dism /online /add-capability /capabilityname:Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+   ```
+
+3. **Instalar todos os módulos RSAT de uma vez:**
+   ```cmd
+   for /F "tokens=1 delims=:" %I in ('dism /online /get-capabilities ^| findstr RSAT') do dism /online /add-capability /capabilityname:%I
+   ```
 
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows.
