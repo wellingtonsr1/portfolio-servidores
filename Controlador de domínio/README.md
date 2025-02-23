@@ -264,7 +264,7 @@ sudo systemctl status samba-ad-dc
   ```bash
   sudo samba-tool user enable usuario123
   ```
-
+![conf de interfaces](imagens/interfaces.png)
 ### **17.6 Administração de Group Policy Objects (GPO)**
 - Criar uma nova GPO:  
   ```bash
@@ -505,7 +505,8 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
    ```powershell
    Get-WindowsCapability -Online | Where-Object Name -like "RSAT*"
    ```
-
+   ![Checar módulos](imagens/checar-modulos.png)  
+   
 2. **Instalar um módulo específico (exemplo: Active Directory):**
    ```powershell
    Add-WindowsCapability -Online -Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
