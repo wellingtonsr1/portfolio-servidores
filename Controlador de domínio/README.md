@@ -491,7 +491,7 @@ chmod +x monitorar_replicacao.sh
 5. Selecione, Clique em **"Adicionar"** e aguarde a conclusão.
 ![Pesquisar recurso](imagens/select-recurso.png) 
 
-6. Verificar se foram isntalados.
+6. Verificar se foram isntalados.  
 ![RSAT-Instalado](imagens/RSAT-Instalado.png)  
 
 
