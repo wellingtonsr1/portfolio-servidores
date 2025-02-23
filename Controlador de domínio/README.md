@@ -460,7 +460,7 @@ chmod +x monitorar_replicacao.sh
 1. **Abra as Configurações** (`Win + I`).  
 ![Configurações](imagens/config.png) 
 
-2. Vá para **"Aplicativos"** > Pesquise por **"Recursos"**.
+2. Vá para **"Aplicativos"**, Pesquise por **"Recursos"** e clique em **"Gerenciar Recursos Opcionais"**.
 ![Aplicativos](imagens/ger-recursos-op.png) 
 
 3. Clique em **"Adicionar um recurso"**.
