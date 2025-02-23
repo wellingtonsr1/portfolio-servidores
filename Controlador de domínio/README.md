@@ -464,7 +464,7 @@ chmod +x monitorar_replicacao.sh
 ![Aplicativos](imagens/ger-recusos.png) 
 
 3. Clique em **"Adicionar um recurso"**.
-![Adicionar recurso](imagens/ad-recursos.png) 
+![Adicionar recurso](imagens/ad-recursos-op.png) 
 
 4. Pesquise por **"RSAT"** e selecione os módulos desejados, como:
    - **RSAT: Active Directory** (Gerenciamento do AD)
