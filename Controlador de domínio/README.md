@@ -472,7 +472,7 @@ chmod +x monitorar_replicacao.sh
    - **RSAT: DHCP Server Tools** (Administração de DHCP)
    - **RSAT: Group Policy Management Tools** (Política de Grupo)
    
-![Pesquisar recurso](imagens/pesq-recurso.png) 
+   ![Pesquisar recurso](imagens/pesq-recurso.png) 
 
 
 5. Selecione, Clique em **"Adicionar"** e aguarde a conclusão.
