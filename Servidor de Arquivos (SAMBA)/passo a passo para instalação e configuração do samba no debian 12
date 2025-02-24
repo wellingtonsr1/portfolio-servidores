@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-#                                              Passo a Passo para Criar um Servidor de Arquivos
+#                                           Passo a Passo para Criar um Servidor de Arquivos usando o SAMBA
 ###################################################################################################################################################
 #
 # Este "Passo a passo" tem como objetivo demonstrar a configuração de um servidor de arquivos, permitindo o compartilhamento seguro de dados em 
