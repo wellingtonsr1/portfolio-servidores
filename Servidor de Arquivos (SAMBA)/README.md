@@ -5,7 +5,7 @@
 Este repositório contém um script automatizado para configurar um servidor de arquivos utilizando Samba no Debian 12. 
 O script realiza todas as etapas necessárias para a instalação, configuração e ativação do compartilhamento de arquivos na rede.
 
-## Altomatizado:
+## Automatizado:
 
 Requisitos:  
 -----------
