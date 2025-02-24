@@ -355,7 +355,7 @@ carlos,Senha789!,TI
 ```
 
 #### - **Script: `criar_usuarios.sh`**
-OBS: Os grupos devem existir.
+#### OBS: Os grupos devem existir.
 
 ```bash
 #!/bin/bash
