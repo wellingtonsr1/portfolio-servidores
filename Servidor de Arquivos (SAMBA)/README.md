@@ -60,13 +60,13 @@ Como Usar:
 
 ## Manualmente:
 
-## 1. Pré-requisitos
+### 1. Pré-requisitos
 Antes de executar este procedimento, certifique-se de que:
 - O sistema operacional é uma distribuição Linux compatível (Debian, Ubuntu, CentOS, etc.).
 - O usuário tem permissões administrativas (sudo).
 - O servidor possui conectividade com a rede.
 
-## 2. Etapas da Configuração
+### 2. Etapas da Configuração
 O processo de configuração do servidor de arquivos envolve os seguintes passos:
 1. **Atualização do sistema**
 2. **Instalação do Samba e dependências**
@@ -76,29 +76,29 @@ O processo de configuração do servidor de arquivos envolve os seguintes passos
 6. **Integração com o Active Directory (opcional)**
 7. **Reinício dos serviços e testes**
 
-## 3. Instalação e Configuração
-### 3.1 Atualize o sistema
+### 3. Instalação e Configuração
+#### 3.1 Atualize o sistema
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-### 3.2 Instale o Samba e os pacotes necessários
+#### 3.2 Instale o Samba e os pacotes necessários
 ```bash
 sudo apt install samba winbind libnss-winbind libpam-winbind smbclient -y
 ```
 
-### 3.3 Configure o Samba
+#### 3.3 Configure o Samba
 #### 3.3.1 Faça um backup do arquivo de configuração original
 ```bash
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
 ```
 
-#### 3.3.2 Edite o arquivo de configuração do Samba
+##### 3.3.2 Edite o arquivo de configuração do Samba
 ```bash
 sudo nano /etc/samba/smb.conf
 ```
 
-#### 3.3.3 Exemplo de configuração para um compartilhamento:
+##### 3.3.3 Exemplo de configuração para um compartilhamento:
 ```ini
 [global]
 workgroup = exemplo
@@ -127,15 +127,15 @@ valid users = usuario
 
 Salve e feche o arquivo (`CTRL + X`, `Y`, `Enter`).
 
-### 3.4 Criar o diretório compartilhado
+#### 3.4 Criar o diretório compartilhado
 ```bash
 sudo mkdir -p /srv/compartilhado
 sudo chmod -R 775 /srv/compartilhado
 sudo chown -R nobody:nogroup /srv/compartilhado
 ```
 
-## 4. Unir o Servidor ao Domínio (Opcional)
-### 4.1 Configure o DNS
+### 4. Unir o Servidor ao Domínio (Opcional)
+#### 4.1 Configure o DNS
 ```bash
 sudo nano /etc/resolv.conf
 ```
@@ -145,12 +145,12 @@ nameserver IP_DO_AD
 search SEU_DOMINIO.COM.BR
 ```
 
-### 4.2 Reinicie os serviços
+#### 4.2 Reinicie os serviços
 ```bash
 sudo systemctl restart smbd nmbd winbind
 ```
 
-### 4.3 Ingresso no domínio
+#### 4.3 Ingresso no domínio
 ```bash
 sudo net ads join -U Administrador
 ```
@@ -161,43 +161,43 @@ wbinfo -u  # Lista usuários do AD
 wbinfo -g  # Lista grupos do AD
 ```
 
-## 5. Adicionar um usuário ao Samba
-### 5.1 Criar um usuário no sistema
+### 5. Adicionar um usuário ao Samba
+#### 5.1 Criar um usuário no sistema
 ```bash
 sudo adduser usuario
 ```
 
-### 5.2 Adicionar o usuário ao Samba
+#### 5.2 Adicionar o usuário ao Samba
 ```bash
 sudo smbpasswd -a usuario
 ```
 
-## 6. Reiniciar o Samba
+### 6. Reiniciar o Samba
 ```bash
 sudo systemctl restart smbd
 ```
 
-## 7. Configurar o Firewall (Opcional)
+### 7. Configurar o Firewall (Opcional)
 Se estiver usando um firewall, permita o tráfego do Samba:
 ```bash
 sudo ufw allow samba
 ```
 
-## 8. Teste o compartilhamento
-### No Windows
+### 8. Teste o compartilhamento
+#### No Windows
 - Abra o Explorador de Arquivos.
 - Digite `\\endereco_ip_do_servidor` na barra de endereços e pressione Enter.
 - Insira o nome de usuário e senha do Samba quando solicitado.
 
-### No Linux
+#### No Linux
 ```bash
 smbclient //endereco_ip_do_servidor/compartilhado -U usuario
 ```
 
-## 9. Configurações adicionais (Opcional)
+### 9. Configurações adicionais (Opcional)
 Se necessário, edite o arquivo `/etc/samba/smb.conf` para compartilhar impressoras ou ajustar permissões específicas.
 
-## Conclusão
+### Conclusão
 Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Personalize conforme suas necessidades!
 
     
