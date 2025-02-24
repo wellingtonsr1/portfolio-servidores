@@ -162,8 +162,13 @@ Antes de começar, é importante garantir que o sistema esteja atualizado.
      smbclient //endereco_ip_do_servidor/compartilhado -U usuario
     
 10. Configurações adicionais (opcional)
-    - Se você precisar de mais configurações, como compartilhar impressoras ou ajustar permissões mais específicas, consulte a documentação oficial do Samba ou edite o arquivo `/etc/samba/smb.conf` conforme necessário.
+    - Se você precisar de mais configurações, como compartilhar impressoras ou ajustar permissões mais específicas, 
+    consulte a documentação oficial do Samba ou edite o arquivo `/etc/samba/smb.conf` conforme necessário.
 
 
-Conclusão
-Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Você pode adicionar mais compartilhamentos ou ajustar as configurações conforme necessário para atender às suas necessidades.
+Conclusão:
+   Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Você pode adicionar mais 
+   compartilhamentos ou ajustar as configurações conforme necessário para atender às suas necessidades.
+   
+   
+   
