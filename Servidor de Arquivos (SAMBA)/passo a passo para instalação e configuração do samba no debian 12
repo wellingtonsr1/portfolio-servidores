@@ -1,6 +1,30 @@
--------------
-Passo a passo
--------------
+###################################################################################################################################################
+#                                              Passo a Passo para Criar um Servidor de Arquivos
+###################################################################################################################################################
+#
+# Este "Passo a passo" tem como objetivo demonstrar a configuração de um servidor de arquivos, permitindo o compartilhamento seguro de dados em 
+# uma rede local ou integrada a um domínio do Active Directory (AD). A configuração será baseada no Samba, um software amplamente utilizado para 
+# compartilhamento de arquivos em redes Windows e Linux.
+#
+# 1. Pré-requisitos
+#    Antes de executar este script, certifique-se de que:
+#
+# - O sistema operacional é uma distribuição Linux compatível (Debian, Ubuntu, CentOS, etc.).
+# - O usuário tem permissões administrativas (sudo).
+# - O servidor possui conectividade com a rede.
+# 
+# 2. Etapas da Configuração
+#    O processo de configuração do servidor de arquivos envolve os seguintes passos:
+#
+# - Atualização do sistema: Garante que os pacotes essenciais estejam atualizados.
+# - Instalação do Samba e dependências: Instalação dos pacotes necessários para o compartilhamento de arquivos.
+# - Criação dos diretórios compartilhados: Definição das pastas que serão disponibilizadas para os usuários.
+# - Configuração do smb.conf: Ajuste das permissões, grupos e regras de acesso ao compartilhamento.
+# - Configuração de permissões de usuário e grupo: Definição de permissões para controle de acesso adequado.
+# - Integração com o Active Directory (opcional): Se aplicável, permite autenticação com usuários do AD.
+# - Reinício dos serviços e testes: Ativação do Samba e validação do compartilhamento na rede.
+#
+###################################################################################################################################################
 
 OBS: Há um script (install-samba.sh) que automatiza esse processo.
 
@@ -9,11 +33,9 @@ Antes de começar, é importante garantir que o sistema esteja atualizado.
 
   sudo apt update && sudo apt upgrade -y
 
-
 2. Instale o Samba e os pacotes necessários.
 
   sudo apt install samba winbind libnss-winbind libpam-winbind smbclient -y
-
 
 3. Após a instalação, você precisa configurar o Samba para compartilhar diretórios.
 
