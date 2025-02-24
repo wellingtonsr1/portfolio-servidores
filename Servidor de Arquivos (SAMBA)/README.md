@@ -197,9 +197,6 @@ smbclient //endereco_ip_do_servidor/compartilhado -U usuario
 ### 9. Configurações adicionais (Opcional)
 Se necessário, edite o arquivo `/etc/samba/smb.conf` para compartilhar impressoras ou ajustar permissões específicas.
 
-### Conclusão
-Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Personalize conforme suas necessidades!
-
     
 Manutenção e Personalização: 
 ----------------------------
@@ -245,6 +242,10 @@ Manutenção e Personalização:
    ```
    veto files = /*.mp3/*.mp4
    ```
+
+### Conclusão
+Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Personalize conforme suas necessidades!
+
 
 Referências:
 -----------
