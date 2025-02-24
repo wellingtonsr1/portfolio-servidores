@@ -26,7 +26,7 @@
 #
 ###################################################################################################################################################
 
-OBS: Há um script (install-samba.sh) que automatiza esse processo.
+OBS: Há um script (install-samba.sh) que automatiza a parte básica desse processo.
 
 1. Atualize o sistema
 Antes de começar, é importante garantir que o sistema esteja atualizado.
