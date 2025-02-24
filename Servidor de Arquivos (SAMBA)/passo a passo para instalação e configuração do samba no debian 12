@@ -87,6 +87,7 @@ Antes de começar, é importante garantir que o sistema esteja atualizado.
 
    # Insira essa diretiva para cada setor que desejar criar um compartilhamento.
    # Fazendo as devidas alterações.
+   
    [TI]
    path = /srv/ti
    browseable = yes
