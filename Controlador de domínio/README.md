@@ -350,8 +350,8 @@ Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamen
 ```
 nome,senha,grupo
 joao,Senha123!,TI
-maria,Senha456!,RH
-carlos,Senha789!,TI
+maria,Senha123!,RH
+carlos,Senha123!,TI
 ```
 
 #### - **Script: `criar_usuarios.sh`**
@@ -378,7 +378,7 @@ echo "Processo concluído!"
 **Como executar:**
 ```bash
 chmod +x criar_usuarios.sh
-./criar_usuarios.sh
+sudo ./criar_usuarios.sh
 ```
 
 ### **18.2 Script para Resetar Senhas em Massa**
