@@ -4,32 +4,50 @@ Passo a passo
 
 OBS: Há um script (install-samba.sh) que automatiza esse processo.
 
-Passo 1: Atualize o sistema
+1. Atualize o sistema
 Antes de começar, é importante garantir que o sistema esteja atualizado.
 
-$ sudo apt update && sudo apt upgrade -y
+  sudo apt update && sudo apt upgrade -y
 
 
-Passo 2: Instale o Samba e os pacotes necessários.
+2. Instale o Samba e os pacotes necessários.
 
-$ sudo apt install samba -y
+  sudo apt install samba winbind libnss-winbind libpam-winbind smbclient -y
 
 
-Passo 3: Após a instalação, você precisa configurar o Samba para compartilhar diretórios.
+3. Após a instalação, você precisa configurar o Samba para compartilhar diretórios.
 
-1. Faça um backup do arquivo de configuração original:
+3.1 Faça um backup do arquivo de configuração original:
 
-   $ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+    sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
   
+3.2 Edite o arquivo de configuração do Samba:
 
-2. Edite o arquivo de configuração do Samba:
-
-   $ sudo nano /etc/samba/smb.conf
+    sudo nano /etc/samba/smb.conf
    
-
-3. Adicione um compartilhamento no final do arquivo:
+3.3 Adicione um compartilhamento ao arquivo:
 
    Aqui está um exemplo de configuração para compartilhar um diretório chamado `compartilhado`:
+
+   # Insira essa diretiva para Integrar o servidor de arquivos com o AD
+   [global]
+   
+   workgroup = exemplo #Substitua 'exemplo' pelo domínio real.
+   log file = /var/log/samba/log.%m
+   syslog = 0
+   server role = standalone server
+   map to guest = bad user
+   security = ADS
+   realm = EXEMPLO.COM.BR
+   netbios name = FILESERVER
+   server role = member server
+   idmap config * : backend = tdb
+   idmap config * : range = 10000-20000
+   winbind use default domain = yes
+   winbind offline logon = yes
+   winbind enum users = yes
+   winbind enum groups = yes
+   template shell = /bin/bash
 
 
    [compartilhado]
@@ -45,58 +63,85 @@ Passo 3: Após a instalação, você precisa configurar o Samba para compartilha
    - writable: Define se os usuários podem escrever no diretório.
    - valid users: Especifica os usuários que têm acesso ao compartilhamento.
 
-4. Salve e feche o arquivo (no nano, pressione `CTRL + X`, depois `Y` e `Enter` ou use o vim).
+   # Insira essa diretiva para cada setor que desejar criar um compartilhamento.
+   # Fazendo as devidas alterações.
+   [TI]
+   path = /srv/ti
+   browseable = yes
+   writable = yes
+   available = yes
+   valid users = @exemplo\TI
 
-Passo 4: Crie o diretório compartilhado
-Crie o diretório que será compartilhado e defina as permissões adequadas.
+3.4 Salve e feche o arquivo (no nano, pressione `CTRL + X`, depois `Y` e `Enter` ou use o vim).
+
+4. Criar o diretório compartilhado
+4.1 Crie o diretório que será compartilhado e defina as permissões adequadas.
+
+   sudo mkdir -p /srv/compartilhado
+   sudo chmod -R 775 /srv/compartilhado
+   sudo chown -R nobody:nogroup /srv/compartilhado
+     
+5. Unir o Servidor ao Domínio
+
+5.1Antes de unir ao AD, configure o DNS para apontar para um controlador de domínio:
+
+   sudo nano /etc/resolv.conf
+
+5.2 Adicione:
+
+   nameserver IP_DO_AD
+   search SEU_DOMINIO.COM.BR
+
+5.3 Depois, reinicie os serviços:
+
+   sudo systemctl restart smbd nmbd winbind
+
+5.4 Agora, ingresse o servidor ao domínio:
+   sudo net ads join -U Administrador
 
 
-   $ sudo mkdir -p /srv/compartilhado
-   $ sudo chmod -R 775 /srv/compartilhado
-   $ sudo chown -R nobody:nogroup /srv/compartilhado
+5.5 Se o ingresso foi bem-sucedido, teste com:
+
+   wbinfo -u  # Lista usuários do AD
+   wbinfo -g  # Lista grupos do AD
 
 
-Passo 5: Adicione um usuário ao Samba. Este usuário deve ser um usuário existente no sistema.
+6. Adicionar um usuário ao Samba. Este usuário deve ser um usuário existente no sistema.
 
-1. Crie um usuário no sistema (se ainda não existir):**
+6.1 Crie um usuário no sistema (se ainda não existir):
 
-   $ sudo adduser usuario
+   sudo adduser usuario
   
+6.2 Adicione o usuário ao Samba:
 
-2. Adicione o usuário ao Samba:
-
-   $ sudo smbpasswd -a usuario
+   sudo smbpasswd -a usuario
  
-
    OBS: Você será solicitado a definir uma senha para o usuário no Samba.
 
-Passo 6: Após configurar tudo, reinicie o serviço do Samba para aplicar as mudanças.
+7. Após configurar tudo, reinicie o serviço do Samba para aplicar as mudanças.
 
+   sudo systemctl restart smbd
 
-   $ sudo systemctl restart smbd
+8. Configurar o firewall (opcional)
+   - Se você estiver usando um firewall, certifique-se de permitir o tráfego do Samba.
 
+   sudo ufw allow samba
 
-Passo 7: Configure o firewall (opcional)
-Se você estiver usando um firewall, certifique-se de permitir o tráfego do Samba.
+9. Agora, você pode testar o compartilhamento a partir de outro computador na rede.
 
-   $ sudo ufw allow samba
-
-
-Passo 8: Agora, você pode testar o compartilhamento a partir de outro computador na rede.
-
-1. No Windows:
+9.1 No Windows:
    - Abra o Explorador de Arquivos.
    - Na barra de endereços, digite `\\endereco_ip_do_servidor` e pressione Enter.
    - Insira o nome de usuário e senha do Samba quando solicitado.
 
-2. No Linux:
+9.2 No Linux:
    - Você pode usar o comando `smbclient` para acessar o compartilhamento:
      
      smbclient //endereco_ip_do_servidor/compartilhado -U usuario
     
+10. Configurações adicionais (opcional)
+    - Se você precisar de mais configurações, como compartilhar impressoras ou ajustar permissões mais específicas, consulte a documentação oficial do Samba ou edite o arquivo `/etc/samba/smb.conf` conforme necessário.
 
-Passo 9: Configurações adicionais (opcional)
-Se você precisar de mais configurações, como compartilhar impressoras ou ajustar permissões mais específicas, consulte a documentação oficial do Samba ou edite o arquivo `/etc/samba/smb.conf` conforme necessário.
 
 Conclusão
 Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Você pode adicionar mais compartilhamentos ou ajustar as configurações conforme necessário para atender às suas necessidades.
