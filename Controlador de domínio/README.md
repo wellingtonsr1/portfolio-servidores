@@ -99,10 +99,12 @@ Edite:
 sudo nano /etc/resolv.conf
 ```
 ```
-nameserver 127.0.0.1
+nameserver 10.200.0.2
 search exemplo.com.br
 ```
-
+OBS: Aqui, talvez seja necessária umas alterações. Dependendo de onde ele receba as informações de DNS.
+No atual cenário, está sendo fornecida configuração manual e para não ter o arquivo modificado,
+ele será travado: `sudo chattr +i /etc/resolv.conf` Para destravar, basta usar o `-i`.
 
 ## 10. Copiar o arquivo krb5.conf
 ```bash
@@ -349,9 +351,17 @@ Este script lê uma lista de usuários de um arquivo CSV e os cria automaticamen
 #### - **Arquivo: `usuarios.csv` (Exemplo)**
 ```
 nome,senha,grupo
-joao,Senha123!,TI
-maria,Senha123!,RH
-carlos,Senha123!,TI
+joao.silva,Senha123!,TI
+maria.souza,Senha123!,RH
+carlos.ferreira,Senha123!,VENDAS
+ana.santos,Senha123!,TI
+pedro.almeida,Senha123!,RH
+julia.rodrigues,Senha123!,VENDAS
+roberto.costa,Senha123!,TI
+fernanda.lima,Senha123!,RH
+gustavo.mendes,Senha123!,VENDAS
+renata.torres,Senha123!,TI
+admin.ti,Senha123!,RH
 ```
 
 #### - **Script: `criar_usuarios.sh`**
