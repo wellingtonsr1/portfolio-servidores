@@ -102,7 +102,7 @@ sudo nano /etc/resolv.conf
 nameserver 10.200.0.2
 search exemplo.com.br
 ```
-`Atenção!!!`: Aqui, talvez seja necessária umas alterações. Dependendo de onde ele receba as informações de DNS.
+Observação: Aqui, talvez seja necessária umas alterações. Dependendo de onde ele receba as informações de DNS.
 No atual cenário, está sendo fornecida configuração manual e para não ter o arquivo modificado,
 ele será travado: `sudo chattr +i /etc/resolv.conf` Para destravar, basta usar o `-i`.
 
@@ -163,7 +163,7 @@ sudo systemctl status samba-ad-dc
 
 
 ## 17. Administrar o Domínio usando a ferramenta `samba-tool`:
-#### `OBS: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar a documentação.`
+#### `Observação: Será mostrado o uso mais comum da ferramenta. Para mais exemplos de uso, consultar a documentação.`
 
 ### **17.1 Usuários**
 - Criar usuários:
