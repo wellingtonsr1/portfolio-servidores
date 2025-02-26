@@ -4,7 +4,8 @@
 Este guia detalha o processo de configuração de um Controlador de Domínio (DC) utilizando o Samba no Debian 12. O Samba permite a implementação de um Active Directory (AD) compatível com o Windows, fornecendo autenticação centralizada para usuários e dispositivos.
 
 ## Requisitos
-- Servidor com Debian 12 instalado
+- Servidor com Debian 12 
+- Máquina cliente com windows 10 
 - Acesso root ou privilégios de sudo
 - Conectividade de rede estável
 - Nome de domínio definido (exemplo: `exemplo.com.br`)
