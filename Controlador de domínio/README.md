@@ -547,7 +547,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 ![Active Directory](imagens/usuarios-AD.png)  
 
 ## Conclusão
-Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba ou clientes Windows (RSAT).
+Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba (samba-tool) ou clientes Windows (RSAT).
 
 ### Recursos adicionais
 - [Site oficial do Debian](https://www.debian.org/)
