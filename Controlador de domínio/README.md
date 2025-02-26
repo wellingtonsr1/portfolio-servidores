@@ -5,7 +5,7 @@ Este guia detalha o processo de configuração de um Controlador de Domínio (DC
 
 ## Requisitos
 - Servidor com Debian 12 
-- Máquina cliente com windows 10 
+- Máquina cliente com Windows 10 
 - Acesso root ou privilégios de sudo
 - Conectividade de rede estável
 - Nome de domínio definido (exemplo: `exemplo.com.br`)
