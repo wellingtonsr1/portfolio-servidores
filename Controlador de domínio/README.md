@@ -547,43 +547,22 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 ![Active Directory](imagens/usuarios-AD.png)  
 
 
-## Vantagens e desvantagens de usar o AD com o samba:
+## 21. Vantagens e desvantagens de usar o AD com o samba:
 
-#### **Vantagens:**  
+#### **21.1 Vantagens:**  
 **Custo zero** – Não há necessidade de licenciamento do Windows Server.  
 **Código aberto** – Pode ser modificado e adaptado conforme necessário.  
 **Integração com Linux** – Permite maior compatibilidade com servidores e serviços baseados em Linux.  
 **Menor consumo de recursos** – Pode rodar em hardware menos potente ou em ambientes virtualizados mais leves.  
 **Maior controle sobre configuração** – Possibilidade de customizações avançadas sem as limitações impostas pela Microsoft.  
 
-#### **Desvantagens:**  
+#### **21.2 Desvantagens:**  
 **Compatibilidade limitada** – Algumas funcionalidades avançadas do AD da Microsoft não são totalmente suportadas (ex.: Group Policy Preferences, DFS-R).  
 **Suporte e atualizações** – A comunidade mantém o Samba, mas não há um suporte oficial como no AD da Microsoft.  
 **Integração com produtos Microsoft** – Algumas ferramentas como Exchange Server, SharePoint e SCCM podem não funcionar corretamente.  
 **Curva de aprendizado** – Exige mais conhecimento técnico para configuração e manutenção.  
 
 
-### **Active Directory da Microsoft**  
-O **AD nativo da Microsoft** é a solução oficial para gerenciamento centralizado de identidades em redes Windows.  
-
-#### **Vantagens:**  
-**Total compatibilidade** – Suporte completo a todas as funcionalidades do AD, incluindo Group Policy, Kerberos e integração com serviços Microsoft.  
-**Facilidade de administração** – Ferramentas gráficas como o Active Directory Users and Computers (ADUC) tornam a gestão mais simples.  
-**Suporte oficial** – Disponível diretamente pela Microsoft, garantindo atualizações e correções.  
-**Melhor integração com Windows** – Funciona perfeitamente com produtos Microsoft como Office 365, Azure AD, Exchange e SharePoint.  
-**Segurança aprimorada** – Recursos avançados de auditoria, autenticação multifator (MFA) e suporte a tecnologias modernas de segurança.  
-
-#### **Desvantagens:**  
-**Custo elevado** – Exige licenciamento do Windows Server e das CALs (Client Access Licenses).  
-**Dependência do ecossistema Microsoft** – Pode ser um problema para ambientes híbridos com muitas soluções baseadas em Linux.  
-**Requer mais recursos** – O Windows Server precisa de mais memória e processamento para rodar eficientemente.  
-
-
-### **Conclusão**  
-- Se você precisa de **compatibilidade total, suporte oficial e facilidade de administração**, o **Active Directory da Microsoft** é a melhor escolha.  
-- Se o objetivo é **reduzir custos, integrar melhor com Linux e manter um ambiente flexível**, o **Samba AD** pode ser uma alternativa viável, desde que as limitações sejam aceitáveis.  
-
-Se você pretende usar **MikroTik e autenticação via AD**, é importante verificar a compatibilidade dos protocolos usados para integração com Radius e LDAP, pois algumas funcionalidades podem ser limitadas no Samba AD.
 ## Conclusão
 Agora o seu Debian 12 está configurado como um Controlador de Domínio utilizando o Samba. Os dispositivos podem ingressar no domínio e a administração pode ser feita via ferramentas do Samba (samba-tool) ou clientes Windows (RSAT).
 
