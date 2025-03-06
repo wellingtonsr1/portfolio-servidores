@@ -547,7 +547,7 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 ![Active Directory](imagens/usuarios-AD.png)  
 
 
-## 21. Vantagens e desvantagens de usar o AD com o samba:
+## 21. Vantagens e desvantagens de usar o AD com o samba
 
 #### **21.1 Vantagens:**  
 **- Custo zero** – Não há necessidade de licenciamento do Windows Server.  
