@@ -550,17 +550,17 @@ Execute o seguinte comando no **PowerShell como Administrador** para listar e in
 ## 21. Vantagens e desvantagens de usar o AD com o samba:
 
 #### **21.1 Vantagens:**  
-**Custo zero** – Não há necessidade de licenciamento do Windows Server.  
-**Código aberto** – Pode ser modificado e adaptado conforme necessário.  
-**Integração com Linux** – Permite maior compatibilidade com servidores e serviços baseados em Linux.  
-**Menor consumo de recursos** – Pode rodar em hardware menos potente ou em ambientes virtualizados mais leves.  
-**Maior controle sobre configuração** – Possibilidade de customizações avançadas sem as limitações impostas pela Microsoft.  
+**- Custo zero** – Não há necessidade de licenciamento do Windows Server.  
+**- Código aberto** – Pode ser modificado e adaptado conforme necessário.  
+**- Integração com Linux** – Permite maior compatibilidade com servidores e serviços baseados em Linux.  
+**- Menor consumo de recursos** – Pode rodar em hardware menos potente ou em ambientes virtualizados mais leves.  
+**- Maior controle sobre configuração** – Possibilidade de customizações avançadas sem as limitações impostas pela Microsoft.  
 
 #### **21.2 Desvantagens:**  
-**Compatibilidade limitada** – Algumas funcionalidades avançadas do AD da Microsoft não são totalmente suportadas (ex.: Group Policy Preferences, DFS-R).  
-**Suporte e atualizações** – A comunidade mantém o Samba, mas não há um suporte oficial como no AD da Microsoft.  
-**Integração com produtos Microsoft** – Algumas ferramentas como Exchange Server, SharePoint e SCCM podem não funcionar corretamente.  
-**Curva de aprendizado** – Exige mais conhecimento técnico para configuração e manutenção.  
+**- Compatibilidade limitada** – Algumas funcionalidades avançadas do AD da Microsoft não são totalmente suportadas (ex.: Group Policy Preferences, DFS-R).  
+**- Suporte e atualizações** – A comunidade mantém o Samba, mas não há um suporte oficial como no AD da Microsoft.  
+**- Integração com produtos Microsoft** – Algumas ferramentas como Exchange Server, SharePoint e SCCM podem não funcionar corretamente.  
+**- Curva de aprendizado** – Exige mais conhecimento técnico para configuração e manutenção.  
 
 
 ## Conclusão
