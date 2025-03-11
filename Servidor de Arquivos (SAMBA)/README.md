@@ -163,11 +163,8 @@ sudo chmod 770 /srv/vendas
 #### 3.4.1 Alterar o grupo do diretório compartilhado (Para vários grupos)
 ```bash
 sudo chown root:"EXEMPLO\vendas" /srv/vendas
-
 sudo chown root:"EXEMPLO\financeiro" /srv/vendas
-
 sudo chown root:"EXEMPLO\ti" /srv/vendas
-
 sudo chmod 770 /srv/vendas
 ```
 
