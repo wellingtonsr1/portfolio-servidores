@@ -167,7 +167,7 @@ sudo chmod 770 /srv/vendas
 ```
 ```bash
 sudo chown root:"EXEMPLO\financeiro" /srv/financeiro
-sudo chmod 770 /srv/vendas
+sudo chmod 770 /srv/financeiro
 ```
 ```bash
 sudo chown root:"EXEMPLO\ti" /srv/ti
