@@ -107,7 +107,6 @@ syslog = 0
 server role = standalone server
 map to guest = bad user
 
-
 [compartilhado]
 path = /srv/compartilhado
 available = yes
@@ -147,7 +146,12 @@ template shell = /bin/bash
 path = /srv/vendas
 browseable = yes
 writable = yes
-# Para deixar com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
+
+# Escolha um (usuário ou grupo) e comente o outro.
+# Por usuário (Dever ser criado no servidor. Consultar a seção "5. Adicionar um usuário ao Samba" para mais detalhes)
+valid users = usuario
+
+# Por grupos: Para deixar com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
 # Ex.: valid users = @expemplo\grupo_vendas @expemplo\grupo_financeiro @expemplo\grupo_ti 
 valid users = @expemplo\grupo_vendas 
 ```
@@ -201,7 +205,7 @@ wbinfo -g  # Lista grupos do AD
 sudo adduser usuario
 ```
 
-#### 5.2 Adicionar o usuário ao Samba
+#### 5.2 Configurar uma senha para o usuário
 ```bash
 sudo smbpasswd -a usuario
 ```
