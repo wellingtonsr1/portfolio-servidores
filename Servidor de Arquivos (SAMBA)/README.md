@@ -98,7 +98,25 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
 sudo nano /etc/samba/smb.conf
 ```
 
-##### 3.3.3 Exemplo de configuração para um compartilhamento:
+##### 3.3.3 Exemplo de configuração para um compartilhamento comum:
+```ini
+[global]
+workgroup = Linux
+log file = /var/log/samba/log.%m
+syslog = 0
+server role = standalone server
+map to guest = bad user
+
+
+[compartilhado]
+path = /srv/compartilhado
+available = yes
+browseable = yes
+writable = yes
+guest ok = yes
+```
+
+##### 3.3.4 Exemplo de configuração para um compartilhamento com AD:
 ```ini
 [global]
 workgroup = exemplo
@@ -118,14 +136,22 @@ winbind enum users = yes
 winbind enum groups = yes
 template shell = /bin/bash
 
-[compartilhado]
-path = /srv/compartilhado
+[vendas]
+path = /srv/vendas
 browseable = yes
 writable = yes
-valid users = usuario
+# Para deixa com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
+# Ex.: valid users = @expemplo\vendas @expemplo\financeiro @expemplo\ti 
+valid users = @expemplo\vendas 
 ```
 
 Salve e feche o arquivo (`CTRL + X`, `Y`, `Enter`).
+
+#### 3.4 Alterar o grupo do diretório compartilhado
+```bash
+sudo chown root:"EXEMPLO\vendas" /srv/vendas
+sudo chmod 770 /srv/vendas
+```
 
 #### 3.4 Criar o diretório compartilhado
 ```bash
