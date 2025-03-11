@@ -116,7 +116,7 @@ writable = yes
 guest ok = yes
 ```
 
-#### 3.3.4 Criar o diretório compartilhado
+##### 3.3.4 Criar o diretório compartilhado
 ```bash
 sudo mkdir -p /srv/compartilhado
 sudo chmod -R 775 /srv/compartilhado
