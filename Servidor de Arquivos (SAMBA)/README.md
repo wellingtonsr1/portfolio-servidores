@@ -125,6 +125,7 @@ sudo chown -R nobody:nogroup /srv/compartilhado
 ##### 3.3.5 Exemplo de configuração para um compartilhamento com AD:
 ```ini
 [global]
+# Domínio exemplo.com.br
 workgroup = exemplo
 log file = /var/log/samba/log.%m
 syslog = 0
