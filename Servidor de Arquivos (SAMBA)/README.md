@@ -147,7 +147,7 @@ template shell = /bin/bash
 path = /srv/vendas
 browseable = yes
 writable = yes
-# Para deixa com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
+# Para deixar com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
 # Ex.: valid users = @expemplo\vendas @expemplo\financeiro @expemplo\ti 
 valid users = @expemplo\vendas 
 ```
