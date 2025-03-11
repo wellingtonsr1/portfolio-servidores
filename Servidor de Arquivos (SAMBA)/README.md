@@ -153,12 +153,28 @@ sudo chown root:"EXEMPLO\vendas" /srv/vendas
 sudo chmod 770 /srv/vendas
 ```
 
+#### 3.4.1 Alterar o grupo do diretório compartilhado (Para vários grupos)
+```bash
+sudo chown root:"EXEMPLO\vendas" /srv/vendas
+sudo chmod 770 /srv/vendas
+```
+```bash
+sudo chown root:"EXEMPLO\financeiro" /srv/financeiro
+sudo chmod 770 /srv/vendas
+```
+```bash
+sudo chown root:"EXEMPLO\ti" /srv/ti
+sudo chmod 770 /srv/ti
+```
+
 #### 3.4 Criar o diretório compartilhado
 ```bash
 sudo mkdir -p /srv/compartilhado
 sudo chmod -R 775 /srv/compartilhado
 sudo chown -R nobody:nogroup /srv/compartilhado
 ```
+
+
 
 ### 4. Unir o Servidor ao Domínio (Opcional)
 #### 4.1 Configure o DNS
