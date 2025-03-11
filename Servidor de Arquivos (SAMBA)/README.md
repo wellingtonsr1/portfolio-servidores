@@ -116,7 +116,14 @@ writable = yes
 guest ok = yes
 ```
 
-##### 3.3.4 Exemplo de configuração para um compartilhamento com AD:
+#### 3.3.4 Criar o diretório compartilhado
+```bash
+sudo mkdir -p /srv/compartilhado
+sudo chmod -R 775 /srv/compartilhado
+sudo chown -R nobody:nogroup /srv/compartilhado
+```
+
+##### 3.3.5 Exemplo de configuração para um compartilhamento com AD:
 ```ini
 [global]
 workgroup = exemplo
@@ -166,15 +173,6 @@ sudo chmod 770 /srv/vendas
 sudo chown root:"EXEMPLO\ti" /srv/ti
 sudo chmod 770 /srv/ti
 ```
-
-#### 3.4 Criar o diretório compartilhado
-```bash
-sudo mkdir -p /srv/compartilhado
-sudo chmod -R 775 /srv/compartilhado
-sudo chown -R nobody:nogroup /srv/compartilhado
-```
-
-
 
 ### 4. Unir o Servidor ao Domínio (Opcional)
 #### 4.1 Configure o DNS
