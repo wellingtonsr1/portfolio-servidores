@@ -148,23 +148,23 @@ path = /srv/vendas
 browseable = yes
 writable = yes
 # Para deixar com mais grupos, uma opção é colocar vários grupos, um ao lado do outro.
-# Ex.: valid users = @expemplo\grupro_vendas @expemplo\grupro_financeiro @expemplo\grupro_ti 
-valid users = @expemplo\grupro_vendas 
+# Ex.: valid users = @expemplo\grupo_vendas @expemplo\grupo_financeiro @expemplo\grupo_ti 
+valid users = @expemplo\grupo_vendas 
 ```
 
 Salve e feche o arquivo (`CTRL + X`, `Y`, `Enter`).
 
 #### 3.4 Alterar o grupo do diretório compartilhado
 ```bash
-sudo chown root:"EXEMPLO\grupro_vendas" /srv/vendas
+sudo chown root:"EXEMPLO\grupo_vendas" /srv/vendas
 sudo chmod 770 /srv/vendas
 ```
 
 #### 3.4.1 Alterar o grupo do diretório compartilhado (Para vários grupos)
 ```bash
-sudo chown root:"EXEMPLO\grupro_vendas" /srv/vendas
-sudo chown root:"EXEMPLO\grupro_financeiro" /srv/vendas
-sudo chown root:"EXEMPLO\grupro_ti" /srv/vendas
+sudo chown root:"EXEMPLO\grupo_vendas" /srv/vendas
+sudo chown root:"EXEMPLO\grupo_financeiro" /srv/vendas
+sudo chown root:"EXEMPLO\grupo_ti" /srv/vendas
 sudo chmod 770 /srv/vendas
 ```
 
