@@ -98,7 +98,7 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.old
 sudo nano /etc/samba/smb.conf
 ```
 
-##### 3.3.3 Exemplo de configuração para um compartilhamento comum:
+##### 3.3.3 Exemplo de configuração para um compartilhamento comum (Standalone):
 ```ini
 [global]
 workgroup = Linux
