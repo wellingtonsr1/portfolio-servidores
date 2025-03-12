@@ -127,7 +127,7 @@ sudo chmod -R 775 /srv/compartilhado
 sudo chown -R nobody:nogroup /srv/compartilhado
 ```
 
-##### 3.3.6 Exemplo de configuração para um compartilhamento com AD:
+##### 3.3.6 Exemplo de configuração para um compartilhamento com AD (Member Server):
 ```ini
 [global]
 # Domínio exemplo.com.br
