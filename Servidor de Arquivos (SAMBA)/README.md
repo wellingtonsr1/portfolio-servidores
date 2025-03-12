@@ -131,7 +131,7 @@ sudo chown -R nobody:nogroup /srv/compartilhado
 ```ini
 [global]
 # Domínio exemplo.com.br
-workgroup = exemplo
+workgroup = EXEMPLO
 log file = /var/log/samba/log.%m
 syslog = 0
 server role = standalone server
