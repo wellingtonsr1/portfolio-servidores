@@ -115,14 +115,19 @@ writable = yes
 guest ok = yes
 ```
 
-##### 3.3.4 Criar o diretório compartilhado
+##### 3.3.4 Executar o testparm
+```bash
+sudo testparm
+```
+
+##### 3.3.5 Criar o diretório compartilhado
 ```bash
 sudo mkdir -p /srv/compartilhado
 sudo chmod -R 775 /srv/compartilhado
 sudo chown -R nobody:nogroup /srv/compartilhado
 ```
 
-##### 3.3.5 Exemplo de configuração para um compartilhamento com AD:
+##### 3.3.6 Exemplo de configuração para um compartilhamento com AD:
 ```ini
 [global]
 # Domínio exemplo.com.br
@@ -158,6 +163,12 @@ valid users = @expemplo\grupo_vendas
 ```
 
 Salve e feche o arquivo (`CTRL + X`, `Y`, `Enter`).
+
+
+##### 3.3.7 Executar o testparm
+```bash
+sudo testparm
+```
 
 #### 3.4 Alterar o grupo do diretório compartilhado
 ```bash
