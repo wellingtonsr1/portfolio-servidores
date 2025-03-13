@@ -292,7 +292,7 @@ Manutenção e Personalização:
    ```
    veto files = /*.mp3/*.mp4
    ```
-### Instalação da interface grágrica web: Webmin (Opcional)
+### 10. Instalação da interface grágrica web: Webmin (Opcional)
 ```bash
 curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
 ```
