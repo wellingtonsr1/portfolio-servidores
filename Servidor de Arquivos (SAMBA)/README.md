@@ -292,6 +292,19 @@ Manutenção e Personalização:
    ```
    veto files = /*.mp3/*.mp4
    ```
+### Instalação da interface grágrica web: Webmin (Opcional)
+```bash
+curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+```
+```bash
+chmod +x webmin-setup-repo.sh
+```
+```bash
+sudo ./webmin-setup-repo.sh
+```
+```bash
+sudo apt install webmin --install-recommends
+```
 
 ### Conclusão
 Agora você tem um servidor de arquivos básico configurado usando o Samba no Debian 12. Personalize conforme suas necessidades!
