@@ -317,7 +317,7 @@ sudo apt install webmin --install-recommends
 
 #### 10.5 Acessar o servidor pelo webmin:
 ```
-https://<Your-Server-IP>:10000
+https://<IP-do-Servidor>:10000
 ```
 
 
