@@ -310,14 +310,14 @@ chmod +x webmin-setup-repo.sh
 sudo ./webmin-setup-repo.sh
 ```
 
-#### 10.4 Instalação
+#### 10.4 Instalar o webmin
 ```
 sudo apt install webmin --install-recommends
 ```
 
 #### 10.5 Acessar o servidor pelo webmin:
 ```
-https://<IP-do-Servidor>:10000
+https://<IP-do-Servidor-de-arquivos>:10000
 ```
 
 
