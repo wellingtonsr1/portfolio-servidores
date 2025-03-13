@@ -152,6 +152,8 @@ template shell = /bin/bash
 path = /srv/vendas
 browseable = yes
 writable = yes
+create mask = 660
+directory mask = 770
 
 # Escolha um (usuário ou grupo) e comente o outro.
 # Por usuário (Dever ser criado no servidor. Consultar a seção "5. Adicionar um usuário ao Samba" para mais detalhes)
