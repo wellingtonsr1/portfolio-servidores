@@ -175,7 +175,7 @@ sudo testparm
 #### 3.4 Alterar o grupo do diretório compartilhado
 ```bash
 sudo chown root:"EXEMPLO\grupo_vendas" /srv/vendas
-sudo chmod 770 /srv/vendas
+sudo chmod -R 770 /srv/vendas
 ```
 
 #### 3.4.1 Alterar o grupo do diretório compartilhado (Para vários grupos)
