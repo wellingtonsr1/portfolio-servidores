@@ -283,7 +283,7 @@ Manutenção e Personalização:
   
    ```
    vfs object = recycle
-   recycle:repository = /lixeira/%U
+   recycle:repository = /srv/lixeira/%U
    recycle:directory_mode = 770
    recycle:keeptree = yes
    recycle:version = yes
