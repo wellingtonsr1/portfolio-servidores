@@ -281,21 +281,22 @@ Manutenção e Personalização:
 - Para colocar uma lixeira, na diretiva "[global]", insira:  
   OBS: O diretório "lixeira" deve ser criado no servidor.
   
-
    ```
    vfs object = recycle
-   recycle:repository = lixeira
+   recycle:repository = /lixeira/%U
+   recycle:directory_mode = 770
    recycle:keeptree = yes
    recycle:version = yes
-   recycle:repository = /lixeira
+   recycle:exclude = *.,p4, *.exe, *.msi, *.bat, *.log
    ```
+   
 - Para barrar alguns tipos de arquivos, na diretiva desejada, insira:  
   OBS: Pode-se usar o nome completo do arquivos, mas pode usar curingas.
    ```
    veto files = /*.mp3/*.mp4
    ```
+   
 ### 10. Instalação da interface gráfica web: Webmin (Opcional)
-
 
 #### 10.1 Baixar o script de instalação
 ```
