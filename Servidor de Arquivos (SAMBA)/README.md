@@ -287,7 +287,7 @@ Manutenção e Personalização:
    recycle:directory_mode = 770
    recycle:keeptree = yes
    recycle:version = yes
-   recycle:exclude = *.,p4, *.exe, *.msi, *.bat, *.log
+   recycle:exclude = *.mp4, *.exe, *.msi, *.bat, *.log
    ```
    
 - Para barrar alguns tipos de arquivos, na diretiva desejada, insira:  
