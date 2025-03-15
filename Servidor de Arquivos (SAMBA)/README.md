@@ -294,7 +294,6 @@ Manutenção e Personalização:
    ```
    sudo mkdir /srv/lixeira
    sudo chmod 777 -R /srv/lixeira/
-
    ```
 - Para barrar alguns tipos de arquivos, na diretiva desejada, insira:  
   OBS: Pode-se usar o nome completo do arquivos, mas pode usar curingas.
